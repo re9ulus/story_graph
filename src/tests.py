@@ -38,6 +38,7 @@ def get_names_v2():
 	words_occurance = sorted(words_occurance, key=lambda item: item[1], reverse=True)
 	return words_occurance
 
+
 def lemmatization(text):
 	'''
 	text -> text, make text lemmatization
