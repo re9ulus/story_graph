@@ -46,21 +46,6 @@ def lemmatization(text):
 	raise Exception('Not implemented')
 
 
-def clear(text):
-	'''
-	text -> text, remove all punctuation from the text
-	''' 
-	raise Exception('Not implemented')
-
-
-def count_occurance(text, token):
-	'''
-	text, string -> int, find the number of occurances of the string in the text
-	'''
-	words = text.split()
-	return words.count(token)
-
-
 def get_text(path_to_book):
 	'''
 	string -> string, read book text from the book
@@ -90,5 +75,3 @@ if __name__ == '__main__':
 	with open('get_names.txt', 'w+') as f:
 		for occurance in words_occurance:
 			f.write('{0} : {1}\n'.format(occurance[0], occurance[1]))
-
-	print(count_occurance(book_text, 'Sansa'))
