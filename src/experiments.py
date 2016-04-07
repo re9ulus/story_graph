@@ -36,10 +36,11 @@ if __name__ == '__main__':
 
 	raw_text = book_ops.get_text('../books/storm_of_swords.txt')
 	book_text = book_ops.remove_punctuation_from_text(raw_text)
+	words = book_ops.text_to_words(book_text)
 
 	with open(prepared_book_path, 'w+') as f:
 		f.write(book_text)
-	words_occurance = book_ops.get_names(book_text)
+	words_occurance = book_ops.get_names(words)
 	with open('get_names.txt', 'w+') as f:
 		for occurance in words_occurance:
 			f.write('{0} : {1}\n'.format(occurance[0], occurance[1]))

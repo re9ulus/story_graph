@@ -1,24 +1,7 @@
 import string
 
-def get_names(text):
-	'''get (name, frequency) sorted by frequency from the text
-
-	text -> [(string, int)]
-	'''
-	is_capitalized = lambda word: len(word) and word[0].isupper()
-	words = filter(is_capitalized, text.split())
-	words_occurance = {}
-	for word in words:
-		if word in words_occurance:
-			words_occurance[word] += 1
-		else:
-			words_occurance[word] = 1
-	words_occurance = zip(words_occurance.keys(), words_occurance.values())
-	words_occurance = sorted(words_occurance, key=lambda item: item[1], reverse=True)
-	return words_occurance
-
-
 def get_text(path_to_book):
+	# TODO: Move to file_ops
 	'''read book text from the file
 
 	string -> string
@@ -26,6 +9,25 @@ def get_text(path_to_book):
 	with open(path_to_book, 'r') as book:
 		result = book.read()
 	return result
+
+
+def get_names(words):
+	'''get (name, frequency) sorted by frequency from the text
+
+	[string] -> [(string, int)]
+	name - is capitaliazed word.
+	'''
+	is_capitalized = lambda word: len(word) and word[0].isupper()
+	names = filter(is_capitalized, words)
+	words_occurance = {}
+	for word in names:
+		if word in words_occurance:
+			words_occurance[word] += 1
+		else:
+			words_occurance[word] = 1
+	words_occurance = zip(words_occurance.keys(), words_occurance.values())
+	words_occurance = sorted(words_occurance, key=lambda item: item[1], reverse=True)
+	return words_occurance
 
 
 def remove_punctuation_from_text(text):

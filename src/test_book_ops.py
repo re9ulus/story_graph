@@ -34,5 +34,10 @@ class TestBookOps(unittest.TestCase):
 		words = 'This, is simple text! With... some... punctuation; Maybe?'.split()
 		self.assertEqual(book_ops.remove_punctuation_from_words(words),  ['This', 'is', 'simple', 'text', 'With', 'some', 'punctuation', 'Maybe'])
 
+	def test_get_names(self):
+		words = 'Sam and Arya were on Naboo planet with Padme Naboo is nice planet '.split()
+		self.assertEqual(book_ops.get_names(words),  [('Naboo', 2), ('Padme', 1), ('Arya', 1), ('Sam', 1)])
+
+
 if __name__ == '__main__':
 	unittest.main()
