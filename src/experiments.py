@@ -35,7 +35,7 @@ if __name__ == '__main__':
 	prepared_book_path = 'test_result.txt'
 
 	raw_text = book_ops.get_text('../books/storm_of_swords.txt')
-	book_text = book_ops.prepare_text(raw_text)
+	book_text = book_ops.remove_punctuation_from_text(raw_text)
 
 	with open(prepared_book_path, 'w+') as f:
 		f.write(book_text)

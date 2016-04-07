@@ -28,7 +28,7 @@ def get_text(path_to_book):
 	return result
 
 
-def prepare_text(text):
+def remove_punctuation_from_text(text):
 	'''prepare text for processing
 
 	string -> string
@@ -39,21 +39,19 @@ def prepare_text(text):
 
 
 
-def get_all_token_positions(text, token):
-	'''get all positions of the token in the text
+def get_all_token_positions(words, token):
+	'''get all positions of the token in the string array
 
-	text -> [int]
+	[string] -> [int]
 	'''
-	words = text.split()
 	return [i for i, word in enumerate(words) if word == token]
 
 
-def count_token_occurrence(text, token):
-	'''find number of occurances of the token in the text
+def count_token_occurrence(words, token):
+	'''find number of occurances of the token in string array
 
-	text, string -> int
+	[string], string -> int
 	'''
-	words = text.split()
 	return words.count(token)
 
 
