@@ -18,6 +18,13 @@ class TestBookOps(unittest.TestCase):
 	def test_count_token_occurrence2(self):
 		self.assertEqual(book_ops.count_token_occurrence('', 'test'), 0)
 
+	def test_text_to_words(self):
+		text = 'one two three three two one'
+		self.assertEqual(book_ops.text_to_words(text), ['one', 'two', 'three', 'three', 'two', 'one'])
+
+	def test_text_to_words(self):
+		text = ''
+		self.assertEqual(book_ops.text_to_words(text), [])
 
 if __name__ == '__main__':
 	unittest.main()

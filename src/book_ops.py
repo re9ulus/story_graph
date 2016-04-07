@@ -51,7 +51,15 @@ def get_all_token_positions(text, token):
 def count_token_occurrence(text, token):
 	'''find number of occurances of the token in the text
 
-	text, string -> int, 
+	text, string -> int
 	'''
 	words = text.split()
 	return words.count(token)
+
+
+def text_to_words(text):
+	'''convert text to separate words
+
+	text -> [string]
+	'''
+	return text.split()
