@@ -29,7 +29,7 @@ def get_text(path_to_book):
 
 
 def remove_punctuation_from_text(text):
-	'''prepare text for processing
+	'''remove punctuation from text
 
 	string -> string
 	remove all puncutation
@@ -37,6 +37,14 @@ def remove_punctuation_from_text(text):
 	exclude = set(string.punctuation)
 	return ''.join(ch for ch in text if ch not in exclude)
 
+
+def remove_punctuation_from_words(words):
+	'''remove punctuation from each word
+
+	[string] -> string
+	remove all puncutation
+	'''
+	return list(map(remove_punctuation_from_text, words))
 
 
 def get_all_token_positions(words, token):

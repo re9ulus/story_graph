@@ -30,5 +30,9 @@ class TestBookOps(unittest.TestCase):
 		text = 'This, is simple text! With... some... punctuation; Maybe?'
 		self.assertEqual(book_ops.remove_punctuation_from_text(text), 'This is simple text With some punctuation Maybe')
 
+	def test_remove_punctuation_from_words1(self):
+		words = 'This, is simple text! With... some... punctuation; Maybe?'.split()
+		self.assertEqual(book_ops.remove_punctuation_from_words(words),  ['This', 'is', 'simple', 'text', 'With', 'some', 'punctuation', 'Maybe'])
+
 if __name__ == '__main__':
 	unittest.main()
