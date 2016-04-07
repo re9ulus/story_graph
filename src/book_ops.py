@@ -55,13 +55,3 @@ def count_token_occurrence(text, token):
 	'''
 	words = text.split()
 	return words.count(token)
-
-
-def get_text(path_to_book):
-	'''read book text from the book
-
-	string -> string
-	'''
-	with open(path_to_book, 'r') as book:
-		result = book.read()
-	return result
