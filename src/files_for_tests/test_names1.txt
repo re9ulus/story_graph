@@ -1,0 +1,3 @@
+Arya : 3
+Luke : 8
+Harry : 4
