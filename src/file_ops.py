@@ -1,3 +1,12 @@
+def save_text_to_file(path_to_file, text):
+	'''write text to file
+
+	string, string -> None
+	'''
+	with open(path_to_file, 'w+') as f:
+		f.write(text)
+
+
 def load_text_from_file(path_to_file):
 	'''read text from file
 
@@ -8,13 +17,14 @@ def load_text_from_file(path_to_file):
 	return result
 
 
-def save_text_to_file(path_to_file, text):
-	'''write text to file
+def save_names_to_file(path_to_file, names):
+	'''write (name, frequency) records to file
 
-	string, string -> None
+	string, [(string, int)] -> None
 	'''
 	with open(path_to_file, 'w+') as f:
-		f.write(text)
+		for record in names:
+			f.write('{0} : {1}\n'.format(record[0], record[1]))
 
 
 def load_names_from_file(path_to_file):
@@ -22,8 +32,8 @@ def load_names_from_file(path_to_file):
 
 	string -> [(string, int)]
 	'''
+	names = []
 	with open(path_to_file, 'r') as f:
-		names = []
 		for line in f:
 			line = line.strip()
 			if not line:
@@ -32,14 +42,33 @@ def load_names_from_file(path_to_file):
 			name = name.strip()
 			frequency = int(frequency.strip())
 			names.append((name, frequency))
-		return names
+	return names
 
 
-def save_names_to_file(path_to_file, names):
-	'''write (name, frequency) records to file
+def save_token_positions_to_file(path_to_file, positions):
+	'''write (token, [positions]) records to file
 
-	[(string, int)] -> None
+	string [(string, [int])] -> None
 	'''
 	with open(path_to_file, 'w+') as f:
-		for record in names:
-			f.write('{0} : {1}\n'.format(record[0], record[1]))
+		for record in positions:
+			f.write('{0} : {1}\n'.format(record[0], ' '.join(map(str, record[1]))))
+
+
+def load_token_positions_from_file(path_to_file):
+	'''load (token, [positions]) records from file
+
+	string -> [(string, [int])]
+	'''
+	names = []
+	with open(path_to_file, 'r') as f:
+		for line in f:
+			line = line.strip()
+			if not line:
+				break
+			name, positions = line.split(':')
+			name = name.strip()
+			positions = map(lambda item: int(item.strip()), positions.split())
+			names.append((name, positions))
+	return names
+
