@@ -1,15 +1,5 @@
 import string
 
-def get_text(path_to_book):
-	# TODO: Move to file_ops
-	'''read book text from the file
-
-	string -> string
-	'''
-	with open(path_to_book, 'r') as book:
-		result = book.read()
-	return result
-
 
 def get_names(words):
 	'''get (name, frequency) sorted by frequency from the text

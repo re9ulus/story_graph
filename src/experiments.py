@@ -1,4 +1,5 @@
 import book_ops
+import file_ops
 
 # TODO: 
 # 1. Stemming/lemmatization of the file (for names may be unnecessary, becouse they are unchanged)
@@ -34,7 +35,7 @@ def lemmatization(text):
 if __name__ == '__main__':
 	prepared_book_path = 'test_result.txt'
 
-	raw_text = book_ops.get_text('../books/storm_of_swords.txt')
+	raw_text = file_ops.get_text_from_file('../books/storm_of_swords.txt')
 	book_text = book_ops.remove_punctuation_from_text(raw_text)
 	words = book_ops.text_to_words(book_text)
 
