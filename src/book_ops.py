@@ -1,5 +1,5 @@
+import math
 import string
-
 
 def get_names(words):
 	'''get (name, frequency) sorted by frequency from the text
@@ -61,3 +61,18 @@ def text_to_words(text):
 	text -> [string]
 	'''
 	return text.split()
+
+
+def count_tokens_within_distance(token1_pos, token2_pos, dist):
+	'''count number of occurrences token1 within distance to token2
+
+	[int], [int], dist -> [int]
+	'''
+	score = 0
+	for i in token1_pos:
+		for j in token2_pos:
+			if abs(i - j) <= dist:
+				score += 1
+			elif j > i and abs(i - j) > dist:
+				break
+	return score

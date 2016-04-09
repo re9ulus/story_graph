@@ -38,6 +38,42 @@ class TestBookOps(unittest.TestCase):
 		words = 'Sam and Arya were on Naboo planet with Padme Naboo is nice planet '.split()
 		self.assertEqual(book_ops.get_names(words),  [('Naboo', 2), ('Padme', 1), ('Arya', 1), ('Sam', 1)])
 
+	def test_count_tokens_within_distance1(self):
+		pos1_list = [0, 3, 5 , 9]
+		pos2_list = [1, 4]
+		dist = 0
+		self.assertEqual(book_ops.count_tokens_within_distance(pos1_list, pos2_list, dist), 0)
+
+	def test_count_tokens_within_distance2(self):
+		pos1_list = [0, 3, 5 , 9]
+		pos2_list = [1, 8]
+		dist = 1
+		self.assertEqual(book_ops.count_tokens_within_distance(pos1_list, pos2_list, dist), 2)
+
+	def test_count_tokens_within_distance3(self):
+		pos1_list = [0, 3, 5 , 9]
+		pos2_list = [3]
+		dist = 0
+		self.assertEqual(book_ops.count_tokens_within_distance(pos1_list, pos2_list, dist), 1)
+
+	def test_count_tokens_within_distance4(self):
+		pos1_list = [0, 3, 5 , 9]
+		pos2_list = [1, 4]
+		dist = 1
+		self.assertEqual(book_ops.count_tokens_within_distance(pos1_list, pos2_list, dist), 3)
+
+	def test_count_tokens_within_distance5(self):
+		pos1_list = []
+		pos2_list = [1, 4]
+		dist = 1
+		self.assertEqual(book_ops.count_tokens_within_distance(pos1_list, pos2_list, dist), 0)
+
+	def test_count_tokens_within_distance6(self):
+		pos1_list = [0, 3, 5 , 9]
+		pos2_list = []
+		dist = 1
+		self.assertEqual(book_ops.count_tokens_within_distance(pos1_list, pos2_list, dist), 0)
+
 
 if __name__ == '__main__':
 	unittest.main()
