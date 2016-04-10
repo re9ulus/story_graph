@@ -1,6 +1,9 @@
 import math
 import string
 
+# TODO: Rewrite [(name, [positions])] stuctures to maps
+# or to classes
+
 def get_names(words):
 	'''get (name, frequency) sorted by frequency from the text
 
@@ -76,3 +79,32 @@ def count_tokens_within_distance(token1_pos, token2_pos, dist):
 			elif j > i and abs(i - j) > dist:
 				break
 	return score
+
+
+def get_connection_powers(name_occurances, dist):
+	'''get connections and they powers from [(name, [positions])] list
+
+	[(string, [int])], int -> {(string, string), int}
+	'''
+	connections = {}
+	for name1, positions1 in name_occurances:
+		for name2, positions2 in name_occurances:
+			key = tuple(sorted((name1, name2)))
+			if name1 == name2 or key in connections:
+				continue
+			else:
+				connections[key] = count_tokens_within_distance(positions1, positions2, dist)
+	return connections
+
+
+def get_connections(name_occurances, dist):
+	'''get connections from [(name, [positions])] list
+
+	[(string, [int])], int -> [(string, string)]
+	'''
+	connections = []
+	connection_powers = get_connection_powers(name_occurances, dist)
+	for connection, power in connection_powers.iteritems():
+		if power > 0:
+			connections.append(connection)
+	return connections
