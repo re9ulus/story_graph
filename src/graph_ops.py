@@ -32,6 +32,12 @@ class Graph:
 			raise ValueError('node {0} not found'.format(node))
 		return self._graph[node]
 
+	def save_graph_to_file(self, path_to_file):
+		raise Exception('Not implemented')
+
+	def read_graph_from_file(self, path_to_file):
+		raise Exception('Not implemented')
+
 	def __repr__(self):
 		res = 'graph: \n'
 		for node, connections in sorted(self._graph.iteritems()):
