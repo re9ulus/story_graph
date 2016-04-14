@@ -27,6 +27,11 @@ class Graph:
 				degree += 1
 		return degree
 
+	def get_node_connections(self, node):
+		if not self.is_node_in_graph(node):
+			raise ValueError('node {0} not found'.format(node))
+		return self._graph[node]
+
 	def __repr__(self):
 		res = 'graph: \n'
 		for node, connections in sorted(self._graph.iteritems()):
