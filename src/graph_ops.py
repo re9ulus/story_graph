@@ -35,7 +35,7 @@ class Graph:
 	def save_graph_to_file(self, path_to_file):
 		raise Exception('Not implemented')
 
-	def read_graph_from_file(self, path_to_file):
+	def load_graph_from_file(self, path_to_file):
 		raise Exception('Not implemented')
 
 	def __repr__(self):
