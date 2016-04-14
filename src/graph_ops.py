@@ -16,6 +16,17 @@ class Graph:
 	def is_node_in_graph(self, node):
 		return node in self._graph
 
+	def get_node_degree(self, target_node):
+		if not self.is_node_in_graph(target_node):
+			raise ValueError('node {0} not found'.format(target_node))
+		degree = 0
+		for node, connections in self._graph.iteritems():
+			if node == target_node:
+				continue
+			if target_node in connections:
+				degree += 1
+		return degree
+
 	def __repr__(self):
 		res = 'graph: \n'
 		for node, connections in sorted(self._graph.iteritems()):

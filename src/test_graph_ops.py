@@ -43,5 +43,16 @@ class TestGraphOps(unittest.TestCase):
 		g.add_node('A')
 		self.assertEqual(g.is_node_in_graph('A'), True)
 
+	def test_get_node_degree1(self):
+		g = graph_ops.Graph()
+		g.add_connection('A', 'B')
+		g.add_connection('A', 'C')
+		g.add_connection('B', 'D')
+		g.add_connection('D', 'A')
+		self.assertEqual(g.get_node_degree('A'), 3)
+		self.assertEqual(g.get_node_degree('B'), 2)
+		self.assertEqual(g.get_node_degree('C'), 1)
+		self.assertEqual(g.get_node_degree('D'), 2)
+
 if __name__ == '__main__':
 	unittest.main()
