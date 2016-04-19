@@ -3,27 +3,49 @@ import book_ops
 
 PATH_TO_BOOK = './../books/storm_of_swords.txt'
 PATH_TO_NAMES_FILE = './hero_names.txt'
-PATO_TO_CLEARED_NAMES_FILE = './test_st_if_sw_name.txt'
+PATH_TO_CLEARED_NAMES_FILE = './test_st_of_sw_names.txt'
+PATH_TO_NAME_POSITIONS_FILE = './test_st_of_sw_positions.txt'
 
 # 1. Get list of heros +
 # 2. Clean list of heros +
 # 3. Get power of connectionw btw heros
 # 4. Build graph
 
+# TODO: Current implementation uses a lot of file ops for testing, remove it
 # TODO: Match different names to one character
 
-def book_to_names():
+def get_words():
+	'''get words from book
+	'''
 	raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
 	book_text = book_ops.remove_punctuation_from_text(raw_text)
 	words = book_ops.text_to_words(book_text)
+	return words
+
+
+def book_to_names():
+	'''get names from the words
+	'''
+	words = get_words()
 	names = book_ops.get_names(words)
 	file_ops.save_names_to_file(PATH_TO_NAMES_FILE, names)
+	return names
 
 
 def word_positions_for_names():
+	'''get word positions from the names and words
+	'''
+	# TODO: Remove this later, and use words as arguments  
+	words = get_words()
 
+	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	word_positions = []
+	for name, _c in names:
+		word_positions.append(
+			(name, book_ops.get_all_token_positions(words, name)))
+	file_ops.save_token_positions_to_file(PATH_TO_NAME_POSITIONS_FILE, word_positions)
 
 
 if __name__ == '__main__':
-	book_to_names()
-
+	# book_to_names()
+	word_positions_for_names()
