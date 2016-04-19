@@ -1,15 +1,18 @@
 import file_ops
 import book_ops
+import graph_ops
 
 PATH_TO_BOOK = './../books/storm_of_swords.txt'
 PATH_TO_NAMES_FILE = './hero_names.txt'
 PATH_TO_CLEARED_NAMES_FILE = './test_st_of_sw_names.txt'
 PATH_TO_NAME_POSITIONS_FILE = './test_st_of_sw_positions.txt'
 
+WORDS_DISTANCE = 15
+
 # 1. Get list of heros +
 # 2. Clean list of heros +
-# 3. Get power of connectionw btw heros
-# 4. Build graph
+# 3. Get power of connectionw btw heros +
+# 4. Build graph +
 
 # TODO: Current implementation uses a lot of file ops for testing, remove it
 # TODO: Match different names to one character
@@ -44,8 +47,23 @@ def word_positions_for_names():
 		word_positions.append(
 			(name, book_ops.get_all_token_positions(words, name)))
 	file_ops.save_token_positions_to_file(PATH_TO_NAME_POSITIONS_FILE, word_positions)
+	return word_positions_for_names
+
+
+def build_graph():
+	'''build graph from word positions
+	'''
+	name_positions = file_ops.load_token_positions_from_file(PATH_TO_NAME_POSITIONS_FILE)
+	g = graph_ops.Graph()
+	connections = book_ops.get_connections(name_positions, WORDS_DISTANCE)
+	for conn in connections:
+		g.add_connection(*conn)
+	print g.__repr__()
+	# TODO: Write graph to file to file
+	return g
 
 
 if __name__ == '__main__':
 	# book_to_names()
-	word_positions_for_names()
+	# word_positions_for_names()
+	build_graph()
