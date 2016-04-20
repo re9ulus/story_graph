@@ -98,9 +98,9 @@ def get_connection_powers(name_occurances, dist):
 
 
 def get_connections(name_occurances, dist):
-	'''get connections from [(name, [positions])] list
+	'''get connections from {name: [positions]} dict
 
-	[(string, [int])], int -> [(string, string)]
+	{string: [int]}, int -> [(string, string)]
 	'''
 	connections = []
 	connection_powers = get_connection_powers(name_occurances, dist)
