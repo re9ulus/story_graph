@@ -1,9 +1,6 @@
 import math
 import string
 
-# TODO: Rewrite [(name, [positions])] stuctures to maps
-# or to classes
-
 def get_names(words):
 	'''get dict of names in the text
 

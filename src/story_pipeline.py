@@ -64,5 +64,5 @@ def build_graph():
 
 if __name__ == '__main__':
 	# book_to_names()
-	word_positions_for_names()
-	# build_graph()
+	# word_positions_for_names()
+	build_graph()
