@@ -18,7 +18,7 @@ def load_text_from_file(path_to_file):
 
 
 def save_names_to_file(path_to_file, names):
-	'''write (name, frequency) records to file
+	'''write {name: occurance} dict to file
 
 	string, {string: int} -> None
 	'''
@@ -28,7 +28,7 @@ def save_names_to_file(path_to_file, names):
 
 
 def load_names_from_file(path_to_file):
-	'''read (name, frequency) records from file
+	'''read {name: occurance} records from file
 
 	string -> {string: int}
 	'''
@@ -38,29 +38,29 @@ def load_names_from_file(path_to_file):
 			line = line.strip()
 			if not line:
 				break
-			name, frequency = line.split(':')
+			name, occurance = line.split(':')
 			name = name.strip()
-			frequency = int(frequency.strip())
-			names[name] = frequency
+			occurance = int(occurance.strip())
+			names[name] = occurance
 	return names
 
 
 def save_token_positions_to_file(path_to_file, positions):
-	'''write (token, [positions]) records to file
+	'''write {token: [positions]} dict to file
 
-	string [(string, [int])] -> None
+	string, {string: [int]} -> None
 	'''
 	with open(path_to_file, 'w+') as f:
-		for record in positions:
-			f.write('{0} : {1}\n'.format(record[0], ' '.join(map(str, record[1]))))
+		for token, positions in positions.iteritems():
+			f.write('{0} : {1}\n'.format(token, ' '.join(map(str, positions))))
 
 
 def load_token_positions_from_file(path_to_file):
-	'''load (token, [positions]) records from file
+	'''load {token: [positions]} dict from file
 
-	string -> [(string, [int])]
+	string -> {string: [int]}
 	'''
-	names = []
+	tokens = {}
 	with open(path_to_file, 'r') as f:
 		for line in f:
 			line = line.strip()
@@ -69,6 +69,6 @@ def load_token_positions_from_file(path_to_file):
 			name, positions = line.split(':')
 			name = name.strip()
 			positions = map(lambda item: int(item.strip()), positions.split())
-			names.append((name, positions))
-	return names
+			tokens[name] = positions
+	return tokens
 

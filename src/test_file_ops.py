@@ -33,12 +33,12 @@ class TestBookOps(unittest.TestCase):
 
 	def test_load_token_positions_from_file1(self):
 		path_to_file = TEST_FILES_FOLDER + 'test_positions1.txt'
-		positions = [('Arya', [4, 7, 9]), ('Luke', [88, 14, 5]), ('Harry', [9])]
+		positions = {'Arya': [4, 7, 9], 'Luke': [88, 14, 5], 'Harry': [9]}
 		self.assertEqual(file_ops.load_token_positions_from_file(path_to_file), positions)
 
 	def test_save_token_positions_to_file1(self):
 		path_to_file = TEST_FILES_FOLDER + 'test_write_positions1.txt'
-		positions = [('Arya', [4, 7, 9]), ('Luke', [88, 14, 5]), ('Harry', [9])]
+		positions = {'Arya': [4, 7, 9], 'Luke': [88, 14, 5], 'Harry': [9]}
 		open(path_to_file, 'w+').close()
 		file_ops.save_token_positions_to_file(path_to_file, positions)
 		self.assertEqual(file_ops.load_token_positions_from_file(path_to_file), positions)
