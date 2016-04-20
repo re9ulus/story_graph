@@ -5,10 +5,12 @@ import string
 # or to classes
 
 def get_names(words):
-	'''get (name, frequency) sorted by frequency from the text
+	'''get dict of names in the text
 
-	[string] -> [(string, int)]
+	[string] -> {string: int}
 	name - is capitaliazed word.
+	dict key is name
+	dict value is number of occurances of the name in text
 	'''
 	is_capitalized = lambda word: len(word) and word[0].isupper()
 	names = filter(is_capitalized, words)
@@ -18,8 +20,6 @@ def get_names(words):
 			words_occurance[word] += 1
 		else:
 			words_occurance[word] = 1
-	words_occurance = zip(words_occurance.keys(), words_occurance.values())
-	words_occurance = sorted(words_occurance, key=lambda item: item[1], reverse=True)
 	return words_occurance
 
 

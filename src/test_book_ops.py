@@ -36,7 +36,7 @@ class TestBookOps(unittest.TestCase):
 
 	def test_get_names(self):
 		words = 'Sam and Arya were on Naboo planet with Padme Naboo is nice planet '.split()
-		self.assertEqual(book_ops.get_names(words),  [('Naboo', 2), ('Padme', 1), ('Arya', 1), ('Sam', 1)])
+		self.assertEqual(book_ops.get_names(words),  {'Naboo': 2, 'Padme': 1, 'Arya': 1, 'Sam': 1})
 
 	def test_count_tokens_within_distance1(self):
 		pos1_list = [0, 3, 5 , 9]

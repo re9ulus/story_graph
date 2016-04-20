@@ -20,19 +20,19 @@ def load_text_from_file(path_to_file):
 def save_names_to_file(path_to_file, names):
 	'''write (name, frequency) records to file
 
-	string, [(string, int)] -> None
+	string, {string: int} -> None
 	'''
 	with open(path_to_file, 'w+') as f:
-		for record in names:
-			f.write('{0} : {1}\n'.format(record[0], record[1]))
+		for name, count in names.iteritems():
+			f.write('{0} : {1}\n'.format(name, count))
 
 
 def load_names_from_file(path_to_file):
 	'''read (name, frequency) records from file
 
-	string -> [(string, int)]
+	string -> {string: int}
 	'''
-	names = []
+	names = {}
 	with open(path_to_file, 'r') as f:
 		for line in f:
 			line = line.strip()
@@ -41,7 +41,7 @@ def load_names_from_file(path_to_file):
 			name, frequency = line.split(':')
 			name = name.strip()
 			frequency = int(frequency.strip())
-			names.append((name, frequency))
+			names[name] = frequency
 	return names
 
 

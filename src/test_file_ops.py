@@ -21,12 +21,12 @@ class TestBookOps(unittest.TestCase):
 
 	def test_load_names_from_file1(self):
 		path_to_file = TEST_FILES_FOLDER + 'test_names1.txt'
-		names = [('Arya', 3), ('Luke', 8), ('Harry', 4)]
+		names = {'Arya': 3, 'Luke': 8, 'Harry': 4}
 		self.assertEqual(file_ops.load_names_from_file(path_to_file), names)
 
 	def test_save_names_to_file1(self):
 		path_to_file = TEST_FILES_FOLDER + 'test_write_names1.txt'
-		names = [('Arya', 3), ('Luke', 8), ('Harry', 4)]
+		names = {'Arya': 3, 'Luke': 8, 'Harry': 4}
 		open(path_to_file, 'w+').close()
 		file_ops.save_names_to_file(path_to_file, names)
 		self.assertEqual(file_ops.load_names_from_file(path_to_file), names)

@@ -7,14 +7,14 @@ PATH_TO_NAMES_FILE = './hero_names.txt'
 PATH_TO_CLEARED_NAMES_FILE = './test_st_of_sw_names.txt'
 PATH_TO_NAME_POSITIONS_FILE = './test_st_of_sw_positions.txt'
 
-WORDS_DISTANCE = 15
+WORDS_DISTANCE = 10
 
 # 1. Get list of heros +
 # 2. Clean list of heros +
 # 3. Get power of connectionw btw heros +
 # 4. Build graph +
 
-# TODO: Current implementation uses a lot of file ops for testing, remove it
+# TODO: Current implementation uses a lot of file ops for testing, remove them
 # TODO: Match different names to one character
 
 def get_words():
