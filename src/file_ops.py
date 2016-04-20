@@ -23,7 +23,7 @@ def save_names_to_file(path_to_file, names):
 	string, {string: int} -> None
 	'''
 	with open(path_to_file, 'w+') as f:
-		for name, count in names.iteritems():
+		for name, count in sorted(names.items(), key=lambda item: item[1], reverse=True):
 			f.write('{0} : {1}\n'.format(name, count))
 
 

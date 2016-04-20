@@ -3,9 +3,9 @@ import book_ops
 import graph_ops
 
 PATH_TO_BOOK = './../books/storm_of_swords.txt'
-PATH_TO_NAMES_FILE = './hero_names.txt'
-PATH_TO_CLEARED_NAMES_FILE = './test_st_of_sw_names.txt'
-PATH_TO_NAME_POSITIONS_FILE = './test_st_of_sw_positions.txt'
+PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt'
+PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/test_st_of_sw_names.txt'
+PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_st_of_sw_positions.txt'
 
 WORDS_DISTANCE = 10
 
@@ -64,6 +64,6 @@ def build_graph():
 
 
 if __name__ == '__main__':
-	# book_to_names()
+	book_to_names()
 	# word_positions_for_names()
-	build_graph()
+	# build_graph()
