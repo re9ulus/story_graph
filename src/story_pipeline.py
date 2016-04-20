@@ -42,10 +42,9 @@ def word_positions_for_names():
 	words = get_words()
 
 	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
-	word_positions = []
-	for name, _c in names:
-		word_positions.append(
-			(name, book_ops.get_all_token_positions(words, name)))
+	word_positions = {}
+	for name, _c in names.iteritems():
+		word_positions[name] = book_ops.get_all_token_positions(words, name)
 	file_ops.save_token_positions_to_file(PATH_TO_NAME_POSITIONS_FILE, word_positions)
 	return word_positions_for_names
 
@@ -64,6 +63,6 @@ def build_graph():
 
 
 if __name__ == '__main__':
-	book_to_names()
-	# word_positions_for_names()
+	# book_to_names()
+	word_positions_for_names()
 	# build_graph()

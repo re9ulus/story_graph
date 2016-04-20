@@ -51,7 +51,7 @@ def save_token_positions_to_file(path_to_file, positions):
 	string, {string: [int]} -> None
 	'''
 	with open(path_to_file, 'w+') as f:
-		for token, positions in positions.iteritems():
+		for token, positions in sorted(positions.items(), key=lambda item: len(item[1]), reverse=True):
 			f.write('{0} : {1}\n'.format(token, ' '.join(map(str, positions))))
 
 
