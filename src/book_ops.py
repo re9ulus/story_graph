@@ -82,13 +82,13 @@ def count_tokens_within_distance(token1_pos, token2_pos, dist):
 
 
 def get_connection_powers(name_occurances, dist):
-	'''get connections and they powers from [(name, [positions])] list
+	'''get connections and they powers from {name, [positions]} dict
 
-	[(string, [int])], int -> {(string, string), int}
+	{string, [int]}, int -> {(string, string), int}
 	'''
 	connections = {}
-	for name1, positions1 in name_occurances:
-		for name2, positions2 in name_occurances:
+	for name1, positions1 in name_occurances.iteritems():
+		for name2, positions2 in name_occurances.iteritems():
 			key = tuple(sorted((name1, name2)))
 			if name1 == name2 or key in connections:
 				continue

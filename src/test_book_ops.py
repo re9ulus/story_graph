@@ -75,19 +75,19 @@ class TestBookOps(unittest.TestCase):
 		self.assertEqual(book_ops.count_tokens_within_distance(pos1_list, pos2_list, dist), 0)
 
 	def test_get_connection_powers1(self):
-		records = [['Arya', [1, 3, 5]],
-					['Black', [2]],
-					['Luke', [6, 7]],
-					['Frodo', [4, 8]]]
+		records = {'Arya': [1, 3, 5],
+					'Black': [2],
+					'Luke': [6, 7],
+					'Frodo': [4, 8]}
 		expected = {('Arya', 'Frodo'): 2, ('Frodo', 'Luke'): 1, ('Arya', 'Luke'): 1,
 					('Black', 'Luke'): 0, ('Arya', 'Black'): 2, ('Black', 'Frodo'): 0}
 		self.assertEqual(book_ops.get_connection_powers(records, 1), expected)
 
 	def test_get_connections1(self):
-		records = [['Arya', [1, 3, 5]],
-					['Black', [2]],
-					['Luke', [6, 7]],
-					['Frodo', [4, 8]]]
+		records = {'Arya': [1, 3, 5],
+					'Black': [2],
+					'Luke': [6, 7],
+					'Frodo': [4, 8]}
 		expected = [('Arya', 'Black'), ('Arya', 'Frodo'), ('Arya', 'Luke'), ('Frodo', 'Luke')]
 		self.assertEqual(sorted(book_ops.get_connections(records, 1)), expected)
 
