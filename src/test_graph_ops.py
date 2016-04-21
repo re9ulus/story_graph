@@ -67,6 +67,16 @@ class TestGraphOps(unittest.TestCase):
 		self.assertEqual(g.get_node_connections('B'), set(['A']))
 		self.assertEqual(g.get_node_connections('C'), set(['A']))
 
+	def test_get_node_weight1(self):
+		g = graph_ops.Graph()
+		g.add_node('A')
+		self.assertEqual(g.get_node_weight('A'), 0)		
+
+	def test_add_node_weight1(self):
+		g = graph_ops.Graph()
+		g.add_node('A')
+		g.set_node_weight('A', 3)
+		self.assertEqual(g.get_node_weight('A'), 3)		
 
 if __name__ == '__main__':
 	unittest.main()
