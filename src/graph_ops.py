@@ -26,7 +26,6 @@ class Graph:
 		return node in self._graph
 
 	def is_connection_in_graph(self, connection):
-		# TODO: Add tests
 		node1, node2 = connection
 		self._check_node_in_graph_error(node1)
 		self._check_node_in_graph_error(node2)

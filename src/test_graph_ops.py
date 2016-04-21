@@ -89,7 +89,20 @@ class TestGraphOps(unittest.TestCase):
 		g.add_connection('B', 'A')
 		g.set_connection_weight(('A', 'B'), 7)
 		self.assertEqual(g.get_connection_weight(('A', 'B')), 7)
-		self.assertEqual(g.get_connection_weight(('B', 'A')), 7)	
+		self.assertEqual(g.get_connection_weight(('B', 'A')), 7)
+
+	def test_is_connection_in_graph1(self):
+		g = graph_ops.Graph()
+		g.add_connection('A', 'B')
+		self.assertTrue(g.is_connection_in_graph(('A', 'B')))
+		self.assertTrue(g.is_connection_in_graph(('B', 'A')))
+
+	def test_is_connection_in_graph1(self):
+		g = graph_ops.Graph()
+		g.add_node('A')
+		g.add_node('B')
+		self.assertFalse(g.is_connection_in_graph(('A', 'B')))
+		self.assertFalse(g.is_connection_in_graph(('B', 'A')))
 
 if __name__ == '__main__':
 	unittest.main()
