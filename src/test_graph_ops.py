@@ -76,7 +76,20 @@ class TestGraphOps(unittest.TestCase):
 		g = graph_ops.Graph()
 		g.add_node('A')
 		g.set_node_weight('A', 3)
-		self.assertEqual(g.get_node_weight('A'), 3)		
+		self.assertEqual(g.get_node_weight('A'), 3)
+
+	def test_get_edge_weight1(self):
+		g = graph_ops.Graph()
+		g.add_connection('B', 'A')
+		self.assertEqual(g.get_edge_weight(('A', 'B')), 0)
+		self.assertEqual(g.get_edge_weight(('B', 'A')), 0)
+
+	def test_set_edge_weight1(self):
+		g = graph_ops.Graph()
+		g.add_connection('B', 'A')
+		g.set_edge_weight(('A', 'B'), 7)
+		self.assertEqual(g.get_edge_weight(('A', 'B')), 7)
+		self.assertEqual(g.get_edge_weight(('B', 'A')), 7)	
 
 if __name__ == '__main__':
 	unittest.main()
