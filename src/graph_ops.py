@@ -69,6 +69,11 @@ class Graph:
 	def load_graph_from_file(self, path_to_file):
 		raise Exception('Not implemented')
 
+	def central_metric(self, node):
+		'''return node central metric
+		'''
+		raise Exception('Not implemented')
+
 	def __repr__(self):
 		res = 'graph: \n'
 		for node, connections in sorted(self._graph.iteritems()):
