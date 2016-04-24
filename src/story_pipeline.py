@@ -66,4 +66,5 @@ if __name__ == '__main__':
 	# book_to_names()
 	word_positions_for_names()
 	g = build_graph()
-	g.save_graph_to_file('./../graph_vis/js/test_graph.js')
+	# g.save_graph_to_file('./../graph_vis/js/test_graph.js')
+	g.save_graph_to_csv('test_graph.csv')

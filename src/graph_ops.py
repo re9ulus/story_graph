@@ -1,5 +1,7 @@
 from collections import defaultdict
 
+# TODO: Move graph save/load function to separate file
+
 class Graph:
 	'''Implementation of unoredered graph
 
@@ -75,6 +77,15 @@ class Graph:
 			f.write('var nodes = ' + str(nodes) + ';\n')
 			f.write('var edges = ' + str(edges) + ';\n')
 
+	def save_graph_to_csv(self, path_to_file):
+		edges = set()
+		for node, connections in self._graph.iteritems():
+			for conn in connections:
+				edges.add(self._connection_key((node, conn)))
+		edges = list(edges)
+		with open(path_to_file, 'w+') as f:
+			for edge in edges:
+				f.write('{0},{1}\n'.format(edge[0], edge[1]))
 
 	def load_graph_from_file(self, path_to_file):
 		raise Exception('Not implemented')
