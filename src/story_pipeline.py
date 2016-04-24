@@ -7,7 +7,7 @@ PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt'
 PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/test_st_of_sw_names.txt'
 PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_st_of_sw_positions.txt'
 
-WORDS_DISTANCE = 10
+WORDS_DISTANCE = 6
 
 # 1. Get list of heros +
 # 2. Clean list of heros +
@@ -64,6 +64,6 @@ def build_graph():
 
 if __name__ == '__main__':
 	# book_to_names()
-	# word_positions_for_names()
+	word_positions_for_names()
 	g = build_graph()
 	g.save_graph_to_file('./../graph_vis/js/test_graph.js')
