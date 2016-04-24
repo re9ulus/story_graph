@@ -65,4 +65,5 @@ def build_graph():
 if __name__ == '__main__':
 	# book_to_names()
 	# word_positions_for_names()
-	build_graph()
+	g = build_graph()
+	g.save_graph_to_file('./../graph_vis/js/test_graph.js')

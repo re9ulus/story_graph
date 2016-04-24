@@ -64,7 +64,17 @@ class Graph:
 		return self._connection_weights[self._connection_key(connection)]
 
 	def save_graph_to_file(self, path_to_file):
-		raise Exception('Not implemented')
+		nodes = self._graph.keys()
+		edges = set()
+		for node, connections in self._graph.iteritems():
+			for conn in connections:
+				edges.add(self._connection_key((node, conn)))
+		edges = list(edges)
+		edges = map(list, edges)
+		with open(path_to_file, 'w+') as f:
+			f.write('var nodes = ' + str(nodes) + ';\n')
+			f.write('var edges = ' + str(edges) + ';\n')
+
 
 	def load_graph_from_file(self, path_to_file):
 		raise Exception('Not implemented')
