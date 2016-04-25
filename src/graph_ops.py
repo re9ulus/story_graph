@@ -112,3 +112,19 @@ class Graph:
 	def _connection_key(self, connection):
 		'''represent connection in order used in inner dicts'''
 		return tuple(sorted(connection))
+
+	def get_nodes(self):
+		raise Exception('Not implemented')
+
+	def get_edges(self):
+		raise Exception('Not implemented')
+
+
+def save_graph_to_file(g, path_to_file):
+	raise Exception('Not implemented')
+
+def save_graph_to_csv(g, path_to_file):
+	raise Exception('Not implemented')
+
+def load_graph_from_file(g, path_to_file):
+	raise Exception('Not implemented')
