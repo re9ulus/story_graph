@@ -54,11 +54,22 @@ def build_graph():
 	'''
 	name_positions = file_ops.load_token_positions_from_file(PATH_TO_NAME_POSITIONS_FILE)
 	g = graph_ops.Graph()
-	connections = book_ops.get_connections(name_positions, WORDS_DISTANCE)
-	for conn in connections:
+	connections = book_ops.get_connection_powers(name_positions, WORDS_DISTANCE) #get_connections(name_positions, WORDS_DISTANCE)
+	
+	for conn, count in connections.iteritems():
 		g.add_connection(*conn)
-	print g.__repr__()
+		g.set_connection_weight(conn, count)
+
+	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	for name, count in names.iteritems():
+		g.set_node_weight(name, count)
+
+	# print g.__repr__()
+	print g._repr_with_weights()
 	# TODO: Write graph to file to file
+	print '\n\n\n'
+	print g.__repr__()
+
 	return g
 
 

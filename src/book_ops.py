@@ -90,7 +90,9 @@ def get_connection_powers(name_occurances, dist):
 			if name1 == name2 or key in connections:
 				continue
 			else:
-				connections[key] = count_tokens_within_distance(positions1, positions2, dist)
+				conn_power = count_tokens_within_distance(positions1, positions2, dist)
+				if conn_power > 0:
+					connections[key] = conn_power
 	return connections
 
 

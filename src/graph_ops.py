@@ -101,6 +101,14 @@ class Graph:
 			res += '{0} : {1}\n'.format(node, connections)
 		return res
 
+	def _repr_with_weights(self):
+		res = 'graph: \n'
+		for node, connections in sorted(self._graph.iteritems()):
+			res += '{0} : {1}\n'.format(node, self.get_node_weight(node))
+			for conn in connections:
+				res += '\t{0} : {1}\n'.format(conn, self.get_connection_weight((node, conn)))
+		return res
+
 	def _check_node_in_graph_error(self, node):
 		if not self.is_node_in_graph(node):
 			raise ValueError('node {0} not found'.format(node))

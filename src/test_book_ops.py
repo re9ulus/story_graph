@@ -80,7 +80,7 @@ class TestBookOps(unittest.TestCase):
 					'Luke': [6, 7],
 					'Frodo': [4, 8]}
 		expected = {('Arya', 'Frodo'): 2, ('Frodo', 'Luke'): 1, ('Arya', 'Luke'): 1,
-					('Black', 'Luke'): 0, ('Arya', 'Black'): 2, ('Black', 'Frodo'): 0}
+					('Arya', 'Black'): 2}
 		self.assertEqual(book_ops.get_connection_powers(records, 1), expected)
 
 	def test_get_connections1(self):
