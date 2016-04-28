@@ -1,23 +1,15 @@
+import re
 import math
 import string
+from collections import defaultdict
 
-def get_names(words):
-	'''get dict of names in the text
 
-	[string] -> {string: int}
-	name - is capitaliazed word.
-	dict key is name
-	dict value is number of occurances of the name in text
+def text_to_words(text):
+	'''convert text to separate words
+
+	text -> [string]
 	'''
-	is_capitalized = lambda word: len(word) and word[0].isupper()
-	names = filter(is_capitalized, words)
-	words_occurance = {}
-	for word in names:
-		if word in words_occurance:
-			words_occurance[word] += 1
-		else:
-			words_occurance[word] = 1
-	return words_occurance
+	return text.split()
 
 
 def remove_punctuation_from_text(text):
@@ -39,6 +31,47 @@ def remove_punctuation_from_words(words):
 	return list(map(remove_punctuation_from_text, words))
 
 
+def get_names(words):
+	'''get dict of names in the list of words
+
+	[string] -> {string: int}
+	name - is capitaliazed word.
+	dict key is name
+	dict value is number of occurances of the name in text
+	'''
+	is_capitalized = lambda word: len(word) and word[0].isupper()
+	names = filter(is_capitalized, words)
+	words_occurance = {}
+	for word in names:
+		if word in words_occurance:
+			words_occurance[word] += 1
+		else:
+			words_occurance[word] = 1
+	return words_occurance
+
+
+def get_names2(text):
+	'''get dict of names in the text
+
+	string -> {string: int}
+	name - is capitaliazed word.
+	dict key is name
+	dict value is number of occurances of the name in text
+	'''
+	name_pattern = '[^\.\!\?]\s+([A-Z]\w+)'
+	names = set(re.findall(name_pattern, text))
+	words = text_to_words(remove_punctuation_from_text(text))
+
+	words_occurance = defaultdict()
+	for word in words:
+		if word in names:
+			if word in words_occurance:
+				words_occurance[word] += 1
+			else:
+				words_occurance[word] = 1
+	return words_occurance
+
+
 def get_all_token_positions(words, token):
 	'''get all positions of the token in the string array
 
@@ -53,14 +86,6 @@ def count_token_occurrence(words, token):
 	[string], string -> int
 	'''
 	return words.count(token)
-
-
-def text_to_words(text):
-	'''convert text to separate words
-
-	text -> [string]
-	'''
-	return text.split()
 
 
 def count_tokens_within_distance(token1_pos, token2_pos, dist):

@@ -2,10 +2,10 @@ import file_ops
 import book_ops
 import graph_ops
 
-PATH_TO_BOOK = './../books/storm_of_swords.txt'
+PATH_TO_BOOK = './../books/harry.txt ' #'./../books/storm_of_swords.txt'
 PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt'
-PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/test_st_of_sw_names.txt'
-PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_st_of_sw_positions.txt'
+PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/test_hp_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
+PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_hp_positions.txt'
 
 WORDS_DISTANCE = 6
 
@@ -75,7 +75,11 @@ def build_graph():
 
 if __name__ == '__main__':
 	# book_to_names()
+
 	word_positions_for_names()
 	g = build_graph()
+
 	# g.save_graph_to_file('./../graph_vis/js/test_graph.js')
-	g.save_graph_to_csv('test_graph.csv')
+	# g.save_graph_to_csv('test_graph.csv')
+
+	g.save_graph_to_vna('test_graph.vna')
