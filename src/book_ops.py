@@ -1,7 +1,7 @@
 import re
 import math
 import string
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 
 def text_to_words(text):
@@ -41,12 +41,7 @@ def get_names(words):
 	'''
 	is_capitalized = lambda word: len(word) and word[0].isupper()
 	names = filter(is_capitalized, words)
-	words_occurance = {}
-	for word in names:
-		if word in words_occurance:
-			words_occurance[word] += 1
-		else:
-			words_occurance[word] = 1
+	words_occurance = Counter(names)
 	return words_occurance
 
 
@@ -62,13 +57,10 @@ def get_names2(text):
 	names = set(re.findall(name_pattern, text))
 	words = text_to_words(remove_punctuation_from_text(text))
 
-	words_occurance = defaultdict()
+	words_occurance = Counter()
 	for word in words:
 		if word in names:
-			if word in words_occurance:
-				words_occurance[word] += 1
-			else:
-				words_occurance[word] = 1
+			words_occurance[word] += 1
 	return words_occurance
 
 
