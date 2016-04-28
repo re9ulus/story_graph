@@ -1,7 +1,7 @@
 import re
 import math
 import string
-from collections import defaultdict, Counter
+from collections import Counter
 
 
 def text_to_words(text):
@@ -31,7 +31,7 @@ def remove_punctuation_from_words(words):
 	return list(map(remove_punctuation_from_text, words))
 
 
-def get_names(words):
+def get_names_from_words(words):
 	'''get dict of names in the list of words
 
 	[string] -> {string: int}
@@ -45,7 +45,7 @@ def get_names(words):
 	return words_occurance
 
 
-def get_names2(text):
+def get_names_from_text(text):
 	'''get dict of names in the text
 
 	string -> {string: int}

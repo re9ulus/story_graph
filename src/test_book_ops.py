@@ -34,9 +34,22 @@ class TestBookOps(unittest.TestCase):
 		words = 'This, is simple text! With... some... punctuation; Maybe?'.split()
 		self.assertEqual(book_ops.remove_punctuation_from_words(words),  ['This', 'is', 'simple', 'text', 'With', 'some', 'punctuation', 'Maybe'])
 
-	def test_get_names(self):
+	def test_get_names_from_words(self):
 		words = 'Sam and Arya were on Naboo planet with Padme Naboo is nice planet '.split()
-		self.assertEqual(book_ops.get_names(words),  {'Naboo': 2, 'Padme': 1, 'Arya': 1, 'Sam': 1})
+		self.assertEqual(book_ops.get_names_from_words(words),  {'Naboo': 2, 'Padme': 1, 'Arya': 1, 'Sam': 1})
+
+	def test_get_names_from_text1(self):
+		words = 'Sam and Arya were on Naboo planet with Padme Naboo is nice planet. I think Sam shoud be here too.'
+		self.assertEqual(book_ops.get_names_from_text(words),  {'Naboo': 2, 'Padme': 1, 'Arya': 1, 'Sam': 2})
+
+	def test_get_names_from_text2(self):
+		# Sam is excluded, becouse occured only once, and in the begin of the sentence. It's Ok.
+		words = 'Sam and Arya were on Naboo planet with Padme Naboo is nice planet'
+		self.assertEqual(book_ops.get_names_from_text(words),  {'Naboo': 2, 'Padme': 1, 'Arya': 1})
+
+	def test_get_names_from_text3(self):
+		words = 'Here is the sentences, Harry. I think you Harry and Padme should test it. Padme is here too.'
+		self.assertEqual(book_ops.get_names_from_text(words),  {'Harry': 2, 'Padme': 2})
 
 	def test_count_tokens_within_distance1(self):
 		pos1_list = [0, 3, 5 , 9]
