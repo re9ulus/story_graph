@@ -29,8 +29,10 @@ def get_words():
 def book_to_names():
 	'''get names from the words
 	'''
-	words = get_words()
-	names = book_ops.get_names(words)
+	# words = get_words()
+	raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
+	book_text = book_ops.remove_punctuation_from_text(raw_text)
+	names = book_ops.get_names_from_text(book_text, min_occurance=3)
 	file_ops.save_names_to_file(PATH_TO_NAMES_FILE, names)
 	return names
 
@@ -74,12 +76,12 @@ def build_graph():
 
 
 if __name__ == '__main__':
-	# book_to_names()
+	book_to_names()
 
-	word_positions_for_names()
-	g = build_graph()
+	# word_positions_for_names()
+	# g = build_graph()
 
 	# g.save_graph_to_file('./../graph_vis/js/test_graph.js')
 	# g.save_graph_to_csv('test_graph.csv')
 
-	g.save_graph_to_vna('test_graph.vna')
+	# g.save_graph_to_vna('test_graph.vna')

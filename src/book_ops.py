@@ -31,7 +31,7 @@ def remove_punctuation_from_words(words):
 	return list(map(remove_punctuation_from_text, words))
 
 
-def get_names_from_words(words):
+def get_names_from_words(words, min_occurance=0):
 	'''get dict of names in the list of words
 
 	[string] -> {string: int}
@@ -42,10 +42,12 @@ def get_names_from_words(words):
 	is_capitalized = lambda word: len(word) and word[0].isupper()
 	names = filter(is_capitalized, words)
 	words_occurance = Counter(names)
+	if min_occurance > 0:
+		words_occurance = {k: v for k, v in words_occurance.iteritems() if v > min_occurance}
 	return words_occurance
 
 
-def get_names_from_text(text):
+def get_names_from_text(text, min_occurance=0):
 	'''get dict of names in the text
 
 	string -> {string: int}
@@ -53,7 +55,7 @@ def get_names_from_text(text):
 	dict key is name
 	dict value is number of occurances of the name in text
 	'''
-	name_pattern = '[^\.\!\?]\s+([A-Z]\w+)'
+	name_pattern = '[^\.\!\?\"]\s+([A-Z][a-z]+)'
 	names = set(re.findall(name_pattern, text))
 	words = text_to_words(remove_punctuation_from_text(text))
 
@@ -61,6 +63,8 @@ def get_names_from_text(text):
 	for word in words:
 		if word in names:
 			words_occurance[word] += 1
+	if min_occurance > 0:
+		words_occurance = {k: v for k, v in words_occurance.iteritems() if v > min_occurance}
 	return words_occurance
 
 
