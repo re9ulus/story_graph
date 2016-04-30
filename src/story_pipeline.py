@@ -1,13 +1,15 @@
 import file_ops
-import book_ops
+from book_ops import BookOps
 import graph_ops
 
 PATH_TO_BOOK = './../books/harry.txt ' #'./../books/storm_of_swords.txt'
 PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt'
 PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/test_hp_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
 PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_hp_positions.txt'
+PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 
 WORDS_DISTANCE = 6
+MIN_OCCURANCE = 5
 
 # TODO: Current implementation uses a lot of file ops for testing, remove them
 # TODO: Match different names to one character
@@ -21,37 +23,34 @@ def get_words():
 	return words
 
 
-def book_to_names():
+def book_to_names(book):
 	'''get names from the words
 	'''
-	# words = get_words()
-	raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
-	book_text = book_ops.remove_punctuation_from_text(raw_text)
-	names = book_ops.get_names_from_text(book_text, min_occurance=3)
+	names = b.get_names_from_text()
 	file_ops.save_names_to_file(PATH_TO_NAMES_FILE, names)
 	return names
 
 
-def word_positions_for_names():
+def word_positions_for_names(book):
 	'''get word positions from the names and words
 	'''
 	# TODO: Remove this later, and use words as arguments  
-	words = get_words()
+	# words = book._words #get_words()
 
 	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
 	word_positions = {}
 	for name, _c in names.iteritems():
-		word_positions[name] = book_ops.get_all_token_positions(words, name)
+		word_positions[name] = book.get_all_token_positions(name)
 	file_ops.save_token_positions_to_file(PATH_TO_NAME_POSITIONS_FILE, word_positions)
-	return word_positions_for_names
+	return word_positions
 
 
-def build_graph():
+def build_graph(book):
 	'''build graph from word positions
 	'''
 	name_positions = file_ops.load_token_positions_from_file(PATH_TO_NAME_POSITIONS_FILE)
 	g = graph_ops.Graph()
-	connections = book_ops.get_connection_powers(name_positions, WORDS_DISTANCE) #get_connections(name_positions, WORDS_DISTANCE)
+	connections = b.get_connection_powers(name_positions, WORDS_DISTANCE) #get_connections(name_positions, WORDS_DISTANCE)
 	
 	for conn, count in connections.iteritems():
 		g.add_connection(*conn)
@@ -61,9 +60,7 @@ def build_graph():
 	for name, count in names.iteritems():
 		g.set_node_weight(name, count)
 
-	# print g.__repr__()
 	print g._repr_with_weights()
-	# TODO: Write graph to file to file
 	print '\n\n\n'
 	print g.__repr__()
 
@@ -71,8 +68,10 @@ def build_graph():
 
 
 if __name__ == '__main__':
-	# book_to_names()
+	raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
+	b = BookOps(text=raw_text, use_stemmer=True, min_occurance=MIN_OCCURANCE)
+	# book_to_names(b)
 
-	word_positions_for_names()
-	g = build_graph()
-	# g.save_graph_to_vna('./../tmp_files/test_graph.vna')
+	word_positions_for_names(b)
+	g = build_graph(b)
+	g.save_graph_to_vna(PATH_TO_GRAPH)
