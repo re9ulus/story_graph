@@ -71,8 +71,8 @@ def build_graph():
 
 
 if __name__ == '__main__':
-	book_to_names()
+	# book_to_names()
 
-	# word_positions_for_names()
-	# g = build_graph()
+	word_positions_for_names()
+	g = build_graph()
 	# g.save_graph_to_vna('./../tmp_files/test_graph.vna')

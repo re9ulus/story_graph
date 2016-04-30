@@ -5,6 +5,7 @@ from collections import Counter
 
 from nltk.stem.snowball import SnowballStemmer
 
+# Refactor module to class
 
 def is_capitalized(word):
 	return len(word) and word[0].isupper()
@@ -124,11 +125,15 @@ def get_names_from_text(text, min_occurance=0, use_stemmer=True):
 	return words_occurance
 
 
-def get_all_token_positions(words, token):
+def get_all_token_positions(words, token, use_stemmer=True):
 	'''get all positions of the token in the string array
 
 	[string] -> [int]
 	'''
+	if use_stemmer:
+		stemmer = get_stemmer()
+		words = stem_words(words)
+		token = stemmer.stem(token) # WARNING: To expencive to call for each word, TODO: Pass to funciton already stemmed items, or convert module to class
 	return [i for i, word in enumerate(words) if word == token]
 
 
