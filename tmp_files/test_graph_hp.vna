@@ -1,0 +1,190 @@
+*node data
+ID count
+What 107
+Ernie 25
+Nick 43
+Tom 21
+Goyle 24
+Ginny 98
+Crabbe 23
+Fred 100
+Filch 46
+Vernon 36
+Snape 85
+Justin 36
+Dumbledore 138
+Voldemort 19
+Malfoy 202
+Hermione 289
+Harry 1503
+Lockhart 195
+Riddle 99
+Hagrid 130
+Ron 649
+Potter 124
+Percy 67
+Colin 44
+Dobby 139
+Petunia 25
+George 87
+Myrtle 46
+*tie data
+from to strength
+Lockhart Petunia 1
+Potter What 1
+Filch George 1
+Fred Lockhart 1
+Riddle Voldemort 2
+Percy Riddle 1
+Ginny Riddle 2
+Malfoy What 4
+Hermione Potter 3
+Dumbledore Ron 8
+Hagrid Hermione 5
+Riddle Ron 4
+Hagrid Tom 1
+Harry Tom 5
+Tom What 1
+Ginny Ron 15
+Ginny Hermione 2
+Harry Hermione 76
+Colin Ginny 1
+Harry Potter 97
+Tom Voldemort 1
+Justin Potter 1
+Riddle Tom 13
+Lockhart Ron 17
+Colin Harry 20
+Malfoy Percy 2
+Goyle Hermione 1
+Fred Hagrid 1
+Hermione Lockhart 8
+Malfoy Potter 9
+Harry Malfoy 59
+Riddle What 3
+Ernie Malfoy 2
+George Ginny 5
+Potter Snape 2
+Colin Potter 1
+Goyle Malfoy 6
+Potter Riddle 3
+Ginny Percy 2
+Dobby What 1
+Percy What 3
+Harry What 37
+Dobby Hagrid 1
+Fred Ron 11
+Filch Potter 1
+Dobby Dumbledore 3
+Malfoy Snape 5
+Ron Snape 5
+Fred Ginny 4
+Dumbledore Harry 29
+Ernie Harry 8
+Dobby Ron 2
+Harry Myrtle 11
+Ernie Nick 2
+Filch Nick 2
+Justin Lockhart 1
+Crabbe Hermione 1
+Hagrid Snape 1
+Percy Tom 1
+Hermione Nick 1
+Ginny Potter 2
+Lockhart Malfoy 3
+Hagrid Riddle 3
+Dumbledore What 3
+Dumbledore Ginny 2
+Crabbe Ron 5
+Filch Snape 1
+Crabbe Harry 5
+Harry Ron 218
+Harry Vernon 10
+Lockhart Potter 4
+Hermione Riddle 1
+Dumbledore Tom 1
+Dumbledore Potter 2
+Dobby Harry 60
+Crabbe Goyle 14
+Ginny Voldemort 1
+Colin Hermione 3
+Hermione Malfoy 5
+Goyle Harry 3
+Hermione Snape 1
+Fred What 1
+Justin Nick 5
+Colin Malfoy 1
+Dumbledore Hagrid 12
+Justin Snape 1
+Ginny Malfoy 2
+Nick Potter 1
+Filch Harry 11
+George Malfoy 2
+Harry Petunia 3
+George Percy 2
+Dobby Malfoy 4
+Hagrid What 2
+Lockhart What 6
+George What 3
+Hermione Justin 1
+Dobby Potter 27
+Hagrid Malfoy 2
+Dumbledore Voldemort 3
+Percy Ron 10
+Dumbledore Filch 1
+Dumbledore Lockhart 5
+Hermione Myrtle 7
+Colin Justin 2
+Hermione What 5
+Myrtle Ron 5
+Dumbledore Snape 1
+Potter Tom 1
+Filch Fred 1
+Ginny Lockhart 4
+Harry Nick 11
+Justin Ron 2
+Hagrid Harry 26
+George Hermione 1
+Dobby Voldemort 1
+Colin Ron 1
+George Hagrid 1
+Ernie Potter 2
+Fred Percy 8
+Petunia Vernon 7
+Fred Harry 23
+Snape What 3
+Ernie What 1
+Harry Riddle 24
+Dumbledore Malfoy 8
+Goyle What 1
+Colin Dumbledore 2
+Colin Dobby 1
+George Ron 11
+Harry Lockhart 49
+Filch Ron 3
+Dobby Hermione 2
+Ernie Ron 1
+Crabbe Malfoy 6
+Goyle Ron 2
+Malfoy Ron 24
+Harry Snape 12
+Ginny What 1
+George Harry 25
+Hermione Ron 96
+Fred Malfoy 2
+Colin Lockhart 1
+Hagrid Ron 12
+Fred Hermione 1
+Filch Hermione 1
+Fred George 46
+Dumbledore Hermione 2
+Harry Justin 8
+Harry Percy 12
+Lockhart Snape 9
+Ginny Harry 25
+Hagrid Lockhart 3
+Dumbledore Riddle 4
+Ron What 16
+Crabbe What 1
+Myrtle What 1
+Harry Voldemort 4

@@ -3,6 +3,12 @@ import math
 import string
 from collections import Counter
 
+from nltk.stem.snowball import SnowballStemmer
+
+
+def is_capitalized(word):
+	return len(word) and word[0].isupper()
+
 
 def text_to_words(text):
 	'''convert text to separate words
@@ -31,6 +37,46 @@ def remove_punctuation_from_words(words):
 	return list(map(remove_punctuation_from_text, words))
 
 
+def get_stemmer():
+	'''get standard stemmer to use in all book_ops functions'''
+	return SnowballStemmer('english')
+
+
+# TODO: Add tests for stemming functions
+# TODO: Add stemming to get_connections function
+
+def stem_string(text):
+	'''stem text
+
+	string -> string
+	'''
+	return get_stemmer().stem(text)
+
+
+def get_stem_words_dict(names):
+	'''get dict of stemmed words to original words
+
+	[string] -> {string: string}
+	'''
+	stemmer = get_stemmer()
+	stemmed_words = {}
+	for name in names:
+		stemmed = stemmer.stem(name)
+		# based on the assumption that the first occurrence of the name will be without 's' at the end. Don't change
+		if stemmed not in stemmed_words:
+			stemmed_words[stemmed] = name
+	return stemmed_words
+
+
+def stem_words(words):
+	'''stem list of words
+
+	[string] -> [string]
+	'''
+	stemmer = get_stemmer()
+	return map(stemmer.stem, words)
+
+
 def get_names_from_words(words, min_occurance=0):
 	'''get dict of names in the list of words
 
@@ -39,7 +85,7 @@ def get_names_from_words(words, min_occurance=0):
 	dict key is name
 	dict value is number of occurances of the name in text
 	'''
-	is_capitalized = lambda word: len(word) and word[0].isupper()
+	# TODO: Add "use stemmer to this function"
 	names = filter(is_capitalized, words)
 	words_occurance = Counter(names)
 	if min_occurance > 0:
@@ -47,7 +93,7 @@ def get_names_from_words(words, min_occurance=0):
 	return words_occurance
 
 
-def get_names_from_text(text, min_occurance=0):
+def get_names_from_text(text, min_occurance=0, use_stemmer=True):
 	'''get dict of names in the text
 
 	string -> {string: int}
@@ -57,14 +103,24 @@ def get_names_from_text(text, min_occurance=0):
 	'''
 	name_pattern = '[^\.\!\?\"]\s+([A-Z][a-z]+)'
 	names = set(re.findall(name_pattern, text))
-	words = text_to_words(remove_punctuation_from_text(text))
+	words = filter(is_capitalized, text_to_words(remove_punctuation_from_text(text)))
+
+	if use_stemmer:
+		stem_words_dict = get_stem_words_dict(names)
+		names = stem_words(names)
+		words = stem_words(words)
 
 	words_occurance = Counter()
 	for word in words:
 		if word in names:
 			words_occurance[word] += 1
+
+	if use_stemmer:
+		words_occurance = {stem_words_dict[name]: words_occurance[name] for name in names}
+
 	if min_occurance > 0:
 		words_occurance = {k: v for k, v in words_occurance.iteritems() if v > min_occurance}
+
 	return words_occurance
 
 

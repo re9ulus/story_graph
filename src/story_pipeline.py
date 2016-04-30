@@ -9,11 +9,6 @@ PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_hp_positions.txt'
 
 WORDS_DISTANCE = 6
 
-# 1. Get list of heros +
-# 2. Clean list of heros +
-# 3. Get power of connectionw btw heros +
-# 4. Build graph +
-
 # TODO: Current implementation uses a lot of file ops for testing, remove them
 # TODO: Match different names to one character
 
@@ -80,8 +75,4 @@ if __name__ == '__main__':
 
 	# word_positions_for_names()
 	# g = build_graph()
-
-	# g.save_graph_to_file('./../graph_vis/js/test_graph.js')
-	# g.save_graph_to_csv('test_graph.csv')
-
-	# g.save_graph_to_vna('test_graph.vna')
+	# g.save_graph_to_vna('./../tmp_files/test_graph.vna')
