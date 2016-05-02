@@ -211,3 +211,14 @@ class BookOps:
 		max_index = index + delta
 		max_index = len(self._words) if max_index > len(self._words) else max_index
 		return self._words[min_index:max_index]
+
+
+	def get_all_positions_surroundings(self, name_occurances, delta):
+		'''get all surrounding from text for each position in name_occurances
+		
+		[int], int -> [[string]]
+		'''
+		res_surroundings = []
+		for occurance_ind in name_occurances:
+			res_surroundings.append(self.get_words_near_position(occurance_ind, delta))
+		return res_surroundings

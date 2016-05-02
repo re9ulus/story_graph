@@ -1,10 +1,11 @@
 import file_ops
 from book_ops import BookOps
 import graph_ops
+import sentiment_ops
 
-PATH_TO_BOOK = './../books/lotr.txt ' #'./../books/storm_of_swords.txt'
+PATH_TO_BOOK = './../books/harry.txt ' #'./../books/storm_of_swords.txt'
 PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt'
-PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/hero_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
+PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/test_hp_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
 PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_positions.txt'
 PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 
@@ -67,11 +68,31 @@ def build_graph(book):
 	return g
 
 
+def get_sentiment_for_names(book):
+	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	i = 0
+	res = []
+	join_st = lambda s: ' '.join(s)
+	for name, _c in names.iteritems():
+		# if i > 5:
+		# 	break
+		name_occurances = book.get_all_token_positions(name)
+		name_surrs = book.get_all_positions_surroundings(name_occurances, delta=3)
+		name_surrs = map(join_st, name_surrs)
+		# print name_surrs[:10]
+		res.append((sentiment_ops.estimate_for_list(name_surrs), name))
+		i += 1
+	for val, name in sorted(res):
+		print '{0}:\t\t{1}'.format(name, val)
+
+
 if __name__ == '__main__':
 	raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
 	b = BookOps(text=raw_text, use_stemmer=True, min_occurance=MIN_OCCURANCE)
 	# book_to_names(b)
 
-	word_positions_for_names(b)
-	g = build_graph(b)
-	g.save_graph_to_vna(PATH_TO_GRAPH)
+	word_pos = word_positions_for_names(b)
+	get_sentiment_for_names(b)
+
+	# g = build_graph(b)
+	# g.save_graph_to_vna(PATH_TO_GRAPH)
