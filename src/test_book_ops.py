@@ -121,6 +121,21 @@ class TestBookOps(unittest.TestCase):
 		expected = [('Arya', 'Black'), ('Arya', 'Frodo'), ('Arya', 'Luke'), ('Frodo', 'Luke')]
 		self.assertEqual(sorted(b.get_connections(records, 1)), expected)
 
+	def test_get_words_near_position1(self):
+		b = BookOps(text='')
+		self.assertEqual(sorted(b.get_words_near_position(0, 5)), [])
+
+	def test_get_words_near_position2(self):
+		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
+		self.assertEqual(b.get_words_near_position(5, 4), ['and', 'Arya', 'were', 'on', 'Naboo', 'planet', 'with', 'Padme'])
+
+	def test_get_words_near_position3(self):
+		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
+		self.assertEqual(b.get_words_near_position(2, 4), ['Sam', 'and', 'Arya', 'were', 'on', 'Naboo'])
+
+	def test_get_words_near_position4(self):
+		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
+		self.assertEqual(b.get_words_near_position(10, 4), ['planet', 'with', 'Padme', 'Naboo', 'is', 'nice', 'planet'])
 
 if __name__ == '__main__':
 	unittest.main()

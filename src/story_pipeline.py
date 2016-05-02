@@ -2,10 +2,10 @@ import file_ops
 from book_ops import BookOps
 import graph_ops
 
-PATH_TO_BOOK = './../books/harry.txt ' #'./../books/storm_of_swords.txt'
+PATH_TO_BOOK = './../books/lotr.txt ' #'./../books/storm_of_swords.txt'
 PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt'
-PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/test_hp_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
-PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_hp_positions.txt'
+PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/hero_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
+PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_positions.txt'
 PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 
 WORDS_DISTANCE = 6

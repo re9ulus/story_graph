@@ -199,3 +199,15 @@ class BookOps:
 			if power > 0:
 				connections.append(connection)
 		return connections
+
+
+	def get_words_near_position(self, index, delta):
+		'''get words from text[index-delta:index+delta]
+
+		int, int -> [string]
+		'''
+		min_index = index - delta
+		min_index = 0 if min_index < 0 else min_index
+		max_index = index + delta
+		max_index = len(self._words) if max_index > len(self._words) else max_index
+		return self._words[min_index:max_index]
