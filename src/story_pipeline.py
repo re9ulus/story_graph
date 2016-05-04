@@ -5,7 +5,7 @@ import sentiment_ops
 
 PATH_TO_BOOK = './../books/harry.txt ' #'./../books/storm_of_swords.txt'
 PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt'
-PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/test_hp_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
+PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/hero_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
 PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_positions.txt'
 PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 
@@ -51,7 +51,7 @@ def build_graph(book):
 	'''
 	name_positions = file_ops.load_token_positions_from_file(PATH_TO_NAME_POSITIONS_FILE)
 	g = graph_ops.Graph()
-	connections = b.get_connection_powers(name_positions, WORDS_DISTANCE) #get_connections(name_positions, WORDS_DISTANCE)
+	connections = b.get_connection_powers(name_positions, WORDS_DISTANCE)
 	
 	for conn, count in connections.iteritems():
 		g.add_connection(*conn)
@@ -70,20 +70,41 @@ def build_graph(book):
 
 def get_sentiment_for_names(book):
 	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
-	i = 0
 	res = []
 	join_st = lambda s: ' '.join(s)
 	for name, _c in names.iteritems():
-		# if i > 5:
-		# 	break
 		name_occurances = book.get_all_token_positions(name)
 		name_surrs = book.get_all_positions_surroundings(name_occurances, delta=3)
 		name_surrs = map(join_st, name_surrs)
-		# print name_surrs[:10]
 		res.append((sentiment_ops.estimate_for_list(name_surrs), name))
-		i += 1
 	for val, name in sorted(res):
-		print '{0}:\t\t{1}'.format(name, val)
+		print('{0}:\t\t{1}'.format(name, val))
+	print('')
+
+
+def get_sentiment_for_connections(book, word_pos, target_name):
+	'''target_name - character for whom get connection sentiments
+	'''
+	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	join_st = lambda s: ' '.join(s)
+	res = []
+	target_positions = book.get_all_token_positions(target_name)
+
+	for name in names:
+		if name == target_name:
+			continue
+		name_positions = book.get_all_token_positions(name)
+
+
+		connection_positions = book.get_all_connection_positions(target_positions, name_positions, dist=WORDS_DISTANCE)
+		connection_surrs = book.get_all_positions_surroundings(connection_positions, delta=5)
+		connection_surrs = map(join_st, connection_surrs)
+
+		res.append((sentiment_ops.estimate_for_list(connection_surrs), name))
+
+	print('Sentiment for {0}:'.format(target_name))
+	for val, name in sorted(res):
+		print('{0}:\t\t{1}'.format(name, val))
 
 
 if __name__ == '__main__':
@@ -92,7 +113,10 @@ if __name__ == '__main__':
 	# book_to_names(b)
 
 	word_pos = word_positions_for_names(b)
-	get_sentiment_for_names(b)
+	# get_sentiment_for_names(b)
+	characters_to_test = ['Harry', 'Voldemort',  'Ginny', 'Malfoy', 'Dumbledore', 'Hagrid']
+	for name in characters_to_test:
+		get_sentiment_for_connections(b, word_pos, target_name = name)
 
 	# g = build_graph(b)
 	# g.save_graph_to_vna(PATH_TO_GRAPH)

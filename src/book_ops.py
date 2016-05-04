@@ -7,6 +7,8 @@ from nltk.stem.snowball import SnowballStemmer
 # TODO: Add tests for stemming function
 # TODO: Add full pipeline to BookOps class
 
+# TODO: Maybe add name_occurances to this class ?
+
 class BookOps:
 
 	stemmer = SnowballStemmer('english')
@@ -156,7 +158,7 @@ class BookOps:
 	def count_tokens_within_distance(cls, token1_pos, token2_pos, dist):
 		'''count number of occurrences token1 within distance to token2
 
-		[int], [int], dist -> [int]
+		[int], [int], dist -> int
 		'''
 		score = 0
 		for i in token1_pos:
@@ -222,3 +224,20 @@ class BookOps:
 		for occurance_ind in name_occurances:
 			res_surroundings.append(self.get_words_near_position(occurance_ind, delta))
 		return res_surroundings
+
+
+	@classmethod
+	def get_all_connection_positions(cls, token1_pos, token2_pos, dist):
+		# TODO: Add tests
+		'''get positions of the connections in the book
+
+		[int], [int], dist -> [int]
+		'''
+		positions = []
+		for i in token1_pos:
+			for j in token2_pos:
+				if abs(i - j) <= dist:
+					positions.append((i + j) / 2)
+				elif j > i and abs(i - j) > dist:
+					break
+		return positions
