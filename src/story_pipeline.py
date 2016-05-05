@@ -141,14 +141,14 @@ def get_sentiment_for_connections(book, word_pos, target_name):
 if __name__ == '__main__':
 	raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
 	b = BookOps(text=raw_text, use_stemmer=True, min_occurance=MIN_OCCURANCE)
-	# book_to_names(b)
+	book_to_names(b)
 
-	word_pos = word_positions_for_names(b)
-	# get_sentiment_for_names(b)
-	# characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
-	# for name in characters_to_test:
-		# get_sentiment_for_connections(b, word_pos, target_name = name)
+	# word_pos = word_positions_for_names(b)
+	# # get_sentiment_for_names(b)
+	# # characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
+	# # for name in characters_to_test:
+	# 	# get_sentiment_for_connections(b, word_pos, target_name = name)
 
-	# g = build_graph(b)
-	g = build_graph_with_sentiment(b)
-	g.save_graph_to_vna(PATH_TO_GRAPH)
+	# # g = build_graph(b)
+	# g = build_graph_with_sentiment(b)
+	# g.save_graph_to_vna(PATH_TO_GRAPH)

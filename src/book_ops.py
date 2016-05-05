@@ -19,7 +19,7 @@ class BookOps:
 		self._use_stemmer = use_stemmer
 		self._min_occurance = min_occurance
 
-		self._name_pattern = '[^\.\!\?\"]\s+([A-Z][a-z]+)'
+		self._name_pattern = '\w[^\.\!\?\"]\s+([A-Z][a-z]+)'
 
 		self._words = self.text_to_words(self._text)
 		self._stemmed_words = self.stem_words(self._words)
@@ -102,7 +102,6 @@ class BookOps:
 			words_occurance = {k: v for k, v in words_occurance.iteritems() if v > self._min_occurance}
 		return words_occurance
 
-
 	def get_names_from_text(self):
 		'''get dict of names in the text
 
@@ -111,7 +110,10 @@ class BookOps:
 		dict key is name
 		dict value is number of occurances of the name in text
 		'''
-		names = set(re.findall(self._name_pattern, self._text))
+		names = set(re.findall(self._name_pattern, self._raw_text))
+		for name in sorted(names):
+			print name
+
 		words = filter(self.is_capitalized, self._words)
 
 		if self._use_stemmer:
