@@ -17,7 +17,7 @@ def estimate_for_list(strings):
 
 	pos, neg = sum(pos) / (len(sentiment) + 1), sum(neg) / (len(sentiment) + 1) # len(pos) + 1, len(neg)
 
-	return (pos - neg) * 100
+	return (pos - neg)  * 10
 
 # if __name__ == '__main__':
 	# arr = ['']

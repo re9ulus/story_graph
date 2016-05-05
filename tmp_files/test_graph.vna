@@ -1,117 +1,182 @@
 *node data
 ID count
-Mithrandir 30
-Rosies 14
-Morgul 21
-Galadriels 22
-Saruman 42
-Gimli 77
-Legolas 67
-Rohirrim 31
-Isildur 16
-Frodo 390
-Ithilien 22
-Elrond 33
-Merry 231
-Pelennor 26
-Gandalf 306
-Aragorn 225
-Imrahil 34
-Ioreth 14
-Gollum 24
-Mindolluin 16
-Pippin 282
-Theoden 96
-Eowyn 98
-Faramir 163
-Bilbo 33
-Halbarad 15
+Stannis 207
+Ygritte 133
+Robb 373
+Brienne 192
+Jorah 135
+Frey 185
+Joffrey 262
+Tyrion 649
+Margaery 105
+Grace 289
+Petyr 122
+Davos 288
+Dany 335
+Lysa 113
+Roberts 187
+Jaime 575
+Arya 490
+Bolton 138
+Bran 279
+Tyrell 177
+Sansa 508
+Tywin 211
+Cersei 231
+Clegane 142
+Hodor 177
+Catelyn 302
+Mormont 133
 *tie data
 from to strength
-Rohirrim Theoden 1
-Elrond Galadriels 4
-Isildur Theoden 1
-Gandalf Saruman 4
-Galadriels Legolas 2
-Faramir Gandalf 9
-Elrond Imrahil 2
-Frodo Gandalf 12
-Merry Rohirrim 2
-Galadriels Gandalf 1
-Aragorn Galadriels 1
-Aragorn Isildur 1
-Aragorn Theoden 1
-Morgul Pippin 1
-Ioreth Mithrandir 1
-Elrond Frodo 3
-Frodo Merry 8
-Legolas Mithrandir 1
-Gimli Imrahil 2
-Elrond Gandalf 2
-Faramir Ithilien 2
-Gandalf Merry 4
-Bilbo Pippin 1
-Gollum Pippin 1
-Gandalf Mithrandir 2
-Bilbo Gandalf 1
-Aragorn Gandalf 13
-Aragorn Gimli 5
-Mindolluin Pelennor 1
-Gandalf Pippin 31
-Aragorn Frodo 1
-Mithrandir Pippin 2
-Aragorn Elrond 3
-Eowyn Imrahil 1
-Faramir Merry 3
-Legolas Merry 2
-Aragorn Rohirrim 1
-Gandalf Legolas 2
-Eowyn Gandalf 2
-Gimli Pippin 1
-Eowyn Faramir 11
-Merry Saruman 2
-Faramir Mithrandir 1
-Frodo Legolas 2
-Pelennor Theoden 1
-Frodo Galadriels 3
-Faramir Imrahil 2
-Eowyn Theoden 4
-Aragorn Merry 10
-Aragorn Halbarad 3
-Gimli Legolas 32
-Frodo Gollum 6
-Aragorn Ithilien 1
-Elrond Merry 1
-Frodo Pippin 8
-Gandalf Rohirrim 1
-Aragorn Eowyn 5
-Galadriels Saruman 1
-Ioreth Pippin 1
-Aragorn Faramir 5
-Aragorn Imrahil 3
-Merry Theoden 3
-Gimli Halbarad 1
-Imrahil Pippin 1
-Bilbo Frodo 5
-Gandalf Imrahil 2
-Imrahil Legolas 3
-Bilbo Elrond 1
-Aragorn Legolas 6
-Aragorn Ioreth 1
-Gimli Merry 2
-Frodo Ithilien 1
-Mithrandir Rohirrim 1
-Frodo Rosies 1
-Faramir Morgul 1
-Faramir Pippin 9
-Frodo Gimli 2
-Gandalf Morgul 1
-Ithilien Legolas 1
-Aragorn Pippin 1
-Eowyn Ithilien 1
-Merry Pippin 31
-Eowyn Merry 6
-Gandalf Gollum 1
-Pelennor Pippin 1
-Frodo Saruman 3
-Frodo Pelennor 1
+Brienne Tyrion 1.085
+Hodor Robb 2.01
+Catelyn Stannis 2
+Grace Jorah 5.448
+Stannis Tywin -1.99166666667
+Clegane Tywin 1
+Arya Brienne 1
+Arya Cersei 1
+Catelyn Frey -3.535
+Arya Roberts 0.186666666667
+Grace Tywin 8.296
+Stannis Tyrion -1.22
+Margaery Tywin 1.12
+Bran Lysa -1.185
+Clegane Sansa 0.3
+Sansa Tyrion -15.6696666667
+Davos Roberts 1
+Margaery Robb -2.165
+Cersei Roberts 7.83
+Bolton Catelyn 3
+Petyr Tyrion -2.08666666667
+Joffrey Tywin -5.03142857143
+Jaime Tyrion -0.488888888889
+Catelyn Clegane -1.185
+Jaime Roberts -3.36666666667
+Grace Petyr 2.78666666667
+Joffrey Stannis -3.135
+Stannis Tyrell 1
+Robb Stannis -1.44666666667
+Robb Tyrion 1.44
+Cersei Jaime -2.89777777778
+Catelyn Sansa -0.056
+Roberts Sansa -6.12444444444
+Grace Robb 16.9066666667
+Grace Mormont 6.376
+Catelyn Cersei 2
+Arya Bran -3.465
+Bolton Frey 1.336
+Davos Grace 22.3363636364
+Dany Grace 15.3833333333
+Bolton Grace 3.68666666667
+Grace Joffrey 23.7454545455
+Mormont Robb 2
+Brienne Joffrey 1
+Roberts Stannis 3.30666666667
+Tyrell Tywin -1.56
+Margaery Sansa -16.32
+Jaime Stannis 1
+Arya Clegane -1.2525
+Arya Grace 1.12
+Jaime Tywin -4.99625
+Arya Joffrey 1
+Robb Tywin -1.305
+Jaime Lysa 1.54
+Bolton Robb 0.233333333333
+Tyrion Tywin -3.87333333333
+Bolton Tyrion 1
+Roberts Tywin 2.9625
+Lysa Tyrion 1
+Lysa Robb -1.32666666667
+Brienne Robb -1.96666666667
+Joffrey Roberts -4.65
+Arya Tyrion 2
+Robb Sansa 3.975
+Petyr Sansa 3.11111111111
+Jaime Robb 1.02
+Brienne Frey 2
+Bran Ygritte 1
+Cersei Tyrell 2
+Catelyn Tyrion 2
+Grace Stannis 6.11142857143
+Catelyn Jaime -3.24666666667
+Frey Tywin 0.945
+Robb Roberts 0.955
+Bran Grace 5.52
+Clegane Tyrion -10.3166666667
+Bran Sansa -4.41666666667
+Catelyn Lysa 1
+Catelyn Grace 2.88
+Arya Sansa 5.859375
+Robb Ygritte -0.39
+Lysa Sansa 1.96
+Jaime Joffrey -2.416
+Clegane Joffrey 1
+Grace Roberts 0.8
+Bran Hodor -20.4847826087
+Cersei Stannis 1.21333333333
+Grace Sansa 16.02
+Bran Frey 2.52
+Bolton Clegane -0.98
+Margaery Tyrion -0.758333333333
+Mormont Stannis 1.31
+Catelyn Robb -1.1305
+Davos Stannis 1.996875
+Jorah Mormont -1.9
+Joffrey Sansa -12.825
+Grace Tyrion 6.27
+Arya Lysa -1.21
+Bran Roberts 1.74666666667
+Grace Jaime 1.185
+Arya Bolton -4.064
+Jaime Margaery 1
+Arya Catelyn 2
+Roberts Tyrion 0.726666666667
+Bolton Tywin -1.86666666667
+Frey Sansa -1.64
+Frey Petyr 0.945
+Grace Margaery 8.12666666667
+Dany Roberts -4.14666666667
+Sansa Tyrell 2.39090909091
+Brienne Catelyn -8.28
+Davos Mormont 1
+Dany Joffrey 1
+Frey Robb -1.84545454545
+Cersei Tywin 1
+Catelyn Jorah 1
+Grace Tyrell 1.185
+Bolton Jaime -3.29875
+Cersei Tyrion -12.4578947368
+Bran Robb 1.52
+Lysa Tywin 3
+Jaime Tyrell 1
+Mormont Tyrion 3.435
+Bolton Brienne -1.08
+Joffrey Robb -1.4775
+Tyrell Tyrion -1.17
+Cersei Sansa 5.41625
+Dany Mormont -1.49333333333
+Lysa Petyr 5.27111111111
+Frey Stannis 1
+Brienne Tyrell 1
+Brienne Cersei -4.82666666667
+Joffrey Margaery 10.921875
+Petyr Tyrell 1
+Jaime Sansa 1.26
+Catelyn Mormont -1.05
+Cersei Margaery 1.12
+Arya Jaime 0.384
+Clegane Roberts 1
+Margaery Tyrell 3.06
+Grace Ygritte 1.295
+Arya Robb 4.257
+Joffrey Tyrion -10.4172222222
+Petyr Robb 2
+Dany Jorah 6.72933333333
+Lysa Roberts 1.085
+Brienne Jaime 7.19828571429
+Catelyn Petyr 1
+Frey Jaime -2.37
+Cersei Joffrey 1.17
+Joffrey Tyrell 4.61125
