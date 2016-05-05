@@ -226,16 +226,17 @@ class BookOps:
 		return res_surroundings
 
 
-	@classmethod
-	def get_all_connection_positions(cls, token1_pos, token2_pos, dist):
+	def get_all_connection_positions(self, name1, name2, dist):
 		# TODO: Add tests
-		'''get positions of the connections in the book
+		'''get positions of connections between 2 characters in the book
 
-		[int], [int], dist -> [int]
+		string, string, dist -> [int]
 		'''
 		positions = []
-		for i in token1_pos:
-			for j in token2_pos:
+		name_pos1 = self.get_all_token_positions(name1)
+		name_pos2 = self.get_all_token_positions(name2)
+		for i in name_pos1:
+			for j in name_pos2:
 				if abs(i - j) <= dist:
 					positions.append((i + j) / 2)
 				elif j > i and abs(i - j) > dist:

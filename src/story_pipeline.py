@@ -80,16 +80,14 @@ def build_graph_with_sentiment(book):
 	for conn, count in connections.iteritems():
 		g.add_connection(*conn)
 
-		connection_positions = book.get_all_connection_positions(
-			book.get_all_token_positions(conn[0]),
-			book.get_all_token_positions(conn[1]), dist=WORDS_DISTANCE)
+		connection_positions = book.get_all_connection_positions(*conn, dist=5)
 		connection_surrs = book.get_all_positions_surroundings(connection_positions, delta=5)
 		connection_surrs = map(join_st, connection_surrs)
 		sent = sentiment_ops.estimate_for_list(connection_surrs)
 
 		connection_weight = count
 		if sent != 0:
-			connection_weight *= sent
+			connection_weight *= abs(sent)
 			print conn, count, connection_weight
 
 		g.set_connection_weight(conn, connection_weight)
@@ -124,14 +122,11 @@ def get_sentiment_for_connections(book, word_pos, target_name):
 	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
 	join_st = lambda s: ' '.join(s)
 	res = []
-	target_positions = book.get_all_token_positions(target_name)
 
 	for name in names:
 		if name == target_name:
 			continue
-		name_positions = book.get_all_token_positions(name)
-
-		connection_positions = book.get_all_connection_positions(target_positions, name_positions, dist=WORDS_DISTANCE)
+		connection_positions = book.get_all_connection_positions(target_name, name, dist=WORDS_DISTANCE)
 		connection_surrs = book.get_all_positions_surroundings(connection_positions, delta=5)
 		connection_surrs = map(join_st, connection_surrs)
 
