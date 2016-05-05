@@ -227,7 +227,6 @@ class BookOps:
 
 
 	def get_all_connection_positions(self, name1, name2, dist):
-		# TODO: Add tests
 		'''get positions of connections between 2 characters in the book
 
 		string, string, dist -> [int]
