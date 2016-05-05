@@ -137,5 +137,21 @@ class TestBookOps(unittest.TestCase):
 		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
 		self.assertEqual(b.get_words_near_position(10, 4), ['planet', 'with', 'Padme', 'Naboo', 'is', 'nice', 'planet'])
 
+	def test_get_all_connection_positions1(self):
+		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
+		self.assertEqual(b.get_all_connection_positions('Sam', 'Arya', 3), [1])
+
+	def test_get_all_connection_positions2(self):
+		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
+		self.assertEqual(b.get_all_connection_positions('Sam', 'Padme', 3), [])
+
+	def test_get_all_connection_positions3(self):
+		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
+		self.assertEqual(b.get_all_connection_positions('Padme', 'Naboo', 3), [6, 8])
+
+	def test_get_all_connection_positions4(self):
+		b = BookOps(text='')
+		self.assertEqual(b.get_all_connection_positions('Padme', 'Naboo', 3), [])
+
 if __name__ == '__main__':
 	unittest.main()
