@@ -13,6 +13,7 @@ class Graph:
 		self._graph = {}
 		self._node_weights = defaultdict(int)
 		self._connection_weights = defaultdict(int)
+		self._connection_sentiment_weights = defaultdict(int)
 
 	def add_node(self, node):
 		if node not in self._graph:
@@ -61,9 +62,20 @@ class Graph:
 		self._connection_weights[self._connection_key(connection)] = weight
 
 	def get_connection_weight(self, connection):
-		'''set weight to connection'''
+		'get connection weight'''
 		self._check_connection_in_graph_error(connection)
 		return self._connection_weights[self._connection_key(connection)]
+
+	def set_connection_sentiment(self, connection, weight):
+		# TODO: Add tests
+		'''set connection sentiment'''
+		self._check_connection_in_graph_error(connection)
+		self._connection_sentiment_weights[self._connection_key(connection)] = weight
+
+	def get_connection_sentiment(self, connection):
+		'''get connection sentiment'''
+		self._check_connection_in_graph_error(connection)
+		return self._connection_sentiment_weights[self._connection_key(connection)]
 
 	def save_graph_to_file(self, path_to_file):
 		nodes = self._graph.keys()
@@ -93,7 +105,6 @@ class Graph:
 		for node, connections in self._graph.iteritems():
 			for conn in connections:
 				edges.add(self._connection_key((node, conn)))
-
 		edges = list(edges)
 		edges = map(list, edges)
 		with open(path_to_file, 'w+') as f:
@@ -102,9 +113,9 @@ class Graph:
 			for node in nodes:
 				f.write('{0} {1}\n'.format(node, self.get_node_weight(node)))
 			f.write('*tie data\n')
-			f.write('from to strength\n')
+			f.write('from to strength sentiment\n')
 			for edge in edges:
-				f.write('{0} {1} {2}\n'.format(edge[0], edge[1], self.get_connection_weight(edge)))
+				f.write('{0} {1} {2} {3}\n'.format(edge[0], edge[1], self.get_connection_weight(edge), self.get_connection_sentiment(edge)))
 
 	def load_graph_from_file(self, path_to_file):
 		raise Exception('Not implemented')

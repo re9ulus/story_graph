@@ -4,8 +4,8 @@ import graph_ops
 import sentiment_ops
 
 PATH_TO_BOOK = './../books/storm_of_swords.txt ' #'./../books/harry.txt'
-PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt'
-PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/hero_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
+PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt' #'
+PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/sos_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
 PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_positions.txt'
 PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 
@@ -60,6 +60,7 @@ def build_graph(book):
 		g.set_connection_weight(conn, count)
 
 	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+
 	for name, count in names.iteritems():
 		g.set_node_weight(name, count)
 
@@ -68,6 +69,14 @@ def build_graph(book):
 	print g.__repr__()
 
 	return g
+
+
+def get_connection_sent(book, conn):
+	# TODO: Insert to class
+	connection_positions = book.get_all_connection_positions(*conn, dist=5)
+	connection_surrs = map(join_st, book.get_all_positions_surroundings(connection_positions, delta=5))
+	return sentiment_ops.estimate_for_list(connection_surrs)
+
 
 
 def build_graph_with_sentiment(book):
@@ -79,18 +88,9 @@ def build_graph_with_sentiment(book):
 	
 	for conn, count in connections.iteritems():
 		g.add_connection(*conn)
-
-		connection_positions = book.get_all_connection_positions(*conn, dist=5)
-		connection_surrs = book.get_all_positions_surroundings(connection_positions, delta=5)
-		connection_surrs = map(join_st, connection_surrs)
-		sent = sentiment_ops.estimate_for_list(connection_surrs)
-
-		connection_weight = count
-		if sent != 0:
-			connection_weight *= abs(sent)
-			print conn, count, connection_weight
-
-		g.set_connection_weight(conn, connection_weight)
+		g.set_connection_weight(conn, count)
+		sent = get_connection_sent(book, conn)
+		g.set_connection_sentiment(conn, sent)
 
 	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
 	for name, count in names.iteritems():
@@ -141,14 +141,14 @@ def get_sentiment_for_connections(book, word_pos, target_name):
 if __name__ == '__main__':
 	raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
 	b = BookOps(text=raw_text, use_stemmer=True, min_occurance=MIN_OCCURANCE)
-	book_to_names(b)
+	# book_to_names(b)
+	word_pos = word_positions_for_names(b)
 
-	# word_pos = word_positions_for_names(b)
 	# # get_sentiment_for_names(b)
 	# # characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
 	# # for name in characters_to_test:
 	# 	# get_sentiment_for_connections(b, word_pos, target_name = name)
 
-	# # g = build_graph(b)
-	# g = build_graph_with_sentiment(b)
-	# g.save_graph_to_vna(PATH_TO_GRAPH)
+	# g = build_graph(b)
+	g = build_graph_with_sentiment(b)
+	g.save_graph_to_vna(PATH_TO_GRAPH)

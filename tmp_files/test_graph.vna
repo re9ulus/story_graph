@@ -4,7 +4,6 @@ Stannis 207
 Ygritte 133
 Robb 373
 Brienne 192
-Jorah 135
 Frey 185
 Joffrey 262
 Tyrion 649
@@ -27,156 +26,157 @@ Clegane 142
 Hodor 177
 Catelyn 302
 Mormont 133
+Jorahs 135
 *tie data
-from to strength
-Brienne Tyrion 1.085
-Hodor Robb 1
-Catelyn Stannis 2
-Grace Jorah 4.22
-Stannis Tywin 2.2
-Clegane Tywin 1
-Arya Brienne 1
-Arya Cersei 1
-Catelyn Frey 2.765
-Arya Roberts 0.186666666667
-Grace Tywin 8.296
-Stannis Tyrion 1
-Margaery Tywin 1
-Bran Lysa 1.185
-Clegane Sansa 1
-Sansa Tyrion 12.0470833333
-Davos Roberts 1
-Margaery Robb 1
-Cersei Roberts 7.83
-Bolton Catelyn 3
-Petyr Tyrion 2.08666666667
-Joffrey Tywin 5.03142857143
-Jaime Tyrion 0.488888888889
-Catelyn Clegane 1.185
-Jaime Roberts 3.36666666667
-Grace Petyr 2.78666666667
-Joffrey Stannis 2.04
-Stannis Tyrell 1
-Robb Stannis 1.44666666667
-Robb Tyrion 3
-Cersei Jaime 4.12571428571
-Catelyn Sansa 2.31
-Roberts Sansa 1.328
-Grace Robb 16.32
-Grace Mormont 5.6
-Catelyn Cersei 2
-Arya Bran 3.465
-Bolton Frey 4
-Davos Grace 22.0333333333
-Dany Grace 15.3833333333
-Bolton Grace 3.68666666667
-Grace Joffrey 23.725
-Mormont Robb 2
-Brienne Joffrey 1
-Roberts Stannis 2.37
-Tyrell Tywin 1.56
-Margaery Sansa 11.712
-Jaime Stannis 1
-Arya Clegane 1.67
-Arya Grace 1.12
-Jaime Tywin 4.99625
-Arya Joffrey 1
-Robb Tywin 1.74
-Jaime Lysa 1.54
-Bolton Robb 0.233333333333
-Tyrion Tywin 1.75538461538
-Bolton Tyrion 1
-Roberts Tywin 1.09
-Lysa Tyrion 1
-Lysa Robb 1.55
-Brienne Robb 1.96666666667
-Joffrey Roberts 3.23
-Arya Tyrion 2
-Robb Sansa 4.77
-Petyr Sansa 3.29142857143
-Jaime Robb 1.02
-Brienne Frey 2
-Bran Ygritte 1
-Cersei Tyrell 2
-Catelyn Tyrion 2
-Grace Stannis 6.11142857143
-Catelyn Jaime 2
-Frey Tywin 0.945
-Robb Roberts 1
-Bran Grace 5.52
-Clegane Tyrion 12.38
-Bran Sansa 0.9375
-Catelyn Lysa 1
-Catelyn Grace 2.88
-Arya Sansa 6.69642857143
-Robb Ygritte 0.39
-Lysa Sansa 0.07
-Jaime Joffrey 3.02
-Clegane Joffrey 1
-Grace Roberts 2.37
-Bran Hodor 29.2242857143
-Cersei Stannis 1.21333333333
-Grace Sansa 16.74
-Bran Frey 2.52
-Bolton Clegane 1
-Margaery Tyrion 3.5
-Mormont Stannis 1.31
-Catelyn Robb 2.529375
-Davos Stannis 0.492857142857
-Jorah Mormont 2.0
-Joffrey Sansa 10.13
-Grace Tyrion 6.27
-Arya Lysa 1.21
-Bran Roberts 1.74666666667
-Grace Jaime 1.185
-Arya Bolton 4.064
-Jaime Margaery 1
-Arya Catelyn 2
-Roberts Tyrion 0.726666666667
-Bolton Tywin 1.86666666667
-Frey Sansa 1.64
-Frey Petyr 0.945
-Grace Margaery 8.12666666667
-Dany Roberts 4.14666666667
-Sansa Tyrell 4.85555555556
-Brienne Catelyn 8.28
-Davos Mormont 1
-Dany Joffrey 1
-Frey Robb 0.28
-Cersei Tywin 1
-Catelyn Jorah 1
-Grace Tyrell 1.185
-Bolton Jaime 7.8925
-Cersei Tyrion 12.4578947368
-Bran Robb 1.52
-Lysa Tywin 3
-Jaime Tyrell 1
-Mormont Tyrion 3
-Bolton Brienne 4
-Joffrey Robb 1.4775
-Tyrell Tyrion 1.17
-Cersei Sansa 5.41625
-Dany Mormont 1.49333333333
-Lysa Petyr 8.72
-Frey Stannis 1
-Brienne Tyrell 1
-Brienne Cersei 2
-Joffrey Margaery 8.47
-Petyr Tyrell 1
-Jaime Sansa 1.26
-Catelyn Mormont 1.575
-Cersei Margaery 1.12
-Arya Jaime 0.48
-Clegane Roberts 1
-Margaery Tyrell 3.06
-Grace Ygritte 1.295
-Arya Robb 4.257
-Joffrey Tyrion 9.53133333333
-Petyr Robb 2
-Dany Jorah 4.816
-Lysa Roberts 1.085
-Brienne Jaime 8.3464516129
-Catelyn Petyr 1
-Frey Jaime 2.37
-Cersei Joffrey 3.666
-Joffrey Tyrell 3.23166666667
+from to strength sentiment
+Grace Jorahs 4 1.055
+Brienne Tyrion 1 1.085
+Hodor Robb 1 0
+Catelyn Stannis 2 0
+Stannis Tywin 5 -0.44
+Clegane Tywin 1 0
+Arya Brienne 1 0
+Arya Cersei 1 0
+Catelyn Frey 7 -0.395
+Arya Roberts 2 0.0933333333333
+Grace Tywin 4 2.074
+Stannis Tyrion 1 0
+Margaery Tywin 1 0
+Catelyn Jorahs 1 0
+Bran Lysa 1 -1.185
+Clegane Sansa 1 0
+Sansa Tyrion 29 -0.415416666667
+Davos Roberts 1 0
+Dany Jorahs 14 0.344
+Margaery Robb 1 0
+Cersei Roberts 3 2.61
+Bolton Catelyn 3 0
+Petyr Tyrion 2 -1.04333333333
+Joffrey Tywin 6 -0.838571428571
+Jaime Tyrion 8 -0.0611111111111
+Catelyn Clegane 1 -1.185
+Jaime Roberts 5 -0.673333333333
+Grace Petyr 2 1.39333333333
+Joffrey Stannis 3 0.68
+Stannis Tyrell 1 0
+Robb Stannis 2 -0.723333333333
+Robb Tyrion 3 0
+Cersei Jaime 8 -0.515714285714
+Catelyn Sansa 4 -0.5775
+Roberts Sansa 8 -0.166
+Grace Robb 8 2.04
+Grace Mormont 4 1.4
+Catelyn Cersei 2 0.0
+Arya Bran 7 -0.495
+Bolton Frey 4 0
+Davos Grace 10 2.20333333333
+Dany Grace 5 3.07666666667
+Bolton Grace 2 1.84333333333
+Grace Joffrey 10 2.3725
+Mormont Robb 2 0
+Brienne Joffrey 1 0
+Roberts Stannis 2 1.185
+Tyrell Tywin 3 -0.52
+Margaery Sansa 12 -0.976
+Jaime Stannis 1 0
+Arya Clegane 3 -0.556666666667
+Arya Grace 1 1.12
+Jaime Tywin 7 -0.71375
+Arya Joffrey 1 0
+Robb Tywin 3 -0.58
+Jaime Lysa 2 0.77
+Bolton Robb 5 0.0466666666667
+Tyrion Tywin 14 -0.125384615385
+Bolton Tyrion 1 0
+Roberts Tywin 3 0.363333333333
+Lysa Tyrion 1 0
+Lysa Robb 2 -0.775
+Brienne Robb 2 -0.983333333333
+Joffrey Roberts 3 -1.07666666667
+Arya Tyrion 2 0
+Robb Sansa 5 0.954
+Petyr Sansa 8 -0.411428571429
+Jaime Robb 3 0.34
+Brienne Frey 2 0
+Bran Ygritte 1 0
+Cersei Tyrell 2 0
+Catelyn Tyrion 2 0
+Grace Stannis 6 1.01857142857
+Catelyn Jaime 2 0
+Frey Tywin 1 0.945
+Robb Roberts 1 0
+Bran Grace 4 1.38
+Clegane Tyrion 5 -2.476
+Bran Sansa 5 0.1875
+Catelyn Lysa 1 0
+Catelyn Grace 2 1.44
+Arya Sansa 15 0.446428571429
+Robb Ygritte 1 -0.39
+Lysa Sansa 14 -0.005
+Jaime Joffrey 4 -0.755
+Clegane Joffrey 1 0
+Grace Roberts 2 1.185
+Bran Hodor 45 -0.649428571429
+Cersei Stannis 2 0.606666666667
+Grace Sansa 6 2.79
+Bran Frey 2 1.26
+Bolton Clegane 1 0
+Margaery Tyrion 5 0.7
+Mormont Stannis 1 1.31
+Catelyn Robb 19 0.133125
+Davos Stannis 15 -0.0328571428571
+Joffrey Sansa 15 -0.675333333333
+Grace Tyrion 3 2.09
+Arya Lysa 1 -1.21
+Bran Roberts 2 0.873333333333
+Grace Jaime 1 1.185
+Arya Bolton 4 -1.016
+Jaime Margaery 1 0
+Arya Catelyn 2 0
+Roberts Tyrion 2 0.363333333333
+Bolton Tywin 2 -0.933333333333
+Frey Sansa 1 -1.64
+Frey Petyr 1 0.945
+Grace Margaery 2 4.06333333333
+Dany Roberts 2 -2.07333333333
+Sansa Tyrell 10 0.485555555556
+Brienne Catelyn 3 -2.76
+Davos Mormont 1 0
+Dany Joffrey 1 0
+Frey Robb 10 0.028
+Cersei Tywin 1 0
+Grace Tyrell 1 1.185
+Bolton Jaime 7 -1.1275
+Cersei Tyrion 18 -0.692105263158
+Bran Robb 8 0.19
+Lysa Tywin 3 0
+Jaime Tyrell 1 0
+Mormont Tyrion 3 0
+Bolton Brienne 4 0
+Joffrey Robb 3 -0.4925
+Tyrell Tyrion 9 -0.13
+Cersei Sansa 7 0.77375
+Dany Mormont 2 -0.746666666667
+Lysa Petyr 8 1.09
+Frey Stannis 1 0
+Brienne Tyrell 1 0
+Brienne Cersei 2 0
+Joffrey Margaery 15 0.564666666667
+Petyr Tyrell 1 0
+Jaime Sansa 1 1.26
+Catelyn Mormont 5 -0.315
+Cersei Margaery 1 1.12
+Arya Jaime 4 0.12
+Clegane Roberts 1 0
+Margaery Tyrell 17 0.18
+Grace Ygritte 1 1.295
+Arya Robb 9 0.473
+Joffrey Tyrion 17 -0.560666666667
+Petyr Robb 2 0
+Lysa Roberts 1 1.085
+Brienne Jaime 34 0.245483870968
+Catelyn Petyr 1 0
+Frey Jaime 3 -0.79
+Cersei Joffrey 13 0.282
+Joffrey Tyrell 7 0.461666666667
+Jorahs Mormont 19 -0.105263157895

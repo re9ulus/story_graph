@@ -111,9 +111,6 @@ class BookOps:
 		dict value is number of occurances of the name in text
 		'''
 		names = set(re.findall(self._name_pattern, self._raw_text))
-		for name in sorted(names):
-			print name
-
 		words = filter(self.is_capitalized, self._words)
 
 		if self._use_stemmer:
