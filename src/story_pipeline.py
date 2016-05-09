@@ -78,7 +78,6 @@ def get_connection_sent(book, conn):
 	return sentiment_ops.estimate_for_list(connection_surrs)
 
 
-
 def build_graph_with_sentiment(book):
 	'''build graph from word positions with sentiment connection
 	'''
@@ -136,6 +135,11 @@ def get_sentiment_for_connections(book, word_pos, target_name):
 	for val, name in sorted(res):
 		print('{0}:\t\t{1}'.format(name, val))
 	print('')
+
+
+def merge_synonims(synonims_list, ):
+	name_positions = file_ops.load_token_positions_from_file(PATH_TO_NAME_POSITIONS_FILE)
+	raise Exception('Not implemented')
 
 
 if __name__ == '__main__':
