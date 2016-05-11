@@ -11,18 +11,9 @@ PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 WORDS_DISTANCE = 6
 MIN_OCCURANCE = 5
 
-# TODO: Current implementation use a lot of file ops for testing, remove them
 # TODO: Match different names to one character
 
 join_st = lambda s: ' '.join(s)
-
-def get_words():
-	'''get words from book
-	'''
-	raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
-	book_text = book_ops.remove_punctuation_from_text(raw_text)
-	words = book_ops.text_to_words(book_text)
-	return words
 
 
 def book_to_names(book):
@@ -43,7 +34,7 @@ def build_graph(book):
 		g.add_connection(*conn)
 		g.set_connection_weight(conn, count)
 
-	names = book.get_names() #file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	names = book.get_names()
 
 	for name, count in names.iteritems():
 		g.set_node_weight(name, count)
@@ -75,7 +66,7 @@ def build_graph_with_sentiment(book):
 		sent = get_connection_sent(book, conn)
 		g.set_connection_sentiment(conn, sent)
 
-	names = book.get_names() #file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	names = book.get_names()
 	for name, count in names.iteritems():
 		g.set_node_weight(name, count)
 
@@ -87,7 +78,7 @@ def build_graph_with_sentiment(book):
 
 
 def get_sentiment_for_names(book):
-	names = book.get_names() #file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	names = book.get_names()
 	res = []
 	for name, _c in names.iteritems():
 		name_occurances = book.name_positions(name)
@@ -102,7 +93,7 @@ def get_sentiment_for_names(book):
 def get_sentiment_for_connections(book, word_pos, target_name):
 	'''target_name - character for whom get connection sentiments
 	'''
-	names = book.get_names()  # file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	names = book.get_names()
 	join_st = lambda s: ' '.join(s)
 	res = []
 
