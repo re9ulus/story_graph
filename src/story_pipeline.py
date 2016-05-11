@@ -6,13 +6,12 @@ import sentiment_ops
 PATH_TO_BOOK = './../books/storm_of_swords.txt ' #'./../books/harry.txt'
 PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt' #'
 PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/sos_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
-PATH_TO_NAME_POSITIONS_FILE = './../tmp_files/test_positions.txt'
 PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 
 WORDS_DISTANCE = 6
 MIN_OCCURANCE = 5
 
-# TODO: Current implementation uses a lot of file ops for testing, remove them
+# TODO: Current implementation use a lot of file ops for testing, remove them
 # TODO: Match different names to one character
 
 join_st = lambda s: ' '.join(s)
@@ -33,19 +32,10 @@ def book_to_names(book):
 	file_ops.save_names_to_file(PATH_TO_NAMES_FILE, names)
 
 
-def word_positions_for_names(book):
-	'''get word positions from the names and words
-	'''
-	names = [name for (name, count) in file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE).iteritems()]
-	word_positions = book.all_names_positions(names)
-	file_ops.save_token_positions_to_file(PATH_TO_NAME_POSITIONS_FILE, word_positions)
-	return word_positions
-
-
 def build_graph(book):
 	'''build graph from word positions
 	'''
-	name_positions = file_ops.load_token_positions_from_file(PATH_TO_NAME_POSITIONS_FILE)
+	name_positions = book.all_names_positions()
 	g = graph_ops.Graph()
 	connections = b.get_connection_powers(name_positions, WORDS_DISTANCE)
 	
@@ -75,7 +65,7 @@ def get_connection_sent(book, conn):
 def build_graph_with_sentiment(book):
 	'''build graph from word positions with sentiment connection
 	'''
-	name_positions = file_ops.load_token_positions_from_file(PATH_TO_NAME_POSITIONS_FILE)
+	name_positions = book.all_names_positions()
 	g = graph_ops.Graph()
 	connections = b.get_connection_powers(name_positions, WORDS_DISTANCE)
 	
@@ -131,22 +121,27 @@ def get_sentiment_for_connections(book, word_pos, target_name):
 	print('')
 
 
-def merge_synonims(synonims_list, ):
-	name_positions = file_ops.load_token_positions_from_file(PATH_TO_NAME_POSITIONS_FILE)
+def merge_synonims(synonims_list, book):
+	name_positions = book.all_names_positions()
 	raise Exception('Not implemented')
 
+
+GET_NAMES = False
 
 if __name__ == '__main__':
 	raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
 	b = BookOps(text=raw_text, use_stemmer=True, min_occurance=MIN_OCCURANCE)
-	# book_to_names(b)
-	word_pos = word_positions_for_names(b)
+	if GET_NAMES:
+		book_to_names(b)
+	else:
+		names = [name for (name, count) in file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE).iteritems()]
+		b.set_names(names)
 
-	# # get_sentiment_for_names(b)
-	# # characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
-	# # for name in characters_to_test:
-	# 	# get_sentiment_for_connections(b, word_pos, target_name = name)
+		# # get_sentiment_for_names(b)
+		# # characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
+		# # for name in characters_to_test:
+		# 	# get_sentiment_for_connections(b, word_pos, target_name = name)
 
-	# g = build_graph(b)
-	g = build_graph_with_sentiment(b)
-	g.save_graph_to_vna(PATH_TO_GRAPH)
+		# g = build_graph(b)
+		g = build_graph_with_sentiment(b)
+		g.save_graph_to_vna(PATH_TO_GRAPH)

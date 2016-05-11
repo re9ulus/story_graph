@@ -146,12 +146,12 @@ class BookOps:
 		return [i for i, word in enumerate(words) if word == name]
 
 
-	def all_names_positions(self, names):
+	def all_names_positions(self):
 		'''get positions for every name in names
 
-		[string] -> {string: [int]}
+		 -> {string: [int]}
 		'''
-		return {name: self.name_positions(name) for name in names}
+		return {name: self.name_positions(name) for name in self.get_names()}
 
 
 	def count_token_occurrence(self, token):
