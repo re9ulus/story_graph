@@ -19,8 +19,7 @@ join_st = lambda s: ' '.join(s)
 def book_to_names(book):
 	'''get names from the words
 	'''
-	names = b.get_names_from_text()
-	file_ops.save_names_to_file(PATH_TO_NAMES_FILE, names)
+	file_ops.save_names_to_file(PATH_TO_NAMES_FILE, b.get_names_from_text())
 
 
 def build_graph(book):
@@ -34,9 +33,7 @@ def build_graph(book):
 		g.add_connection(*conn)
 		g.set_connection_weight(conn, count)
 
-	names = book.get_names()
-
-	for name, count in names.iteritems():
+	for name, count in book.get_names().iteritems():
 		g.set_node_weight(name, count)
 
 	print g._repr_with_weights()
@@ -66,8 +63,7 @@ def build_graph_with_sentiment(book):
 		sent = get_connection_sent(book, conn)
 		g.set_connection_sentiment(conn, sent)
 
-	names = book.get_names()
-	for name, count in names.iteritems():
+	for name, count in book.get_names().iteritems():
 		g.set_node_weight(name, count)
 
 	print g._repr_with_weights()
@@ -78,9 +74,8 @@ def build_graph_with_sentiment(book):
 
 
 def get_sentiment_for_names(book):
-	names = book.get_names()
 	res = []
-	for name, _c in names.iteritems():
+	for name, _c in book.get_names().iteritems():
 		name_occurances = book.name_positions(name)
 		name_surrs = book.get_all_positions_surroundings(name_occurances, delta=3)
 		name_surrs = map(join_st, name_surrs)
@@ -93,11 +88,10 @@ def get_sentiment_for_names(book):
 def get_sentiment_for_connections(book, word_pos, target_name):
 	'''target_name - character for whom get connection sentiments
 	'''
-	names = book.get_names()
 	join_st = lambda s: ' '.join(s)
 	res = []
 
-	for name in names:
+	for name, _c in book.get_names().iteritems():
 		if name == target_name:
 			continue
 		connection_positions = book.get_all_connection_positions(target_name, name, dist=WORDS_DISTANCE)
