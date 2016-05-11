@@ -4,14 +4,28 @@ from book_ops import BookOps
 
 class TestBookOps(unittest.TestCase):
 
-	def test_get_all_token_positions1(self):
+	def test_name_positions1(self):
 		b = BookOps(text='')
 		b._words = ['one', 'two', 'three', 'three', 'two', 'one']
-		self.assertEqual(b.get_all_token_positions('two'), [1, 4])
+		self.assertEqual(b.name_positions('two'), [1, 4])
 
-	def test_get_all_token_positions2(self):
+	def test_name_positions2(self):
 		b = BookOps(text='')
-		self.assertEqual(b.get_all_token_positions('test'), [])
+		self.assertEqual(b.name_positions('test'), [])
+
+	def test_all_names_positions1(self):
+		b = BookOps(text='')
+		self.assertEqual(b.all_names_positions(['test1', 'test2']), {'test1': [], 'test2': []})
+
+	def test_all_names_positions2(self):
+		b = BookOps(text='')
+		b._words = ['one', 'two', 'three', 'three', 'two', 'one']
+		self.assertEqual(b.all_names_positions([]), {})
+
+	def test_all_names_positions3(self):
+		b = BookOps(text='')
+		b._words = ['one', 'two', 'three', 'three', 'two', 'one']
+		self.assertEqual(b.all_names_positions(['three', 'two']), {'three': [2, 3], 'two': [1, 4]})
 
 	def test_count_token_occurrence1(self):
 		b = BookOps(text='')

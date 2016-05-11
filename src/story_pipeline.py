@@ -31,19 +31,13 @@ def book_to_names(book):
 	'''
 	names = b.get_names_from_text()
 	file_ops.save_names_to_file(PATH_TO_NAMES_FILE, names)
-	return names
 
 
 def word_positions_for_names(book):
 	'''get word positions from the names and words
 	'''
-	# TODO: Remove this later, and use words as arguments  
-	# words = book._words #get_words()
-
-	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
-	word_positions = {}
-	for name, _c in names.iteritems():
-		word_positions[name] = book.get_all_token_positions(name)
+	names = [name for (name, count) in file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE).iteritems()]
+	word_positions = book.all_names_positions(names)
 	file_ops.save_token_positions_to_file(PATH_TO_NAME_POSITIONS_FILE, word_positions)
 	return word_positions
 
@@ -106,7 +100,7 @@ def get_sentiment_for_names(book):
 	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
 	res = []
 	for name, _c in names.iteritems():
-		name_occurances = book.get_all_token_positions(name)
+		name_occurances = book.name_positions(name)
 		name_surrs = book.get_all_positions_surroundings(name_occurances, delta=3)
 		name_surrs = map(join_st, name_surrs)
 		res.append((sentiment_ops.estimate_for_list(name_surrs), name))

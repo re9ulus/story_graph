@@ -132,17 +132,24 @@ class BookOps:
 		return words_occurance
 
 
-	def get_all_token_positions(self, token):
-		'''get all positions of the token in the string array
+	def name_positions(self, name):
+		'''get all positions of the name in the string array
 
-		[string] -> [int]
+		string -> [int]
 		'''
 		words = self._words
 		if self._use_stemmer:
-			# stemmer = get_stemmer()
-			words = self._stemmed_words #self.stem_words(self._words) # WARNING: To expencive to call for each word, need to save stemmed_words
-			token = self.stemmer.stem(token)
-		return [i for i, word in enumerate(words) if word == token]
+			words = self._stemmed_words
+			name = self.stemmer.stem(name)
+		return [i for i, word in enumerate(words) if word == name]
+
+
+	def all_names_positions(self, names):
+		'''get positions for every name in names
+
+		[string] -> {string: [int]}
+		'''
+		return {name: self.name_positions(name) for name in names}
 
 
 	def count_token_occurrence(self, token):
@@ -231,8 +238,8 @@ class BookOps:
 		string, string, dist -> [int]
 		'''
 		positions = []
-		name_pos1 = self.get_all_token_positions(name1)
-		name_pos2 = self.get_all_token_positions(name2)
+		name_pos1 = self.name_positions(name1)
+		name_pos2 = self.name_positions(name2)
 		for i in name_pos1:
 			for j in name_pos2:
 				if abs(i - j) <= dist:
