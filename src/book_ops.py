@@ -24,7 +24,7 @@ class BookOps:
 		self._words = self.text_to_words(self._text)
 		self._stemmed_words = self.stem_words(self._words)
 
-		self._names = []
+		self._names = {}
 
 
 	@classmethod
@@ -151,7 +151,7 @@ class BookOps:
 
 		 -> {string: [int]}
 		'''
-		return {name: self.name_positions(name) for name in self.get_names()}
+		return {name: self.name_positions(name) for name in self.get_names().keys()}
 
 
 	def count_token_occurrence(self, token):

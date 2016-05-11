@@ -15,7 +15,7 @@ class TestBookOps(unittest.TestCase):
 
 	def test_all_names_positions1(self):
 		b = BookOps(text='')
-		b.set_names(['test1', 'test2'])
+		b.set_names({'test1': 0, 'test2': 0})
 		self.assertEqual(b.all_names_positions(), {'test1': [], 'test2': []})
 
 	def test_all_names_positions2(self):
@@ -26,7 +26,7 @@ class TestBookOps(unittest.TestCase):
 	def test_all_names_positions3(self):
 		b = BookOps(text='')
 		b._words = ['one', 'two', 'three', 'three', 'two', 'one']
-		b.set_names(['three', 'two'])
+		b.set_names({'three': 0, 'two': 0})
 		self.assertEqual(b.all_names_positions(), {'three': [2, 3], 'two': [1, 4]})
 
 	def test_count_token_occurrence1(self):
@@ -171,15 +171,15 @@ class TestBookOps(unittest.TestCase):
 
 	def test_set_names1(self):
 		b = BookOps(text='')
-		self.assertEqual(b._names, [])
-		b.set_names(['Padme', 'Frodo'])
-		self.assertEqual(b._names, ['Padme', 'Frodo'])
+		self.assertEqual(b._names, {})
+		b.set_names({'Padme': 5, 'Frodo': 3})
+		self.assertEqual(b._names, {'Padme': 5, 'Frodo': 3})
 
 	def test_get_names1(self):
 		b = BookOps(text='')
-		self.assertEqual(b.get_names(), [])
-		b._names = ['Padme', 'Frodo']
-		self.assertEqual(b.get_names(), ['Padme', 'Frodo'])
+		self.assertEqual(b.get_names(), {})
+		b._names = {'Padme': 5, 'Frodo': 3}
+		self.assertEqual(b.get_names(), {'Padme': 5, 'Frodo': 3})
 
 if __name__ == '__main__':
 	unittest.main()

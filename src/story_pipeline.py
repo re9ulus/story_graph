@@ -43,7 +43,7 @@ def build_graph(book):
 		g.add_connection(*conn)
 		g.set_connection_weight(conn, count)
 
-	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	names = book.get_names() #file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
 
 	for name, count in names.iteritems():
 		g.set_node_weight(name, count)
@@ -75,7 +75,7 @@ def build_graph_with_sentiment(book):
 		sent = get_connection_sent(book, conn)
 		g.set_connection_sentiment(conn, sent)
 
-	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	names = book.get_names() #file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
 	for name, count in names.iteritems():
 		g.set_node_weight(name, count)
 
@@ -87,7 +87,7 @@ def build_graph_with_sentiment(book):
 
 
 def get_sentiment_for_names(book):
-	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	names = book.get_names() #file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
 	res = []
 	for name, _c in names.iteritems():
 		name_occurances = book.name_positions(name)
@@ -102,7 +102,7 @@ def get_sentiment_for_names(book):
 def get_sentiment_for_connections(book, word_pos, target_name):
 	'''target_name - character for whom get connection sentiments
 	'''
-	names = file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+	names = book.get_names()  # file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
 	join_st = lambda s: ' '.join(s)
 	res = []
 
@@ -134,14 +134,13 @@ if __name__ == '__main__':
 	if GET_NAMES:
 		book_to_names(b)
 	else:
-		names = [name for (name, count) in file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE).iteritems()]
-		b.set_names(names)
+		b.set_names(file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE))
 
 		# # get_sentiment_for_names(b)
 		# # characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
 		# # for name in characters_to_test:
 		# 	# get_sentiment_for_connections(b, word_pos, target_name = name)
 
-		# g = build_graph(b)
-		g = build_graph_with_sentiment(b)
+		g = build_graph(b)
+		# g = build_graph_with_sentiment(b)
 		g.save_graph_to_vna(PATH_TO_GRAPH)
