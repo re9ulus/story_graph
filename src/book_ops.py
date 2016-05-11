@@ -24,6 +24,8 @@ class BookOps:
 		self._words = self.text_to_words(self._text)
 		self._stemmed_words = self.stem_words(self._words)
 
+		self._names = []
+
 
 	@classmethod
 	def is_capitalized(cls, word):
@@ -247,3 +249,11 @@ class BookOps:
 				elif j > i and abs(i - j) > dist:
 					break
 		return positions
+
+
+	def set_names(self, names):
+		self._names = names
+
+
+	def get_names(self):
+		return self._names

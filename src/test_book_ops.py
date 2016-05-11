@@ -167,5 +167,17 @@ class TestBookOps(unittest.TestCase):
 		b = BookOps(text='')
 		self.assertEqual(b.get_all_connection_positions('Padme', 'Naboo', 3), [])
 
+	def test_set_names1(self):
+		b = BookOps(text='')
+		self.assertEqual(b._names, [])
+		b.set_names(['Padme', 'Frodo'])
+		self.assertEqual(b._names, ['Padme', 'Frodo'])
+
+	def test_get_names1(self):
+		b = BookOps(text='')
+		self.assertEqual(b.get_names(), [])
+		b._names = ['Padme', 'Frodo']
+		self.assertEqual(b.get_names(), ['Padme', 'Frodo'])
+
 if __name__ == '__main__':
 	unittest.main()
