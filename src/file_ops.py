@@ -71,4 +71,3 @@ def load_token_positions_from_file(path_to_file):
 			positions = map(lambda item: int(item.strip()), positions.split())
 			tokens[name] = positions
 	return tokens
-

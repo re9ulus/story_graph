@@ -3,9 +3,9 @@ from book_ops import BookOps
 import graph_ops
 import sentiment_ops
 
-PATH_TO_BOOK = './../books/storm_of_swords.txt ' #'./../books/harry.txt'
+PATH_TO_BOOK = './../books/harry.txt' #'./../books/storm_of_swords.txt '
 PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt' #'
-PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/sos_names.txt' #'./../tmp_files/test_st_of_sw_names.txt'
+PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/hero_names.txt' #'./../tmp_files/sos_names.txt'
 PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 
 WORDS_DISTANCE = 6
@@ -106,9 +106,31 @@ def get_sentiment_for_connections(book, word_pos, target_name):
 	print('')
 
 
-def merge_synonims(synonims_list, book):
+def merge_synonims(book, synonims_list):
+	# TODO: Move logic to get_names_from_words, and get_names_from_text
 	name_positions = book.all_names_positions()
-	raise Exception('Not implemented')
+	merged_list = []
+	for name in synonims_list:
+		print name, name_positions[name]
+		merged_list += name_positions[name]
+	merged_list = sorted(merged_list)
+	res_list = []
+	i = 0
+	while i < len(merged_list)-1:
+		if merged_list[i+1] - merged_list[i] < WORDS_DISTANCE:
+			print 'merge', i, i+1
+			res_list.append((merged_list[i+1] + merged_list[i]) / 2)
+			i += 1
+		else:
+			res_list.append(merged_list[i])
+		i += 1
+
+	book._names[synonims_list[0]] = len(res_list)
+	map(book._names.pop, synonims_list[1:]) 
+
+	print len(res_list)
+	print len(merged_list)
+	# raise Exception('Not implemented')
 
 
 GET_NAMES = False
@@ -120,12 +142,13 @@ if __name__ == '__main__':
 		book_to_names(b)
 	else:
 		b.set_names(file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE))
+		merge_synonims(b, ['Harry', 'Potter'])
 
-		# # get_sentiment_for_names(b)
-		# # characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
-		# # for name in characters_to_test:
-		# 	# get_sentiment_for_connections(b, word_pos, target_name = name)
+		# # # get_sentiment_for_names(b)
+		# # # characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
+		# # # for name in characters_to_test:
+		# # 	# get_sentiment_for_connections(b, word_pos, target_name = name)
 
-		g = build_graph(b)
-		# g = build_graph_with_sentiment(b)
-		g.save_graph_to_vna(PATH_TO_GRAPH)
+		# g = build_graph(b)
+		# # g = build_graph_with_sentiment(b)
+		# g.save_graph_to_vna(PATH_TO_GRAPH)
