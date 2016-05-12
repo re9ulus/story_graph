@@ -45,8 +45,8 @@ def build_graph(book):
 
 def get_connection_sent(book, conn):
 	# TODO: Insert to class
-	connection_positions = book.get_all_connection_positions(*conn, dist=5)
-	connection_surrs = map(join_st, book.get_all_positions_surroundings(connection_positions, delta=5))
+	connection_positions = book.all_connection_positions(*conn, dist=5)
+	connection_surrs = map(join_st, book.all_positions_surroundings(connection_positions, delta=5))
 	return sentiment_ops.estimate_for_list(connection_surrs)
 
 
@@ -77,7 +77,7 @@ def get_sentiment_for_names(book):
 	res = []
 	for name, _c in book.get_names().iteritems():
 		name_occurances = book.name_positions(name)
-		name_surrs = book.get_all_positions_surroundings(name_occurances, delta=3)
+		name_surrs = book.all_positions_surroundings(name_occurances, delta=3)
 		name_surrs = map(join_st, name_surrs)
 		res.append((sentiment_ops.estimate_for_list(name_surrs), name))
 	for val, name in sorted(res):
@@ -94,8 +94,8 @@ def get_sentiment_for_connections(book, word_pos, target_name):
 	for name, _c in book.get_names().iteritems():
 		if name == target_name:
 			continue
-		connection_positions = book.get_all_connection_positions(target_name, name, dist=WORDS_DISTANCE)
-		connection_surrs = book.get_all_positions_surroundings(connection_positions, delta=5)
+		connection_positions = book.all_connection_positions(target_name, name, dist=WORDS_DISTANCE)
+		connection_surrs = book.all_positions_surroundings(connection_positions, delta=5)
 		connection_surrs = map(join_st, connection_surrs)
 
 		res.append((sentiment_ops.estimate_for_list(connection_surrs), name))
@@ -118,7 +118,6 @@ def merge_synonims(book, synonims_list):
 	i = 0
 	while i < len(merged_list)-1:
 		if merged_list[i+1] - merged_list[i] < WORDS_DISTANCE:
-			print 'merge', i, i+1
 			res_list.append((merged_list[i+1] + merged_list[i]) / 2)
 			i += 1
 		else:
@@ -130,7 +129,6 @@ def merge_synonims(book, synonims_list):
 
 	print len(res_list)
 	print len(merged_list)
-	# raise Exception('Not implemented')
 
 
 GET_NAMES = False

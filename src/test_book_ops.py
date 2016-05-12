@@ -137,37 +137,37 @@ class TestBookOps(unittest.TestCase):
 		expected = [('Arya', 'Black'), ('Arya', 'Frodo'), ('Arya', 'Luke'), ('Frodo', 'Luke')]
 		self.assertEqual(sorted(b.get_connections(records, 1)), expected)
 
-	def test_get_words_near_position1(self):
+	def test_words_near_position1(self):
 		b = BookOps(text='')
-		self.assertEqual(sorted(b.get_words_near_position(0, 5)), [])
+		self.assertEqual(sorted(b.words_near_position(0, 5)), [])
 
-	def test_get_words_near_position2(self):
+	def test_words_near_position2(self):
 		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
-		self.assertEqual(b.get_words_near_position(5, 4), ['and', 'Arya', 'were', 'on', 'Naboo', 'planet', 'with', 'Padme'])
+		self.assertEqual(b.words_near_position(5, 4), ['and', 'Arya', 'were', 'on', 'Naboo', 'planet', 'with', 'Padme'])
 
-	def test_get_words_near_position3(self):
+	def test_words_near_position3(self):
 		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
-		self.assertEqual(b.get_words_near_position(2, 4), ['Sam', 'and', 'Arya', 'were', 'on', 'Naboo'])
+		self.assertEqual(b.words_near_position(2, 4), ['Sam', 'and', 'Arya', 'were', 'on', 'Naboo'])
 
-	def test_get_words_near_position4(self):
+	def test_words_near_position4(self):
 		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
-		self.assertEqual(b.get_words_near_position(10, 4), ['planet', 'with', 'Padme', 'Naboo', 'is', 'nice', 'planet'])
+		self.assertEqual(b.words_near_position(10, 4), ['planet', 'with', 'Padme', 'Naboo', 'is', 'nice', 'planet'])
 
-	def test_get_all_connection_positions1(self):
+	def test_all_connection_positions1(self):
 		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
-		self.assertEqual(b.get_all_connection_positions('Sam', 'Arya', 3), [1])
+		self.assertEqual(b.all_connection_positions('Sam', 'Arya', 3), [1])
 
-	def test_get_all_connection_positions2(self):
+	def test_all_connection_positions2(self):
 		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
-		self.assertEqual(b.get_all_connection_positions('Sam', 'Padme', 3), [])
+		self.assertEqual(b.all_connection_positions('Sam', 'Padme', 3), [])
 
-	def test_get_all_connection_positions3(self):
+	def test_all_connection_positions3(self):
 		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
-		self.assertEqual(b.get_all_connection_positions('Padme', 'Naboo', 3), [6, 8])
+		self.assertEqual(b.all_connection_positions('Padme', 'Naboo', 3), [6, 8])
 
-	def test_get_all_connection_positions4(self):
+	def test_all_connection_positions4(self):
 		b = BookOps(text='')
-		self.assertEqual(b.get_all_connection_positions('Padme', 'Naboo', 3), [])
+		self.assertEqual(b.all_connection_positions('Padme', 'Naboo', 3), [])
 
 	def test_set_names1(self):
 		b = BookOps(text='')

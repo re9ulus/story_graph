@@ -211,7 +211,7 @@ class BookOps:
 		return connections
 
 
-	def get_words_near_position(self, index, delta):
+	def words_near_position(self, index, delta):
 		'''get words from text[index-delta:index+delta]
 
 		int, int -> [string]
@@ -223,18 +223,18 @@ class BookOps:
 		return self._words[min_index:max_index]
 
 
-	def get_all_positions_surroundings(self, name_occurances, delta):
+	def all_positions_surroundings(self, name_occurances, delta):
 		'''get all surrounding from text for each position in name_occurances
 		
 		[int], int -> [[string]]
 		'''
 		res_surroundings = []
 		for occurance_ind in name_occurances:
-			res_surroundings.append(self.get_words_near_position(occurance_ind, delta))
+			res_surroundings.append(self.words_near_position(occurance_ind, delta))
 		return res_surroundings
 
 
-	def get_all_connection_positions(self, name1, name2, dist):
+	def all_connection_positions(self, name1, name2, dist):
 		'''get positions of connections between 2 characters in the book
 
 		string, string, dist -> [int]
