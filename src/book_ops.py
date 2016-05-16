@@ -15,7 +15,7 @@ class BookOps:
 
 	def __init__(self, text='', distance=6, min_occurance=0, use_stemmer=False):
 		self._raw_text = text
-		self._text = self.remove_punctuation_from_text(self._raw_text)
+		self._text = self._remove_punctuation_from_text(self._raw_text)
 		self._use_stemmer = use_stemmer
 		self._min_occurance = min_occurance
 
@@ -40,8 +40,8 @@ class BookOps:
 		'''
 		return text.split()
 
-	@classmethod
-	def remove_punctuation_from_text(cls, text):
+
+	def _remove_punctuation_from_text(self, text):
 		'''remove punctuation from text
 
 		string -> string
@@ -50,14 +50,14 @@ class BookOps:
 		exclude = set(string.punctuation)
 		return ''.join(ch for ch in text if ch not in exclude)
 
-	@classmethod
-	def remove_punctuation_from_words(cls, words):
+
+	def _remove_punctuation_from_words(self, words):
 		'''remove punctuation from each word
 
 		[string] -> string
 		remove all puncutation
 		'''
-		return list(map(cls.remove_punctuation_from_text, words))
+		return list(map(self._remove_punctuation_from_text, words))
 
 
 	def stem_string(text):

@@ -51,12 +51,12 @@ class TestBookOps(unittest.TestCase):
 	def test_remove_punctuation_from_text1(self):
 		b = BookOps(text='')
 		text = 'This, is simple text! With... some... punctuation; Maybe?'
-		self.assertEqual(b.remove_punctuation_from_text(text), 'This is simple text With some punctuation Maybe')
+		self.assertEqual(b._remove_punctuation_from_text(text), 'This is simple text With some punctuation Maybe')
 
 	def test_remove_punctuation_from_words1(self):
 		b = BookOps(text='')
 		words = 'This, is simple text! With... some... punctuation; Maybe?'.split()
-		self.assertEqual(b.remove_punctuation_from_words(words),  ['This', 'is', 'simple', 'text', 'With', 'some', 'punctuation', 'Maybe'])
+		self.assertEqual(b._remove_punctuation_from_words(words),  ['This', 'is', 'simple', 'text', 'With', 'some', 'punctuation', 'Maybe'])
 
 	def test_get_names_from_words(self):
 		b = BookOps(text='Sam and Arya were on Naboo planet with Padme Naboo is nice planet')
