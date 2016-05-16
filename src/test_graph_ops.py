@@ -1,6 +1,6 @@
 import unittest
 import graph_ops
-
+from collections import defaultdict
 
 class TestGraphOps(unittest.TestCase):
 
@@ -103,6 +103,17 @@ class TestGraphOps(unittest.TestCase):
 		g.add_node('B')
 		self.assertFalse(g.is_connection_in_graph(('A', 'B')))
 		self.assertFalse(g.is_connection_in_graph(('B', 'A')))
+
+	def test_clear(self):
+		g = graph_ops.Graph()
+		g.add_connection('B', 'A')
+		g.set_connection_weight(('A', 'B'), 7)
+		g._clear()
+		self.assertEqual(g._graph, {})
+		self.assertEqual(g._node_weights, defaultdict(int))
+		self.assertEqual(g._connection_weights, defaultdict(int))
+		self.assertEqual(g._connection_sentiment_weights, defaultdict(int))
+
 
 if __name__ == '__main__':
 	unittest.main()

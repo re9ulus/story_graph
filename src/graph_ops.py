@@ -1,4 +1,5 @@
 from collections import defaultdict
+from book_ops import BookOps
 
 # TODO: Move graph save/load function to separate file
 
@@ -10,6 +11,12 @@ class Graph:
 	'''
 
 	def __init__(self):
+		self._graph = {}
+		self._node_weights = defaultdict(int)
+		self._connection_weights = defaultdict(int)
+		self._connection_sentiment_weights = defaultdict(int)
+
+	def _clear(self):
 		self._graph = {}
 		self._node_weights = defaultdict(int)
 		self._connection_weights = defaultdict(int)
