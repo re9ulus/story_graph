@@ -164,6 +164,20 @@ class Graph:
 	def get_edges(self):
 		raise Exception('Not implemented')
 
+	def init_from_book(self, book, distance=6):
+		'''build graph from BookOps
+		'''
+		# TODO: Refactor later, when get_conneciton_powers will be a class method (remove distance)
+		self._clear()
+		name_positions = book.all_names_positions()
+		connections = book.get_connection_powers(name_positions, distance)
+		for conn, count in connections.iteritems():
+			self.add_connection(*conn)
+			self.set_connection_weight(conn, count)
+		for name, count in book.get_names().iteritems():
+			self.set_node_weight(name, count)
+		return self
+
 
 def save_graph_to_file(g, path_to_file):
 	raise Exception('Not implemented')

@@ -1,182 +1,92 @@
 *node data
 ID count
-Stannis 207
-Ygritte 133
-Robb 373
-Brienne 192
-Frey 185
-Joffrey 262
-Tyrion 649
-Margaery 105
-Grace 289
-Petyr 122
-Davos 288
-Dany 335
-Lysa 113
-Roberts 187
-Jaime 575
-Arya 490
-Bolton 138
-Bran 279
-Tyrell 177
-Sansa 508
-Tywin 211
-Cersei 231
-Clegane 142
-Hodor 177
-Catelyn 302
-Mormont 133
-Jorahs 135
+Riddle 135
+Hagrid 161
+Weasleys 195
+Ron 696
+Malfoys 223
+Dumbledore 156
+Potter 131
+Fred 103
+Snape 98
+Hermione 319
+Harry 1648
+Ginny 114
+Lockhart 235
+Dobby 151
 *tie data
 from to strength sentiment
-Grace Jorahs 4 0
-Brienne Tyrion 1 0
-Hodor Robb 1 0
-Catelyn Stannis 2 0
-Stannis Tywin 5 0
-Clegane Tywin 1 0
-Arya Brienne 1 0
-Arya Cersei 1 0
-Catelyn Frey 7 0
-Arya Roberts 2 0
-Grace Tywin 4 0
-Stannis Tyrion 1 0
-Margaery Tywin 1 0
-Catelyn Jorahs 1 0
-Bran Lysa 1 0
-Clegane Sansa 1 0
-Sansa Tyrion 29 0
-Davos Roberts 1 0
-Dany Jorahs 14 0
-Margaery Robb 1 0
-Cersei Roberts 3 0
-Bolton Catelyn 3 0
-Petyr Tyrion 2 0
-Joffrey Tywin 6 0
-Jaime Tyrion 8 0
-Catelyn Clegane 1 0
-Jaime Roberts 5 0
-Grace Petyr 2 0
-Joffrey Stannis 3 0
-Stannis Tyrell 1 0
-Robb Stannis 2 0
-Robb Tyrion 3 0
-Cersei Jaime 8 0
-Catelyn Sansa 4 0
-Roberts Sansa 8 0
-Grace Robb 8 0
-Grace Mormont 4 0
-Catelyn Cersei 2 0
-Arya Bran 7 0
-Bolton Frey 4 0
-Davos Grace 10 0
-Dany Grace 5 0
-Bolton Grace 2 0
-Grace Joffrey 10 0
-Mormont Robb 2 0
-Brienne Joffrey 1 0
-Roberts Stannis 2 0
-Tyrell Tywin 3 0
-Margaery Sansa 12 0
-Jaime Stannis 1 0
-Arya Clegane 3 0
-Arya Grace 1 0
-Jaime Tywin 7 0
-Arya Joffrey 1 0
-Robb Tywin 3 0
-Jaime Lysa 2 0
-Bolton Robb 5 0
-Tyrion Tywin 14 0
-Bolton Tyrion 1 0
-Roberts Tywin 3 0
-Lysa Tyrion 1 0
-Lysa Robb 2 0
-Brienne Robb 2 0
-Joffrey Roberts 3 0
-Arya Tyrion 2 0
-Robb Sansa 5 0
-Petyr Sansa 8 0
-Jaime Robb 3 0
-Brienne Frey 2 0
-Bran Ygritte 1 0
-Cersei Tyrell 2 0
-Catelyn Tyrion 2 0
-Grace Stannis 6 0
-Catelyn Jaime 2 0
-Frey Tywin 1 0
-Robb Roberts 1 0
-Bran Grace 4 0
-Clegane Tyrion 5 0
-Bran Sansa 5 0
-Catelyn Lysa 1 0
-Catelyn Grace 2 0
-Arya Sansa 15 0
-Robb Ygritte 1 0
-Lysa Sansa 14 0
-Jaime Joffrey 4 0
-Clegane Joffrey 1 0
-Grace Roberts 2 0
-Bran Hodor 45 0
-Cersei Stannis 2 0
-Grace Sansa 6 0
-Bran Frey 2 0
-Bolton Clegane 1 0
-Margaery Tyrion 5 0
-Mormont Stannis 1 0
-Catelyn Robb 19 0
-Davos Stannis 15 0
-Joffrey Sansa 15 0
-Grace Tyrion 3 0
-Arya Lysa 1 0
-Bran Roberts 2 0
-Grace Jaime 1 0
-Arya Bolton 4 0
-Jaime Margaery 1 0
-Arya Catelyn 2 0
-Roberts Tyrion 2 0
-Bolton Tywin 2 0
-Frey Sansa 1 0
-Frey Petyr 1 0
-Grace Margaery 2 0
-Dany Roberts 2 0
-Sansa Tyrell 10 0
-Brienne Catelyn 3 0
-Davos Mormont 1 0
-Dany Joffrey 1 0
-Frey Robb 10 0
-Cersei Tywin 1 0
-Grace Tyrell 1 0
-Bolton Jaime 7 0
-Cersei Tyrion 18 0
-Bran Robb 8 0
-Lysa Tywin 3 0
-Jaime Tyrell 1 0
-Mormont Tyrion 3 0
-Bolton Brienne 4 0
-Joffrey Robb 3 0
-Tyrell Tyrion 9 0
-Cersei Sansa 7 0
-Dany Mormont 2 0
-Lysa Petyr 8 0
-Frey Stannis 1 0
-Brienne Tyrell 1 0
-Brienne Cersei 2 0
-Joffrey Margaery 15 0
-Petyr Tyrell 1 0
-Jaime Sansa 1 0
-Catelyn Mormont 5 0
-Cersei Margaery 1 0
-Arya Jaime 4 0
-Clegane Roberts 1 0
-Margaery Tyrell 17 0
-Grace Ygritte 1 0
-Arya Robb 9 0
-Joffrey Tyrion 17 0
-Petyr Robb 2 0
-Lysa Roberts 1 0
-Brienne Jaime 34 0
-Catelyn Petyr 1 0
-Frey Jaime 3 0
-Cersei Joffrey 13 0
-Joffrey Tyrell 7 0
-Jorahs Mormont 19 0
+Hermione Snape 2 0
+Harry Weasleys 38 0
+Fred Harry 28 0
+Fred Lockhart 1 0
+Dumbledore Hagrid 12 0
+Potter Weasleys 9 0
+Dumbledore Harry 39 0
+Riddle Weasleys 1 0
+Lockhart Weasleys 6 0
+Ginny Riddle 5 0
+Dobby Ron 2 0
+Hermione Malfoys 5 0
+Fred Weasleys 14 0
+Hermione Potter 3 0
+Ron Weasleys 19 0
+Hagrid Weasleys 3 0
+Lockhart Malfoys 3 0
+Harry Lockhart 62 0
+Malfoys Snape 6 0
+Dobby Hermione 2 0
+Hermione Lockhart 11 0
+Fred Ginny 4 0
+Hagrid Snape 1 0
+Potter Ron 1 0
+Hagrid Hermione 6 0
+Harry Snape 20 0
+Riddle Ron 7 0
+Harry Hermione 85 0
+Dumbledore Ron 8 0
+Lockhart Snape 10 0
+Hermione Ron 107 0
+Dobby Potter 28 0
+Ginny Potter 2 0
+Dumbledore Malfoys 9 0
+Lockhart Ron 23 0
+Ginny Weasleys 22 0
+Fred Hermione 1 0
+Dumbledore Lockhart 5 0
+Dumbledore Weasleys 5 0
+Hagrid Riddle 3 0
+Fred Hagrid 1 0
+Malfoys Potter 12 0
+Dumbledore Ginny 3 0
+Malfoys Weasleys 10 0
+Harry Potter 107 0
+Dumbledore Snape 1 0
+Hermione Weasleys 4 0
+Dumbledore Hermione 2 0
+Harry Ron 242 0
+Ginny Hermione 2 0
+Ginny Ron 20 0
+Fred Malfoys 3 0
+Lockhart Potter 4 0
+Potter Snape 2 0
+Hagrid Malfoys 3 0
+Ginny Lockhart 5 0
+Hermione Riddle 1 0
+Potter Riddle 5 0
+Hagrid Harry 40 0
+Ginny Harry 32 0
+Dobby Harry 66 0
+Malfoys Ron 26 0
+Hagrid Lockhart 3 0
+Dobby Hagrid 1 0
+Dumbledore Riddle 5 0
+Ron Snape 6 0
+Fred Ron 12 0
+Hagrid Ron 14 0
+Dobby Dumbledore 4 0
+Harry Malfoys 64 0
+Harry Riddle 41 0
+Dobby Malfoys 4 0
+Ginny Malfoys 2 0
+Dumbledore Potter 2 0

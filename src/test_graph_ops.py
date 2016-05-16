@@ -104,7 +104,7 @@ class TestGraphOps(unittest.TestCase):
 		self.assertFalse(g.is_connection_in_graph(('A', 'B')))
 		self.assertFalse(g.is_connection_in_graph(('B', 'A')))
 
-	def test_clear(self):
+	def test_clear1(self):
 		g = graph_ops.Graph()
 		g.add_connection('B', 'A')
 		g.set_connection_weight(('A', 'B'), 7)

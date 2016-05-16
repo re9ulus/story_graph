@@ -25,16 +25,8 @@ def book_to_names(book):
 def build_graph(book):
 	'''build graph from word positions
 	'''
-	name_positions = book.all_names_positions()
 	g = graph_ops.Graph()
-	connections = b.get_connection_powers(name_positions, WORDS_DISTANCE)
-	
-	for conn, count in connections.iteritems():
-		g.add_connection(*conn)
-		g.set_connection_weight(conn, count)
-
-	for name, count in book.get_names().iteritems():
-		g.set_node_weight(name, count)
+	g.init_from_book(book, WORDS_DISTANCE)
 
 	print g._repr_with_weights()
 	print '\n\n\n'
@@ -53,18 +45,13 @@ def get_connection_sent(book, conn):
 def build_graph_with_sentiment(book):
 	'''build graph from word positions with sentiment connection
 	'''
-	name_positions = book.all_names_positions()
 	g = graph_ops.Graph()
-	connections = b.get_connection_powers(name_positions, WORDS_DISTANCE)
+	g.init_from_book(book, WORDS_DISTANCE)
+	connections = b.get_connection_powers(book.all_names_positions(), WORDS_DISTANCE)
 	
 	for conn, count in connections.iteritems():
-		g.add_connection(*conn)
-		g.set_connection_weight(conn, count)
 		sent = get_connection_sent(book, conn)
 		g.set_connection_sentiment(conn, sent)
-
-	for name, count in book.get_names().iteritems():
-		g.set_node_weight(name, count)
 
 	print g._repr_with_weights()
 	print '\n\n\n'
@@ -132,6 +119,7 @@ def merge_synonims(book, synonims_list):
 
 
 GET_NAMES = False
+WITH_SENTIMENT = False
 
 if __name__ == '__main__':
 	raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
@@ -140,13 +128,17 @@ if __name__ == '__main__':
 		book_to_names(b)
 	else:
 		b.set_names(file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE))
-		merge_synonims(b, ['Harry', 'Potter'])
 
-		# # # get_sentiment_for_names(b)
-		# # # characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
-		# # # for name in characters_to_test:
-		# # 	# get_sentiment_for_connections(b, word_pos, target_name = name)
+		# merge_synonims(b, ['Harry', 'Potter'])
 
-		# g = build_graph(b)
-		# # g = build_graph_with_sentiment(b)
-		# g.save_graph_to_vna(PATH_TO_GRAPH)
+		# # get_sentiment_for_names(b)
+		# # characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
+		# # for name in characters_to_test:
+		# 	# get_sentiment_for_connections(b, word_pos, target_name = name)
+
+		if WITH_SENTIMENT:
+			g = build_graph_with_sentiment(b)
+		else:
+			g = build_graph(b)
+
+		g.save_graph_to_vna(PATH_TO_GRAPH)
