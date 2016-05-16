@@ -141,4 +141,4 @@ if __name__ == '__main__':
 		else:
 			g = build_graph(b)
 
-		g.save_graph_to_vna(PATH_TO_GRAPH)
+		graph_ops.GraphIO.save_graph_to_vna(g, PATH_TO_GRAPH)
