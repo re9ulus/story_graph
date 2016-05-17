@@ -96,7 +96,7 @@ class Graph:
             res += '{0} : {1}\n'.format(node, connections)
         return res
 
-    def _repr_with_weights(self):
+    def repr_with_weights(self):
         res = 'graph: \n'
         for node, connections in sorted(self._graph.iteritems()):
             res += '{0} : {1}\n'.format(node, self.get_node_weight(node))
