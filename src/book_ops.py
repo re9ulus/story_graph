@@ -18,13 +18,14 @@ class BookOps:
         self._text = self._remove_punctuation_from_text(self._raw_text)
         self._use_stemmer = use_stemmer
         self._min_occurance = min_occurance
+        self._distance = distance
 
         self._name_pattern = '\w[^\.\!\?\"]\s+([A-Z][a-z]+)'
 
         self._words = self.text_to_words(self._text)
         self._stemmed_words = self.stem_words(self._words)
 
-        self._names = {}
+        self._names = Counter()
 
     @classmethod
     def is_capitalized(cls, word):
@@ -236,6 +237,23 @@ class BookOps:
                 elif j > i and abs(i - j) > dist:
                     break
         return positions
+
+    @staticmethod
+    def merge_books(book1, book2):
+        """ Merge two books
+
+        BookOps, BookOps -> BookOps
+        """
+        # TODO: Add tests
+        res_book = BookOps(text='', distance=book1._distance, min_occurance=book1._min_occurance, use_stemmer=book1._min_occurance)
+        res_book._raw_text = book1._raw_text + '\n\n\n' + book2._raw_text
+        res_book._text = book1._text + '\n' + book2._text
+
+        # 'placeholder' added to prevent connection btw Names in end of first book and beginning of second book.
+        res_book._words = book1._words + ['placeholder'] * res_book._distance + book2._words
+        res_book._stemmed_words = book1._stemmed_words+ ['placeholder'] * res_book._distance + book2._stemmed_words
+        res_book._names = Counter(book1._names) + Counter(book2._names)
+        return res_book
 
     def set_names(self, names):
         self._names = names

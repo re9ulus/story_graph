@@ -1,92 +1,300 @@
 *node data
 ID count
-Riddle 135
-Hagrid 161
-Weasleys 195
-Ron 696
-Malfoys 223
-Dumbledore 156
-Potter 131
-Fred 103
-Snape 98
-Hermione 319
-Harry 1648
-Ginny 114
-Lockhart 235
-Dobby 151
+Mountain 193
+Jaime 252
+Jorah 234
+Renly 403
+Ned 858
+Rodrik 218
+Yoren 161
+Robb 647
+Arryn 195
+Theon 492
+Osha 102
+Joffrey 480
+Tyrion 1297
+Robert 592
+Jon 1300
+Petyr 90
+Davos 217
+Dany 589
+Lysa 161
+Varys 270
+Alliser 81
+Arya 907
+Bran 973
+Jory 99
+Drogo 251
+Tyrell 84
+Sam 166
+Sansa 718
+Suddenly 233
+Eddard 258
+Cersei 344
+Stannis 453
+Clegane 106
+Hodor 217
+Catelyn 779
 *tie data
 from to strength sentiment
-Hermione Snape 2 0
-Harry Weasleys 38 0
-Fred Harry 28 0
-Fred Lockhart 1 0
-Dumbledore Hagrid 12 0
-Potter Weasleys 9 0
-Dumbledore Harry 39 0
-Riddle Weasleys 1 0
-Lockhart Weasleys 6 0
-Ginny Riddle 5 0
-Dobby Ron 2 0
-Hermione Malfoys 5 0
-Fred Weasleys 14 0
-Hermione Potter 3 0
-Ron Weasleys 19 0
-Hagrid Weasleys 3 0
-Lockhart Malfoys 3 0
-Harry Lockhart 62 0
-Malfoys Snape 6 0
-Dobby Hermione 2 0
-Hermione Lockhart 11 0
-Fred Ginny 4 0
-Hagrid Snape 1 0
-Potter Ron 1 0
-Hagrid Hermione 6 0
-Harry Snape 20 0
-Riddle Ron 7 0
-Harry Hermione 85 0
-Dumbledore Ron 8 0
-Lockhart Snape 10 0
-Hermione Ron 107 0
-Dobby Potter 28 0
-Ginny Potter 2 0
-Dumbledore Malfoys 9 0
-Lockhart Ron 23 0
-Ginny Weasleys 22 0
-Fred Hermione 1 0
-Dumbledore Lockhart 5 0
-Dumbledore Weasleys 5 0
-Hagrid Riddle 3 0
-Fred Hagrid 1 0
-Malfoys Potter 12 0
-Dumbledore Ginny 3 0
-Malfoys Weasleys 10 0
-Harry Potter 107 0
-Dumbledore Snape 1 0
-Hermione Weasleys 4 0
-Dumbledore Hermione 2 0
-Harry Ron 242 0
-Ginny Hermione 2 0
-Ginny Ron 20 0
-Fred Malfoys 3 0
-Lockhart Potter 4 0
-Potter Snape 2 0
-Hagrid Malfoys 3 0
-Ginny Lockhart 5 0
-Hermione Riddle 1 0
-Potter Riddle 5 0
-Hagrid Harry 40 0
-Ginny Harry 32 0
-Dobby Harry 66 0
-Malfoys Ron 26 0
-Hagrid Lockhart 3 0
-Dobby Hagrid 1 0
-Dumbledore Riddle 5 0
-Ron Snape 6 0
-Fred Ron 12 0
-Hagrid Ron 14 0
-Dobby Dumbledore 4 0
-Harry Malfoys 64 0
-Harry Riddle 41 0
-Dobby Malfoys 4 0
-Ginny Malfoys 2 0
-Dumbledore Potter 2 0
+Robb Sam 1 0
+Ned Suddenly 3 0
+Stannis Tyrell 1 0
+Arya Mountain 1 0
+Arryn Ned 11 0
+Hodor Robb 3 0
+Eddard Renly 4 0
+Bran Lysa 1 0
+Jon Suddenly 10 0
+Jory Robb 3 0
+Bran Catelyn 9 0
+Renly Tyrell 7 0
+Stannis Suddenly 1 0
+Arya Jon 16 0
+Alliser Tyrion 6 0
+Eddard Tyrion 4 0
+Arya Cersei 1 0
+Arryn Suddenly 3 0
+Clegane Sansa 4 0
+Arryn Tyrion 6 0
+Stannis Tyrion 9 0
+Jon Yoren 4 0
+Eddard Theon 7 0
+Jory Rodrik 4 0
+Jory Renly 2 0
+Alliser Jon 9 0
+Suddenly Theon 4 0
+Catelyn Stannis 9 0
+Robb Tyrell 1 0
+Cersei Robert 13 0
+Sansa Tyrion 7 0
+Hodor Jon 1 0
+Jorah Ned 1 0
+Catelyn Tyrion 14 0
+Lysa Stannis 2 0
+Suddenly Yoren 1 0
+Catelyn Joffrey 1 0
+Catelyn Cersei 3 0
+Robb Varys 1 0
+Arryn Catelyn 10 0
+Arya Suddenly 11 0
+Jaime Tyrion 17 0
+Catelyn Renly 18 0
+Cersei Eddard 1 0
+Jaime Jon 1 0
+Jon Sam 43 0
+Ned Petyr 4 0
+Catelyn Jon 4 0
+Jon Mountain 3 0
+Eddard Rodrik 2 0
+Jory Robert 1 0
+Jaime Renly 3 0
+Tyrion Varys 20 0
+Joffrey Stannis 8 0
+Jory Suddenly 1 0
+Joffrey Jorah 1 0
+Bran Yoren 2 0
+Robb Stannis 6 0
+Robb Tyrion 3 0
+Catelyn Lysa 21 0
+Jorah Varys 1 0
+Jaime Theon 1 0
+Bran Robb 57 0
+Ned Robb 6 0
+Catelyn Sansa 3 0
+Jon Sansa 3 0
+Bran Rodrik 15 0
+Bran Renly 1 0
+Ned Rodrik 1 0
+Rodrik Theon 7 0
+Ned Sansa 8 0
+Jon Tyrion 12 0
+Bran Joffrey 1 0
+Osha Robb 4 0
+Mountain Suddenly 4 0
+Joffrey Lysa 1 0
+Jon Robb 29 0
+Cersei Lysa 3 0
+Jon Robert 10 0
+Renly Suddenly 2 0
+Renly Tyrion 6 0
+Catelyn Varys 1 0
+Rodrik Suddenly 2 0
+Robert Varys 6 0
+Mountain Tyrion 4 0
+Eddard Sansa 7 0
+Jon Theon 2 0
+Renly Stannis 41 0
+Joffrey Jon 5 0
+Robb Yoren 1 0
+Bran Mountain 1 0
+Ned Varys 13 0
+Arya Jorah 1 0
+Mountain Robert 1 0
+Arryn Stannis 3 0
+Jaime Stannis 2 0
+Cersei Ned 7 0
+Joffrey Varys 5 0
+Clegane Ned 3 0
+Robb Rodrik 7 0
+Robb Theon 19 0
+Arya Joffrey 10 0
+Dany Suddenly 7 0
+Robb Suddenly 1 0
+Jon Stannis 1 0
+Bran Jory 4 0
+Cersei Jaime 10 0
+Bran Hodor 57 0
+Lysa Tyrion 4 0
+Catelyn Tyrell 1 0
+Jorah Mountain 1 0
+Ned Stannis 5 0
+Cersei Jon 2 0
+Osha Robert 1 0
+Jory Sansa 3 0
+Jaime Ned 5 0
+Lysa Sansa 1 0
+Robb Sansa 8 0
+Arryn Eddard 5 0
+Petyr Sansa 1 0
+Jaime Robb 7 0
+Bran Sansa 6 0
+Sansa Stannis 2 0
+Drogo Jorah 6 0
+Tyrell Varys 1 0
+Joffrey Ned 5 0
+Arya Robert 2 0
+Dany Drogo 27 0
+Robert Tyrion 10 0
+Jaime Robert 9 0
+Jaime Jory 2 0
+Arryn Jory 2 0
+Renly Varys 5 0
+Bran Suddenly 15 0
+Robert Sansa 4 0
+Jon Lysa 3 0
+Arryn Renly 2 0
+Sansa Suddenly 3 0
+Lysa Robert 2 0
+Bran Theon 11 0
+Cersei Robb 2 0
+Jon Renly 1 0
+Arya Yoren 7 0
+Clegane Tyrion 5 0
+Eddard Suddenly 2 0
+Jory Theon 3 0
+Sam Suddenly 2 0
+Arya Theon 1 0
+Ned Renly 12 0
+Bran Robert 4 0
+Renly Sansa 2 0
+Jaime Varys 1 0
+Arya Renly 1 0
+Joffrey Renly 4 0
+Bran Tyrion 6 0
+Clegane Jaime 2 0
+Eddard Joffrey 5 0
+Renly Robert 23 0
+Hodor Theon 6 0
+Mountain Ned 2 0
+Arryn Mountain 1 0
+Arya Robb 17 0
+Jaime Joffrey 3 0
+Clegane Joffrey 6 0
+Ned Theon 3 0
+Jaime Petyr 3 0
+Lysa Varys 3 0
+Suddenly Tyrion 8 0
+Eddard Robert 8 0
+Catelyn Yoren 1 0
+Drogo Suddenly 2 0
+Petyr Varys 3 0
+Catelyn Robb 27 0
+Davos Stannis 12 0
+Arryn Cersei 3 0
+Catelyn Theon 2 0
+Catelyn Ned 17 0
+Robert Stannis 15 0
+Clegane Varys 1 0
+Catelyn Rodrik 9 0
+Eddard Robb 3 0
+Arya Lysa 1 0
+Arryn Jon 66 0
+Ned Robert 57 0
+Bran Jon 18 0
+Alliser Joffrey 1 0
+Arya Catelyn 2 0
+Robb Robert 3 0
+Jon Rodrik 5 0
+Drogo Mountain 1 0
+Joffrey Robert 8 0
+Arya Ned 9 0
+Jory Ned 12 0
+Bran Cersei 1 0
+Arya Jory 8 0
+Ned Tyrion 2 0
+Rodrik Varys 1 0
+Petyr Robert 1 0
+Suddenly Tyrell 1 0
+Robert Suddenly 1 0
+Arryn Robert 14 0
+Clegane Suddenly 1 0
+Cersei Stannis 5 0
+Cersei Varys 6 0
+Catelyn Mountain 5 0
+Lysa Ned 3 0
+Catelyn Suddenly 5 0
+Arya Eddard 2 0
+Cersei Renly 1 0
+Cersei Suddenly 1 0
+Rodrik Tyrion 1 0
+Eddard Varys 3 0
+Renly Robb 4 0
+Davos Renly 2 0
+Cersei Tyrion 18 0
+Ned Tyrell 2 0
+Bran Osha 15 0
+Alliser Varys 1 0
+Hodor Sansa 2 0
+Dany Mountain 1 0
+Bran Ned 5 0
+Arryn Bran 2 0
+Joffrey Robb 11 0
+Catelyn Petyr 1 0
+Eddard Stannis 2 0
+Lysa Petyr 3 0
+Cersei Clegane 1 0
+Arya Bran 11 0
+Joffrey Rodrik 1 0
+Cersei Sansa 12 0
+Davos Theon 1 0
+Jorah Robert 3 0
+Hodor Osha 11 0
+Eddard Ned 7 0
+Jaime Sansa 3 0
+Bran Eddard 2 0
+Arya Sansa 58 0
+Arya Rodrik 1 0
+Catelyn Robert 3 0
+Jon Jory 2 0
+Catelyn Jaime 2 0
+Arryn Lysa 30 0
+Joffrey Tyrion 11 0
+Eddard Jon 7 0
+Cersei Davos 1 0
+Jon Varys 1 0
+Alliser Sam 1 0
+Dany Jorah 21 0
+Davos Suddenly 1 0
+Osha Rodrik 2 0
+Joffrey Sansa 43 0
+Arryn Jaime 1 0
+Jon Ned 20 0
+Catelyn Eddard 1 0
+Stannis Varys 2 0
+Arya Petyr 1 0
+Cersei Joffrey 13 0
+Joffrey Tyrell 3 0
+Tyrion Yoren 2 0
+Clegane Mountain 3 0
+Petyr Tyrion 4 0

@@ -120,7 +120,8 @@ def merge_synonims(book, synonims_list):
 GET_NAMES = False
 WITH_SENTIMENT = False
 
-if __name__ == '__main__':
+
+def test_standard_graph_build():
     raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
     b = BookOps(text=raw_text, use_stemmer=True, min_occurance=MIN_OCCURANCE)
     if GET_NAMES:
@@ -141,3 +142,31 @@ if __name__ == '__main__':
             g = build_graph(b)
 
         graph_ops.GraphIO.save_graph_to_vna(g, PATH_TO_GRAPH)
+
+
+def test_merge_graph_build():
+    path_to_book1 = './../books/GoT1.txt'
+    path_to_book2 = './../books/GoT2.txt'
+
+    raw_text1 = file_ops.load_text_from_file(path_to_book1)
+    raw_text2 = file_ops.load_text_from_file(path_to_book2)
+
+    b1 = BookOps(text=raw_text1, use_stemmer=True, min_occurance=MIN_OCCURANCE)
+    b2 = BookOps(text=raw_text2, use_stemmer=True, min_occurance=MIN_OCCURANCE)
+    b = BookOps.merge_books(b1, b2)
+    if GET_NAMES:
+        book_to_names(b)
+    else:
+        b.set_names(file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE))
+
+        if WITH_SENTIMENT:
+            g = build_graph_with_sentiment(b)
+        else:
+            g = build_graph(b)
+
+        graph_ops.GraphIO.save_graph_to_vna(g, PATH_TO_GRAPH)
+
+
+if __name__ == '__main__':
+    # test_standard_graph_build()
+    test_merge_graph_build()
