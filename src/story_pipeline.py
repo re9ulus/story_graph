@@ -47,7 +47,7 @@ def build_graph_with_sentiment(book):
     """
     g = graph_ops.Graph()
     g.init_from_book(book, WORDS_DISTANCE)
-    connections = b.get_connection_powers(book.all_names_positions(), WORDS_DISTANCE)
+    connections = book.get_connection_powers(book.all_names_positions(), WORDS_DISTANCE)
 
     for conn, count in connections.iteritems():
         sent = get_connection_sent(book, conn)
@@ -118,7 +118,7 @@ def merge_synonims(book, synonims_list):
 
 
 GET_NAMES = False
-WITH_SENTIMENT = False
+WITH_SENTIMENT = True
 
 
 def test_standard_graph_build():
