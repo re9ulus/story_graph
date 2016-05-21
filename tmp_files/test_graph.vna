@@ -1,300 +1,345 @@
 *node data
 ID count
-Mountain 193
-Jaime 252
-Jorah 234
-Renly 403
-Ned 858
-Rodrik 218
-Yoren 161
-Robb 647
-Arryn 195
-Theon 492
-Osha 102
-Joffrey 480
-Tyrion 1297
-Robert 592
-Jon 1300
-Petyr 90
-Davos 217
-Dany 589
-Lysa 161
-Varys 270
-Alliser 81
-Arya 907
-Bran 973
-Jory 99
-Drogo 251
-Tyrell 84
-Sam 166
-Sansa 718
-Suddenly 233
-Eddard 258
-Cersei 344
-Stannis 453
-Clegane 106
-Hodor 217
-Catelyn 779
+Jeyne 206
+Meryn 136
+Renly 565
+Robert 1131
+Mark 201
+Rodrik 288
+Robb 1099
+Cersei 1236
+Aeron 151
+Brienne 729
+Eyrie 206
+Frey 670
+Joffrey 848
+Tyrion 2708
+Tormund 205
+Brandon 147
+Jon 3193
+Petyr 360
+Davos 693
+Ben 167
+Dany 1376
+Lysa 356
+Theon 783
+Alliser 140
+Jaime 1576
+Arya 1638
+Bran 1472
+Baelish 105
+Tyrell 493
+Sansa 1397
+Tywin 708
+Tommen 392
+Melisandre 288
+Valyria 85
+Hodor 521
+Catelyn 1138
+Mormont 537
+Doran 137
 *tie data
 from to strength sentiment
-Robb Sam 1 0
-Ned Suddenly 3 0
-Stannis Tyrell 1 0
-Arya Mountain 1 0
-Arryn Ned 11 0
-Hodor Robb 3 0
-Eddard Renly 4 0
-Bran Lysa 1 0
-Jon Suddenly 10 0
-Jory Robb 3 0
-Bran Catelyn 9 0
-Renly Tyrell 7 0
-Stannis Suddenly 1 0
-Arya Jon 16 0
-Alliser Tyrion 6 0
-Eddard Tyrion 4 0
-Arya Cersei 1 0
-Arryn Suddenly 3 0
-Clegane Sansa 4 0
-Arryn Tyrion 6 0
-Stannis Tyrion 9 0
-Jon Yoren 4 0
-Eddard Theon 7 0
-Jory Rodrik 4 0
-Jory Renly 2 0
-Alliser Jon 9 0
-Suddenly Theon 4 0
-Catelyn Stannis 9 0
+Jeyne Robb 13 0.343846153846
+Brienne Tyrion 1 1.085
+Hodor Robb 5 0.813333333333
+Bran Lysa 2 -0.79
+Robb Tommen 1 0
+Jon Tywin 3 0.795
+Davos Robert 1 0
+Renly Tyrell 13 1.39846153846
+Eyrie Tyrion 7 0.434
+Arya Tommen 3 0
+Brienne Sansa 9 -0.422
+Jaime Tyrion 34 -0.366774193548
+Arya Brienne 2 0.746666666667
+Catelyn Frey 17 -0.418666666667
+Jon Valyria 1 -1.22
+Arya Mormont 2 -0.88
+Arya Lysa 2 -1.46
+Davos Frey 5 -0.472
+Frey Mark 1 0
+Mormont Tyrion 18 0.182142857143
+Eyrie Lysa 17 -0.256875
+Baelish Joffrey 1 0
+Bran Theon 18 -1.30266666667
+Baelish Petyr 62 0.611904761905
+Bran Tyrion 14 -1.23
+Jaime Jon 6 -0.171428571429
+Jon Rodrik 8 0.81
+Cersei Frey 2 0.833333333333
 Robb Tyrell 1 0
-Cersei Robert 13 0
-Sansa Tyrion 7 0
-Hodor Jon 1 0
-Jorah Ned 1 0
-Catelyn Tyrion 14 0
-Lysa Stannis 2 0
-Suddenly Yoren 1 0
+Cersei Robert 32 0.515333333333
+Arya Frey 1 0
+Hodor Jon 4 0.572
+Doran Tyrion 2 0
+Baelish Lysa 2 0
+Catelyn Mark 1 0.945
+Aeron Theon 2 -0.653333333333
+Lysa Petyr 16 0.265384615385
+Cersei Theon 1 0
+Brienne Robert 3 -0.875
+Catelyn Cersei 5 -0.628
+Jaime Mark 3 -1.33
+Arya Ben 1 0
+Petyr Tyrion 6 -1.29833333333
+Renly Tommen 2 0
+Joffrey Tywin 5 -0.978333333333
+Arya Tywin 3 0
+Alliser Tyrion 6 -0.392857142857
+Catelyn Renly 20 0.506842105263
+Alliser Jon 15 1.11583333333
+Frey Tyrion 3 -0.0175
+Frey Theon 6 -0.112
 Catelyn Joffrey 1 0
-Catelyn Cersei 3 0
-Robb Varys 1 0
-Arryn Catelyn 10 0
-Arya Suddenly 11 0
-Jaime Tyrion 17 0
-Catelyn Renly 18 0
-Cersei Eddard 1 0
-Jaime Jon 1 0
-Jon Sam 43 0
-Ned Petyr 4 0
-Catelyn Jon 4 0
-Jon Mountain 3 0
-Eddard Rodrik 2 0
-Jory Robert 1 0
-Jaime Renly 3 0
-Tyrion Varys 20 0
-Joffrey Stannis 8 0
-Jory Suddenly 1 0
-Joffrey Jorah 1 0
-Bran Yoren 2 0
-Robb Stannis 6 0
-Robb Tyrion 3 0
-Catelyn Lysa 21 0
-Jorah Varys 1 0
-Jaime Theon 1 0
-Bran Robb 57 0
-Ned Robb 6 0
-Catelyn Sansa 3 0
-Jon Sansa 3 0
-Bran Rodrik 15 0
+Jaime Lysa 2 0.77
+Jaime Renly 8 -1.14285714286
+Jon Tyrion 36 -0.839393939394
+Jon Robb 44 0.27
+Brandon Theon 1 0
+Robb Tyrion 6 0
+Dany Tyrion 2 0
+Catelyn Lysa 22 0.22
+Doran Jon 1 0
+Cersei Jaime 39 -0.3415625
+Davos Tyrion 11 -2.836
+Dany Jon 1 0
+Catelyn Sansa 7 -1.29833333333
+Dany Mark 1 0
+Frey Robert 2 0.84
+Bran Rodrik 15 -0.123333333333
+Brandon Sansa 1 0
 Bran Renly 1 0
-Ned Rodrik 1 0
-Rodrik Theon 7 0
-Ned Sansa 8 0
-Jon Tyrion 12 0
-Bran Joffrey 1 0
-Osha Robb 4 0
-Mountain Suddenly 4 0
-Joffrey Lysa 1 0
-Jon Robb 29 0
+Bran Catelyn 9 -0.275
+Mark Tyrion 3 0
+Rodrik Theon 9 0.9
+Frey Sansa 2 -2.18666666667
+Catelyn Jeyne 2 1.27666666667
+Bran Joffrey 1 -1.005
+Jeyne Jon 1 -1.055
+Jaime Mormont 1 0.945
+Baelish Eyrie 1 0
+Brandon Petyr 5 -0.54
+Mormont Tormund 1 0
+Jaime Jeyne 2 0
+Frey Hodor 2 0
+Brandon Tommen 1 -2.115
+Frey Tywin 9 0.404444444444
+Tommen Tyrion 2 0
 Cersei Lysa 3 0
-Jon Robert 10 0
-Renly Suddenly 2 0
-Renly Tyrion 6 0
-Catelyn Varys 1 0
-Rodrik Suddenly 2 0
-Robert Varys 6 0
-Mountain Tyrion 4 0
-Eddard Sansa 7 0
-Jon Theon 2 0
-Renly Stannis 41 0
-Joffrey Jon 5 0
-Robb Yoren 1 0
-Bran Mountain 1 0
-Ned Varys 13 0
-Arya Jorah 1 0
-Mountain Robert 1 0
-Arryn Stannis 3 0
-Jaime Stannis 2 0
-Cersei Ned 7 0
-Joffrey Varys 5 0
-Clegane Ned 3 0
-Robb Rodrik 7 0
-Robb Theon 19 0
-Arya Joffrey 10 0
-Dany Suddenly 7 0
-Robb Suddenly 1 0
-Jon Stannis 1 0
-Bran Jory 4 0
-Cersei Jaime 10 0
-Bran Hodor 57 0
-Lysa Tyrion 4 0
-Catelyn Tyrell 1 0
-Jorah Mountain 1 0
-Ned Stannis 5 0
-Cersei Jon 2 0
-Osha Robert 1 0
-Jory Sansa 3 0
-Jaime Ned 5 0
-Lysa Sansa 1 0
-Robb Sansa 8 0
-Arryn Eddard 5 0
-Petyr Sansa 1 0
-Jaime Robb 7 0
-Bran Sansa 6 0
-Sansa Stannis 2 0
-Drogo Jorah 6 0
-Tyrell Varys 1 0
-Joffrey Ned 5 0
+Bran Mark 2 1.50333333333
+Renly Tywin 3 0.115
+Renly Tyrion 8 0.0785714285714
+Arya Bran 22 0.327619047619
+Eyrie Sansa 3 0.625
+Mark Valyria 2 1.06
+Mormont Robert 1 1.02
+Joffrey Robert 15 -0.141538461538
+Jeyne Tywin 3 0
+Mormont Robb 3 0
+Joffrey Jon 5 -1.10166666667
+Lysa Tyrion 5 1.53166666667
+Brienne Joffrey 2 0.02
+Ben Dany 9 0.336666666667
+Mark Tywin 2 0
+Melisandre Tyrion 3 -1.37
+Baelish Tyrell 1 0
+Brandon Mark 1 0
+Bran Cersei 1 1.12
+Robb Rodrik 9 -0.915714285714
+Robb Theon 23 0.0657142857143
+Arya Joffrey 11 -1.44666666667
+Robb Tywin 5 -0.962
+Robert Tommen 4 0
+Tommen Valyria 1 0
+Bran Hodor 128 -0.240588235294
+Joffrey Melisandre 3 0
+Lysa Robb 2 -0.775
+Catelyn Tyrell 1 0.945
+Bran Sansa 12 0.511111111111
+Brienne Robb 4 -1.554
+Brandon Renly 1 1.945
+Ben Mormont 2 0
+Cersei Jon 6 0.738333333333
+Baelish Sansa 3 -1.54
+Joffrey Meryn 9 0
+Cersei Tommen 17 -0.201333333333
+Catelyn Mormont 6 -0.315
+Lysa Sansa 18 -0.119411764706
+Jeyne Theon 3 0.34
+Arya Tyrion 2 0
+Robb Sansa 14 0.475384615385
+Bran Brandon 10 -0.698181818182
+Brienne Jeyne 1 0
+Bran Melisandre 1 -1.37
+Jaime Robb 10 0.111
+Jon Sansa 5 -1.068
+Arya Jon 25 -0.170869565217
+Dany Robert 2 -2.07333333333
+Brienne Tommen 1 0
 Arya Robert 2 0
-Dany Drogo 27 0
-Robert Tyrion 10 0
-Jaime Robert 9 0
-Jaime Jory 2 0
-Arryn Jory 2 0
-Renly Varys 5 0
-Bran Suddenly 15 0
-Robert Sansa 4 0
-Jon Lysa 3 0
-Arryn Renly 2 0
-Sansa Suddenly 3 0
-Lysa Robert 2 0
-Bran Theon 11 0
-Cersei Robb 2 0
-Jon Renly 1 0
-Arya Yoren 7 0
-Clegane Tyrion 5 0
-Eddard Suddenly 2 0
-Jory Theon 3 0
-Sam Suddenly 2 0
-Arya Theon 1 0
-Ned Renly 12 0
-Bran Robert 4 0
-Renly Sansa 2 0
-Jaime Varys 1 0
-Arya Renly 1 0
-Joffrey Renly 4 0
-Bran Tyrion 6 0
-Clegane Jaime 2 0
-Eddard Joffrey 5 0
-Renly Robert 23 0
-Hodor Theon 6 0
-Mountain Ned 2 0
-Arryn Mountain 1 0
-Arya Robb 17 0
-Jaime Joffrey 3 0
-Clegane Joffrey 6 0
-Ned Theon 3 0
-Jaime Petyr 3 0
-Lysa Varys 3 0
-Suddenly Tyrion 8 0
-Eddard Robert 8 0
-Catelyn Yoren 1 0
-Drogo Suddenly 2 0
-Petyr Varys 3 0
-Catelyn Robb 27 0
-Davos Stannis 12 0
-Arryn Cersei 3 0
+Brienne Frey 3 0
+Davos Melisandre 17 -0.0976470588235
+Robert Tyrion 12 -0.47
+Jaime Robert 23 -0.0266666666667
+Baelish Rodrik 1 0.675
+Arya Theon 9 0.54125
+Mark Theon 1 0
+Jeyne Sansa 13 -0.182727272727
+Doran Tommen 1 0
+Eyrie Rodrik 2 0
+Jon Mark 4 0.462
+Bran Tywin 1 -1.99
+Jon Melisandre 25 -0.589166666667
+Robert Sansa 13 0.4925
+Jon Mormont 39 0.174516129032
+Cersei Tyrell 8 0.285714285714
+Catelyn Tyrion 16 -0.0284615384615
+Davos Eyrie 1 0
+Sansa Tommen 5 0.56
+Lysa Robert 3 0.4475
+Joffrey Tommen 20 -0.411111111111
+Meryn Tyrion 3 1.50333333333
+Dany Davos 1 0
+Arya Meryn 2 0.606666666667
+Cersei Robb 2 1.12
+Catelyn Jaime 9 -0.686666666667
+Ben Jeyne 1 0
+Joffrey Mark 1 1.635
+Bran Mormont 1 0
+Jon Renly 2 0
+Ben Jon 7 0.72
+Jaime Tywin 22 -0.359545454545
+Baelish Jeyne 1 0.945
+Brandon Cersei 1 0
 Catelyn Theon 2 0
-Catelyn Ned 17 0
-Robert Stannis 15 0
-Clegane Varys 1 0
-Catelyn Rodrik 9 0
-Eddard Robb 3 0
-Arya Lysa 1 0
-Arryn Jon 66 0
-Ned Robert 57 0
-Bran Jon 18 0
+Ben Doran 1 0
+Meryn Tywin 1 0
+Eyrie Tywin 1 0
+Eyrie Petyr 4 0
+Ben Mark 1 0
+Baelish Cersei 1 0
+Bran Robert 6 -0.975714285714
+Renly Sansa 5 -0.858
+Catelyn Tywin 3 -1.12
+Arya Renly 1 -1.37
+Joffrey Renly 8 1.018
+Brienne Tywin 1 0
+Renly Robert 30 0.286428571429
+Jon Tormund 29 0.6984
+Dany Melisandre 1 0
+Doran Lysa 1 0
+Jaime Joffrey 7 -1.22
+Brandon Jon 2 0
+Baelish Jaime 2 0
+Jaime Petyr 3 0
+Brandon Catelyn 5 -1.12
+Bran Frey 8 0.4725
+Tommen Tyrell 8 -0.0942857142857
+Eyrie Jon 7 0
+Baelish Brandon 1 -0.98
+Arya Mark 1 0
+Davos Jon 11 -2.103
+Jaime Meryn 7 0.35
+Catelyn Robb 49 -0.0897674418605
+Brandon Robert 1 1.31
+Jeyne Robert 3 0
+Joffrey Sansa 59 -0.399056603774
+Brandon Robb 3 -0.0925
+Bran Davos 4 -2.055
+Melisandre Tommen 1 0
+Catelyn Rodrik 11 -0.459090909091
+Arya Jeyne 9 -0.357777777778
+Frey Jon 1 -1.31
+Eyrie Frey 1 -0.535
+Petyr Sansa 15 -0.256363636364
+Davos Mormont 1 0
+Melisandre Tormund 1 0
+Bran Jon 36 -0.00428571428571
 Alliser Joffrey 1 0
-Arya Catelyn 2 0
-Robb Robert 3 0
-Jon Rodrik 5 0
-Drogo Mountain 1 0
-Joffrey Robert 8 0
-Arya Ned 9 0
-Jory Ned 12 0
-Bran Cersei 1 0
-Arya Jory 8 0
-Ned Tyrion 2 0
-Rodrik Varys 1 0
-Petyr Robert 1 0
-Suddenly Tyrell 1 0
-Robert Suddenly 1 0
-Arryn Robert 14 0
-Clegane Suddenly 1 0
-Cersei Stannis 5 0
-Cersei Varys 6 0
-Catelyn Mountain 5 0
-Lysa Ned 3 0
-Catelyn Suddenly 5 0
-Arya Eddard 2 0
+Arya Catelyn 5 0
+Robb Robert 4 0
+Mark Petyr 1 0
+Arya Brandon 1 0
+Cersei Doran 2 0.363333333333
+Brienne Lysa 1 -1.615
+Hodor Mark 1 0
+Jon Robert 18 -1.01
+Mark Sansa 1 0
+Frey Petyr 2 1.54
+Joffrey Lysa 1 0
+Petyr Robert 11 -0.294545454545
+Robert Tywin 8 -0.0333333333333
+Sansa Tyrell 10 0.485555555556
+Hodor Theon 6 0
+Baelish Robert 3 1.22
+Catelyn Eyrie 6 0.341666666667
+Brienne Catelyn 19 -1.45894736842
+Lysa Tywin 3 0
+Ben Cersei 1 -1.565
+Dany Joffrey 1 0
+Frey Robb 14 0.0784615384615
 Cersei Renly 1 0
-Cersei Suddenly 1 0
+Doran Tyrell 2 -0.653333333333
+Cersei Tywin 9 0.406666666667
 Rodrik Tyrion 1 0
-Eddard Varys 3 0
-Renly Robb 4 0
-Davos Renly 2 0
-Cersei Tyrion 18 0
-Ned Tyrell 2 0
-Bran Osha 15 0
-Alliser Varys 1 0
-Hodor Sansa 2 0
-Dany Mountain 1 0
-Bran Ned 5 0
-Arryn Bran 2 0
-Joffrey Robb 11 0
-Catelyn Petyr 1 0
-Eddard Stannis 2 0
-Lysa Petyr 3 0
-Cersei Clegane 1 0
-Arya Bran 11 0
+Renly Robb 4 0.336
+Davos Renly 3 -0.58
+Tommen Tywin 2 1.31
+Cersei Tyrion 48 -0.311282051282
+Bran Robb 73 0.148064516129
+Theon Tywin 2 -0.0233333333333
+Melisandre Renly 3 0
+Cersei Mark 2 2.27666666667
+Jaime Tyrell 8 -0.8175
+Jeyne Joffrey 1 2.12
+Theon Tyrion 2 -0.68
+Arya Cersei 3 0
+Joffrey Robb 14 0.133333333333
+Tyrell Tyrion 11 -0.118181818182
+Cersei Sansa 21 0.965789473684
+Dany Mormont 5 -0.373333333333
+Jon Theon 6 -0.517142857143
+Baelish Tyrion 2 -0.77
+Tyrion Valyria 1 0
 Joffrey Rodrik 1 0
-Cersei Sansa 12 0
+Sansa Tyrion 40 -0.333870967742
+Brienne Tyrell 1 0
 Davos Theon 1 0
-Jorah Robert 3 0
-Hodor Osha 11 0
-Eddard Ned 7 0
-Jaime Sansa 3 0
-Bran Eddard 2 0
-Arya Sansa 58 0
-Arya Rodrik 1 0
-Catelyn Robert 3 0
-Jon Jory 2 0
-Catelyn Jaime 2 0
-Arryn Lysa 30 0
-Joffrey Tyrion 11 0
-Eddard Jon 7 0
+Eyrie Robert 18 0.927368421053
+Brienne Cersei 3 1.485
+Brienne Theon 2 -1.47333333333
+Tyrell Tywin 5 0.388
+Petyr Tyrell 1 0
+Jaime Sansa 5 0.63
+Jon Lysa 9 -0.613
+Jaime Theon 2 -1.75666666667
+Tyrion Tywin 37 -0.311935483871
+Arya Jaime 5 -0.55
+Arya Sansa 75 -0.574761904762
+Arya Rodrik 1 -0.215
+Catelyn Robert 3 1.2425
+Bran Tommen 5 -1.855
+Baelish Robb 1 1.02
+Brandon Jaime 3 -0.12
+Jaime Tommen 11 -0.824444444444
+Alliser Mormont 1 0
+Arya Robb 27 0.303333333333
+Meryn Tommen 1 0
+Joffrey Tyrion 29 -0.4328
+Petyr Robb 2 0
 Cersei Davos 1 0
-Jon Varys 1 0
-Alliser Sam 1 0
-Dany Jorah 21 0
-Davos Suddenly 1 0
-Osha Rodrik 2 0
-Joffrey Sansa 43 0
-Arryn Jaime 1 0
-Jon Ned 20 0
-Catelyn Eddard 1 0
-Stannis Varys 2 0
+Frey Jeyne 5 0.506666666667
+Cersei Meryn 23 0.0695652173913
+Ben Tyrion 1 1.085
+Catelyn Jon 9 -0.95
+Mormont Theon 2 0
+Brienne Jaime 45 0.126
+Catelyn Petyr 2 0
+Frey Jaime 16 0.159285714286
+Brienne Renly 15 0.309230769231
+Hodor Sansa 2 0
 Arya Petyr 1 0
-Cersei Joffrey 13 0
-Joffrey Tyrell 3 0
-Tyrion Yoren 2 0
-Clegane Mountain 3 0
-Petyr Tyrion 4 0
+Cersei Joffrey 32 -0.236428571429
+Joffrey Tyrell 14 -0.0130769230769
+Mormont Renly 1 0

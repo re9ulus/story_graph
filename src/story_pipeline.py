@@ -145,15 +145,14 @@ def test_standard_graph_build():
 
 
 def test_merge_graph_build():
-    path_to_book1 = './../books/GoT1.txt'
-    path_to_book2 = './../books/GoT2.txt'
+    book_paths = ['./../books/GoT{0}.txt'.format(i) for i in range(1, 6)]
+    books = []
+    for path in book_paths:
+        print path
+        raw_text = file_ops.load_text_from_file(path)
+        books.append(BookOps(text=raw_text, use_stemmer=True, min_occurance=50))
+    b = reduce(BookOps.merge_books, books)
 
-    raw_text1 = file_ops.load_text_from_file(path_to_book1)
-    raw_text2 = file_ops.load_text_from_file(path_to_book2)
-
-    b1 = BookOps(text=raw_text1, use_stemmer=True, min_occurance=MIN_OCCURANCE)
-    b2 = BookOps(text=raw_text2, use_stemmer=True, min_occurance=MIN_OCCURANCE)
-    b = BookOps.merge_books(b1, b2)
     if GET_NAMES:
         book_to_names(b)
     else:
