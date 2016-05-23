@@ -12,6 +12,7 @@ WORDS_DISTANCE = 6
 MIN_OCCURANCE = 5
 
 # TODO: Match different names to one character
+# TODO: Add logging to functions
 
 join_st = lambda s: ' '.join(s)
 
@@ -117,7 +118,7 @@ def merge_synonims(book, synonims_list):
     print len(merged_list)
 
 
-GET_NAMES = False
+GET_NAMES = True
 WITH_SENTIMENT = True
 
 
@@ -131,10 +132,10 @@ def test_standard_graph_build():
 
         # merge_synonims(b, ['Harry', 'Potter'])
 
-        # # get_sentiment_for_names(b)
-        # # characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
-        # # for name in characters_to_test:
-        # 	# get_sentiment_for_connections(b, word_pos, target_name = name)
+        # get_sentiment_for_names(b)
+        # characters_to_test = ['Tyrion', 'Jaime', 'Sansa', 'Arya', 'Robb', 'Dany']
+        # for name in characters_to_test:
+        # 	get_sentiment_for_connections(b, word_pos, target_name = name)
 
         if WITH_SENTIMENT:
             g = build_graph_with_sentiment(b)
@@ -150,7 +151,7 @@ def test_merge_graph_build():
     for path in book_paths:
         print path
         raw_text = file_ops.load_text_from_file(path)
-        books.append(BookOps(text=raw_text, use_stemmer=True, min_occurance=50))
+        books.append(BookOps(text=raw_text, use_stemmer=False, min_occurance=100))
     b = reduce(BookOps.merge_books, books)
 
     if GET_NAMES:
