@@ -1,345 +1,155 @@
 *node data
 ID count
-Jeyne 206
-Meryn 136
-Renly 565
-Robert 1131
-Mark 201
-Rodrik 288
-Robb 1099
-Cersei 1236
-Aeron 151
-Brienne 729
-Eyrie 206
-Frey 670
-Joffrey 848
-Tyrion 2708
-Tormund 205
-Brandon 147
-Jon 3193
-Petyr 360
-Davos 693
-Ben 167
-Dany 1376
-Lysa 356
-Theon 783
-Alliser 140
-Jaime 1576
-Arya 1638
-Bran 1472
-Baelish 105
-Tyrell 493
-Sansa 1397
-Tywin 708
-Tommen 392
-Melisandre 288
-Valyria 85
-Hodor 521
-Catelyn 1138
-Mormont 537
-Doran 137
+Dudley 36
+Petunias 29
+Nick 47
+Goyle 39
+Ginny 114
+Crabbe 34
+Gilderoy 38
+Fred 103
+Filch 56
+Vernon 44
+Snape 122
+Basilisk 31
+Neville 30
+Justin 40
+Dumbledore 156
+Hermione 319
+Harry 1649
+Lockhart 235
+Riddle 135
+Hagrid 161
+Ron 696
+Percy 73
+Colin 46
+Dobby 151
+Myrtle 68
+Draco 34
+George 91
 *tie data
 from to strength sentiment
-Jeyne Robb 13 0.343846153846
-Brienne Tyrion 1 1.085
-Hodor Robb 5 0.813333333333
-Bran Lysa 2 -0.79
-Robb Tommen 1 0
-Jon Tywin 3 0.795
-Davos Robert 1 0
-Renly Tyrell 13 1.39846153846
-Eyrie Tyrion 7 0.434
-Arya Tommen 3 0
-Brienne Sansa 9 -0.422
-Jaime Tyrion 34 -0.366774193548
-Arya Brienne 2 0.746666666667
-Catelyn Frey 17 -0.418666666667
-Jon Valyria 1 -1.22
-Arya Mormont 2 -0.88
-Arya Lysa 2 -1.46
-Davos Frey 5 -0.472
-Frey Mark 1 0
-Mormont Tyrion 18 0.182142857143
-Eyrie Lysa 17 -0.256875
-Baelish Joffrey 1 0
-Bran Theon 18 -1.30266666667
-Baelish Petyr 62 0.611904761905
-Bran Tyrion 14 -1.23
-Jaime Jon 6 -0.171428571429
-Jon Rodrik 8 0.81
-Cersei Frey 2 0.833333333333
-Robb Tyrell 1 0
-Cersei Robert 32 0.515333333333
-Arya Frey 1 0
-Hodor Jon 4 0.572
-Doran Tyrion 2 0
-Baelish Lysa 2 0
-Catelyn Mark 1 0.945
-Aeron Theon 2 -0.653333333333
-Lysa Petyr 16 0.265384615385
-Cersei Theon 1 0
-Brienne Robert 3 -0.875
-Catelyn Cersei 5 -0.628
-Jaime Mark 3 -1.33
-Arya Ben 1 0
-Petyr Tyrion 6 -1.29833333333
-Renly Tommen 2 0
-Joffrey Tywin 5 -0.978333333333
-Arya Tywin 3 0
-Alliser Tyrion 6 -0.392857142857
-Catelyn Renly 20 0.506842105263
-Alliser Jon 15 1.11583333333
-Frey Tyrion 3 -0.0175
-Frey Theon 6 -0.112
-Catelyn Joffrey 1 0
-Jaime Lysa 2 0.77
-Jaime Renly 8 -1.14285714286
-Jon Tyrion 36 -0.839393939394
-Jon Robb 44 0.27
-Brandon Theon 1 0
-Robb Tyrion 6 0
-Dany Tyrion 2 0
-Catelyn Lysa 22 0.22
-Doran Jon 1 0
-Cersei Jaime 39 -0.3415625
-Davos Tyrion 11 -2.836
-Dany Jon 1 0
-Catelyn Sansa 7 -1.29833333333
-Dany Mark 1 0
-Frey Robert 2 0.84
-Bran Rodrik 15 -0.123333333333
-Brandon Sansa 1 0
-Bran Renly 1 0
-Bran Catelyn 9 -0.275
-Mark Tyrion 3 0
-Rodrik Theon 9 0.9
-Frey Sansa 2 -2.18666666667
-Catelyn Jeyne 2 1.27666666667
-Bran Joffrey 1 -1.005
-Jeyne Jon 1 -1.055
-Jaime Mormont 1 0.945
-Baelish Eyrie 1 0
-Brandon Petyr 5 -0.54
-Mormont Tormund 1 0
-Jaime Jeyne 2 0
-Frey Hodor 2 0
-Brandon Tommen 1 -2.115
-Frey Tywin 9 0.404444444444
-Tommen Tyrion 2 0
-Cersei Lysa 3 0
-Bran Mark 2 1.50333333333
-Renly Tywin 3 0.115
-Renly Tyrion 8 0.0785714285714
-Arya Bran 22 0.327619047619
-Eyrie Sansa 3 0.625
-Mark Valyria 2 1.06
-Mormont Robert 1 1.02
-Joffrey Robert 15 -0.141538461538
-Jeyne Tywin 3 0
-Mormont Robb 3 0
-Joffrey Jon 5 -1.10166666667
-Lysa Tyrion 5 1.53166666667
-Brienne Joffrey 2 0.02
-Ben Dany 9 0.336666666667
-Mark Tywin 2 0
-Melisandre Tyrion 3 -1.37
-Baelish Tyrell 1 0
-Brandon Mark 1 0
-Bran Cersei 1 1.12
-Robb Rodrik 9 -0.915714285714
-Robb Theon 23 0.0657142857143
-Arya Joffrey 11 -1.44666666667
-Robb Tywin 5 -0.962
-Robert Tommen 4 0
-Tommen Valyria 1 0
-Bran Hodor 128 -0.240588235294
-Joffrey Melisandre 3 0
-Lysa Robb 2 -0.775
-Catelyn Tyrell 1 0.945
-Bran Sansa 12 0.511111111111
-Brienne Robb 4 -1.554
-Brandon Renly 1 1.945
-Ben Mormont 2 0
-Cersei Jon 6 0.738333333333
-Baelish Sansa 3 -1.54
-Joffrey Meryn 9 0
-Cersei Tommen 17 -0.201333333333
-Catelyn Mormont 6 -0.315
-Lysa Sansa 18 -0.119411764706
-Jeyne Theon 3 0.34
-Arya Tyrion 2 0
-Robb Sansa 14 0.475384615385
-Bran Brandon 10 -0.698181818182
-Brienne Jeyne 1 0
-Bran Melisandre 1 -1.37
-Jaime Robb 10 0.111
-Jon Sansa 5 -1.068
-Arya Jon 25 -0.170869565217
-Dany Robert 2 -2.07333333333
-Brienne Tommen 1 0
-Arya Robert 2 0
-Brienne Frey 3 0
-Davos Melisandre 17 -0.0976470588235
-Robert Tyrion 12 -0.47
-Jaime Robert 23 -0.0266666666667
-Baelish Rodrik 1 0.675
-Arya Theon 9 0.54125
-Mark Theon 1 0
-Jeyne Sansa 13 -0.182727272727
-Doran Tommen 1 0
-Eyrie Rodrik 2 0
-Jon Mark 4 0.462
-Bran Tywin 1 -1.99
-Jon Melisandre 25 -0.589166666667
-Robert Sansa 13 0.4925
-Jon Mormont 39 0.174516129032
-Cersei Tyrell 8 0.285714285714
-Catelyn Tyrion 16 -0.0284615384615
-Davos Eyrie 1 0
-Sansa Tommen 5 0.56
-Lysa Robert 3 0.4475
-Joffrey Tommen 20 -0.411111111111
-Meryn Tyrion 3 1.50333333333
-Dany Davos 1 0
-Arya Meryn 2 0.606666666667
-Cersei Robb 2 1.12
-Catelyn Jaime 9 -0.686666666667
-Ben Jeyne 1 0
-Joffrey Mark 1 1.635
-Bran Mormont 1 0
-Jon Renly 2 0
-Ben Jon 7 0.72
-Jaime Tywin 22 -0.359545454545
-Baelish Jeyne 1 0.945
-Brandon Cersei 1 0
-Catelyn Theon 2 0
-Ben Doran 1 0
-Meryn Tywin 1 0
-Eyrie Tywin 1 0
-Eyrie Petyr 4 0
-Ben Mark 1 0
-Baelish Cersei 1 0
-Bran Robert 6 -0.975714285714
-Renly Sansa 5 -0.858
-Catelyn Tywin 3 -1.12
-Arya Renly 1 -1.37
-Joffrey Renly 8 1.018
-Brienne Tywin 1 0
-Renly Robert 30 0.286428571429
-Jon Tormund 29 0.6984
-Dany Melisandre 1 0
-Doran Lysa 1 0
-Jaime Joffrey 7 -1.22
-Brandon Jon 2 0
-Baelish Jaime 2 0
-Jaime Petyr 3 0
-Brandon Catelyn 5 -1.12
-Bran Frey 8 0.4725
-Tommen Tyrell 8 -0.0942857142857
-Eyrie Jon 7 0
-Baelish Brandon 1 -0.98
-Arya Mark 1 0
-Davos Jon 11 -2.103
-Jaime Meryn 7 0.35
-Catelyn Robb 49 -0.0897674418605
-Brandon Robert 1 1.31
-Jeyne Robert 3 0
-Joffrey Sansa 59 -0.399056603774
-Brandon Robb 3 -0.0925
-Bran Davos 4 -2.055
-Melisandre Tommen 1 0
-Catelyn Rodrik 11 -0.459090909091
-Arya Jeyne 9 -0.357777777778
-Frey Jon 1 -1.31
-Eyrie Frey 1 -0.535
-Petyr Sansa 15 -0.256363636364
-Davos Mormont 1 0
-Melisandre Tormund 1 0
-Bran Jon 36 -0.00428571428571
-Alliser Joffrey 1 0
-Arya Catelyn 5 0
-Robb Robert 4 0
-Mark Petyr 1 0
-Arya Brandon 1 0
-Cersei Doran 2 0.363333333333
-Brienne Lysa 1 -1.615
-Hodor Mark 1 0
-Jon Robert 18 -1.01
-Mark Sansa 1 0
-Frey Petyr 2 1.54
-Joffrey Lysa 1 0
-Petyr Robert 11 -0.294545454545
-Robert Tywin 8 -0.0333333333333
-Sansa Tyrell 10 0.485555555556
-Hodor Theon 6 0
-Baelish Robert 3 1.22
-Catelyn Eyrie 6 0.341666666667
-Brienne Catelyn 19 -1.45894736842
-Lysa Tywin 3 0
-Ben Cersei 1 -1.565
-Dany Joffrey 1 0
-Frey Robb 14 0.0784615384615
-Cersei Renly 1 0
-Doran Tyrell 2 -0.653333333333
-Cersei Tywin 9 0.406666666667
-Rodrik Tyrion 1 0
-Renly Robb 4 0.336
-Davos Renly 3 -0.58
-Tommen Tywin 2 1.31
-Cersei Tyrion 48 -0.311282051282
-Bran Robb 73 0.148064516129
-Theon Tywin 2 -0.0233333333333
-Melisandre Renly 3 0
-Cersei Mark 2 2.27666666667
-Jaime Tyrell 8 -0.8175
-Jeyne Joffrey 1 2.12
-Theon Tyrion 2 -0.68
-Arya Cersei 3 0
-Joffrey Robb 14 0.133333333333
-Tyrell Tyrion 11 -0.118181818182
-Cersei Sansa 21 0.965789473684
-Dany Mormont 5 -0.373333333333
-Jon Theon 6 -0.517142857143
-Baelish Tyrion 2 -0.77
-Tyrion Valyria 1 0
-Joffrey Rodrik 1 0
-Sansa Tyrion 40 -0.333870967742
-Brienne Tyrell 1 0
-Davos Theon 1 0
-Eyrie Robert 18 0.927368421053
-Brienne Cersei 3 1.485
-Brienne Theon 2 -1.47333333333
-Tyrell Tywin 5 0.388
-Petyr Tyrell 1 0
-Jaime Sansa 5 0.63
-Jon Lysa 9 -0.613
-Jaime Theon 2 -1.75666666667
-Tyrion Tywin 37 -0.311935483871
-Arya Jaime 5 -0.55
-Arya Sansa 75 -0.574761904762
-Arya Rodrik 1 -0.215
-Catelyn Robert 3 1.2425
-Bran Tommen 5 -1.855
-Baelish Robb 1 1.02
-Brandon Jaime 3 -0.12
-Jaime Tommen 11 -0.824444444444
-Alliser Mormont 1 0
-Arya Robb 27 0.303333333333
-Meryn Tommen 1 0
-Joffrey Tyrion 29 -0.4328
-Petyr Robb 2 0
-Cersei Davos 1 0
-Frey Jeyne 5 0.506666666667
-Cersei Meryn 23 0.0695652173913
-Ben Tyrion 1 1.085
-Catelyn Jon 9 -0.95
-Mormont Theon 2 0
-Brienne Jaime 45 0.126
-Catelyn Petyr 2 0
-Frey Jaime 16 0.159285714286
-Brienne Renly 15 0.309230769231
-Hodor Sansa 2 0
-Arya Petyr 1 0
-Cersei Joffrey 32 -0.236428571429
-Joffrey Tyrell 14 -0.0130769230769
-Mormont Renly 1 0
+Gilderoy Lockhart 41 0.445365853659
+Filch George 1 0
+Fred Lockhart 1 0
+Percy Riddle 1 1.19
+Dudley Vernon 6 0.035
+Goyle Ron 4 0.79
+Ginny Riddle 5 -0.268333333333
+Crabbe Hermione 2 0
+Dumbledore Ron 8 0.2875
+Basilisk Nick 2 0
+Ginny Hermione 2 0
+Harry Hermione 85 0.37858974359
+Colin Ginny 1 0
+Lockhart Ron 23 0.420526315789
+Colin Harry 21 0.0917647058824
+Draco Lockhart 1 0
+Goyle Hermione 4 0
+Fred Hagrid 1 0.5
+Hermione Lockhart 11 0.568181818182
+Ginny Ron 20 0.449411764706
+George Ginny 5 -0.395
+Basilisk Ginny 1 0
+Ginny Percy 3 0.9925
+Dobby Hagrid 1 -0.87
+Fred Ron 12 0
+Gilderoy Petunias 1 0
+Harry Petunias 3 -0.9625
+Dobby Dumbledore 4 0.858
+Lockhart Myrtle 2 -0.9
+Goyle Snape 1 0
+Hermione Neville 1 -1.31
+Draco Hagrid 1 0
+Fred Ginny 4 0.4725
+Dumbledore Harry 39 0.556060606061
+Basilisk Harry 4 -1.332
+Dobby Ron 2 -1.22
+Harry Myrtle 18 -0.46875
+Colin Dobby 1 0
+Filch Nick 3 -0.02
+Justin Lockhart 2 0.953333333333
+Dudley Harry 6 -0.824
+Hagrid Snape 1 -1.28
+Hermione Nick 1 -0.075
+Hagrid Riddle 3 -1.345
+Draco Harry 11 -0.741666666667
+Dumbledore Ginny 3 -1.04
+Filch Snape 1 -1.455
+Crabbe Harry 5 0.361666666667
+Harry Ron 242 -0.0602427184466
+Filch Myrtle 1 -1.46
+Harry Vernon 14 -1.1775
+Hermione Riddle 1 -1.665
+Fred Percy 9 1.016
+Dobby Harry 66 -0.195094339623
+Ron Snape 6 0.215714285714
+Draco Snape 1 2.1
+Colin Hermione 3 -0.79
+Goyle Harry 6 0.026
+Hermione Snape 2 -0.98
+Justin Nick 5 -0.426666666667
+Dumbledore Hagrid 12 0.503
+Justin Snape 1 0.755
+Petunias Vernon 7 0.104285714286
+Filch Harry 15 -0.0791666666667
+Basilisk Riddle 2 0
+George Percy 3 -0.8325
+Crabbe Ron 11 0.375454545455
+Neville Ron 3 0.253333333333
+Lockhart Petunias 1 0
+Hermione Justin 1 -0.39
+Percy Ron 15 0.225
+Dumbledore Filch 1 0
+Dumbledore Lockhart 5 -0.2975
+Hermione Myrtle 11 0.0371428571429
+Draco George 1 -1.22
+Colin Justin 2 -2.3
+Dudley Petunias 4 0.604
+Myrtle Ron 6 -0.51
+Dumbledore Snape 1 0
+Filch Fred 1 -1.25
+Ginny Lockhart 5 0.873333333333
+Harry Nick 11 0.131111111111
+Justin Ron 2 0
+Hagrid Harry 40 0.472941176471
+Lockhart Neville 1 0
+George Hermione 1 0
+George Hagrid 1 0
+Gilderoy Harry 4 0
+Justin Neville 2 -0.913333333333
+Draco Ron 4 0.462
+Fred Harry 28 -0.633913043478
+Dumbledore Gilderoy 2 1.20333333333
+Basilisk Justin 2 -1.86666666667
+Filch Neville 1 -1.25
+Colin Ron 1 -1.02
+Harry Riddle 41 -0.0334285714286
+Colin Dumbledore 2 0
+George Ron 12 0.309166666667
+Harry Lockhart 62 0.559245283019
+Filch Ron 3 0
+Dobby Hermione 2 0
+Crabbe Goyle 17 0.561111111111
+Harry Neville 8 -0.86375
+Hagrid Hermione 6 1.03333333333
+Harry Snape 20 -0.178235294118
+Riddle Ron 7 -0.0483333333333
+George Harry 27 -0.00444444444444
+Hermione Ron 107 0.00979381443299
+Colin Lockhart 1 0
+Fred Hermione 1 0
+Filch Lockhart 1 1.185
+Filch Hermione 1 0
+Fred George 49 0.3084
+Dumbledore Hermione 2 -0.665
+Fred Gilderoy 1 0
+Gilderoy Hagrid 1 0
+Harry Justin 9 -0.09125
+Harry Percy 14 -0.170769230769
+Lockhart Snape 10 -0.804
+Ginny Harry 32 0.163076923077
+Neville Snape 1 0.755
+Hagrid Lockhart 3 0.315
+Dumbledore Riddle 5 1.778
+Hagrid Ron 14 -0.174615384615

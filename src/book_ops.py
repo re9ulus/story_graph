@@ -116,19 +116,46 @@ class BookOps:
             stem_words_dict = self.get_stem_words_dict(names)
             names = self.stem_words(names)
             words = self._stemmed_words
-
         words_occurance = Counter()
         for word in words:
             if word in names:
                 words_occurance[word] += 1
-
         if self._use_stemmer:
             words_occurance = {stem_words_dict[name]: words_occurance[name] for name in names}
-
         if self._min_occurance > 0:
             words_occurance = {k: v for k, v in words_occurance.iteritems() if v > self._min_occurance}
-
         return words_occurance
+
+    def merge_synonims(self, synonims_list, merge_distance=5):
+        """merge synonims using synonims_list.
+        words in distance less than merge_distance are count as single occurance, and merge
+
+        [string], int -> 
+        """
+        # TODO: Add tests
+        if len(synonims_list) == 0:
+            return
+
+        name_positions = self.all_names_positions()
+        merged_list = []
+        for name in synonims_list:
+            print name, name_positions[name]
+            merged_list += name_positions[name]
+        merged_list = sorted(merged_list)
+        res_list = []
+        i = 0
+        while i < len(merged_list)-1:
+            if merged_list[i+1] - merged_list[i] < merge_distance:
+                res_list.append((merged_list[i+1] + merged_list[i]) / 2)
+                i += 1
+            else:
+                res_list.append(merged_list[i])
+            i += 1
+
+        self._names[synonims_list[0]] = len(res_list)
+        map(self._names.pop, synonims_list[1:])
+        print len(res_list)
+        print len(merged_list)
 
     def name_positions(self, name):
         """get all positions of the name in the string array
