@@ -17,7 +17,7 @@ def load_text_from_file(path_to_file):
     return result
 
 
-def save_names_to_file(path_to_file, names):
+def save_names_to_file(names, path_to_file):
     """write {name: occurance} dict to file
 
     string, {string: int} -> None
