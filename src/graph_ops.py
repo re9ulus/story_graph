@@ -102,8 +102,7 @@ class Graph:
         for node, connections in sorted(self._graph.iteritems()):
             res += '{0} : {1}\n'.format(node, self.get_node_weight(node))
             for conn in connections:
-                res += '\t{0} : {1}\n'.format(conn,
-                    self.get_connection_weight((node, conn)))
+                res += '\t{0} : {1}\n'.format(conn, self.get_connection_weight((node, conn)))
         return res
 
     def _check_node_in_graph_error(self, node):
@@ -120,7 +119,7 @@ class Graph:
         return tuple(sorted(connection))
 
     def get_nodes(self):
-        raise Exception('Not implemented')
+        return self._graph.keys()
 
     def get_edges(self):
         raise Exception('Not implemented')
@@ -166,8 +165,8 @@ class GraphIO:
             f.write('from to strength sentiment\n')
             for edge in edges:
                 f.write('{0} {1} {2} {3}\n'.format(edge[0], edge[1],
-                    g.get_connection_weight(edge),
-                    g.get_connection_sentiment(edge)))
+                                                   g.get_connection_weight(edge),
+                                                   g.get_connection_sentiment(edge)))
 
     @staticmethod
     def save_graph_to_file(g, path_to_file):
