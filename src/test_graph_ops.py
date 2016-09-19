@@ -132,5 +132,15 @@ class TestGraphOps(unittest.TestCase):
         g.add_connection('A', 'B')
         self.assertEqual(sorted(g.get_nodes()), ['A', 'B'])
 
+    def test_get_connections1(self):
+        g = Graph()
+        self.assertEqual(g.get_connections(), [])
+
+    def test_get_connections2(self):
+        g = Graph()
+        g.add_connection('A', 'B')
+        g.add_connection('A', 'C')
+        self.assertEqual(sorted(g.get_connections()), [('A', 'B'), ('A', 'C')])
+
 if __name__ == '__main__':
     unittest.main()

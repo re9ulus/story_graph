@@ -119,10 +119,17 @@ class Graph:
         return tuple(sorted(connection))
 
     def get_nodes(self):
+        """get list of all nodes in graph"""
         return self._graph.keys()
 
-    def get_edges(self):
-        raise Exception('Not implemented')
+    def get_connections(self):
+        """get list of all connections in graph"""
+        connections = set()
+        for start_node in self.get_nodes():
+            end_nodes = self.get_node_connections(start_node)
+            for end_node in end_nodes:
+                connections.add(tuple(sorted([start_node, end_node])))
+        return list(connections)
 
     def get_graph(self):
         return self._graph
