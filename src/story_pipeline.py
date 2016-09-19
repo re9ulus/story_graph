@@ -1,7 +1,7 @@
 import file_ops
-from book_ops import BookOps
 import graph_ops
 import sentiment_ops
+from book_ops import BookOps
 
 PATH_TO_BOOK = './../books/harry.txt'  # './../books/storm_of_swords.txt '
 PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt'
@@ -84,9 +84,9 @@ def get_sentiment_for_connections(book, word_pos, target_name):
         if name == target_name:
             continue
         connection_positions = book.all_connection_positions(target_name, name,
-            dist=WORDS_DISTANCE)
+                                                             dist=WORDS_DISTANCE)
         connection_surrs = book.all_positions_surroundings(connection_positions,
-            delta=5)
+                                                           delta=5)
         connection_surrs = map(join_st, connection_surrs)
 
         res.append((sentiment_ops.estimate_for_list(connection_surrs), name))
@@ -109,7 +109,7 @@ def test_standard_graph_build():
     else:
         b.set_names(file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE))
 
-        synonims = [['Harry', 'Potter'],['Vernon', 'Uncle'],['Snape', 'Lucius']]
+        synonims = [['Harry', 'Potter'], ['Vernon', 'Uncle'], ['Snape', 'Lucius']]
         for syn_list in synonims:
             b.merge_synonims(syn_list)
 
@@ -130,7 +130,7 @@ def test_merge_graph_build():
         print path
         raw_text = file_ops.load_text_from_file(path)
         books.append(BookOps(text=raw_text, use_stemmer=False,
-            min_occurance=100))
+                             min_occurance=100))
     b = reduce(BookOps.merge_books, books)
 
     if GET_NAMES:
