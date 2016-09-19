@@ -9,7 +9,7 @@ PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/hero_names.txt'  # './../tmp_files/
 PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 
 WORDS_DISTANCE = 6
-MIN_OCCURANCE = 5
+MIN_OCCURANCE = 50
 
 # TODO: Match different names to one character
 # TODO: Add logging to functions
@@ -17,23 +17,57 @@ MIN_OCCURANCE = 5
 join_st = lambda s: ' '.join(s)
 
 
-def book_to_names(book):
-    """get names from the words
-    """
-    file_ops.save_names_to_file(PATH_TO_NAMES_FILE, book.get_names_from_text())
+class StoryToGraph:
+
+    def __init__(self, book, words_distance=6, use_sentiment=False):
+        self._book = book
+        self._use_sentiment = use_sentiment
+        self._words_distance = words_distance
+        self._graph = None
+
+    def get_possible_names(self):
+        return self._book.get_names_from_text()
+
+    @staticmethod
+    def save_names_to_file(names, filename):
+        file_ops.save_names_to_file(names, filename)
+
+    @staticmethod
+    def read_names_from_file(filename):
+        return file_ops.load_names_from_file(filename)
+
+    def set_names(self, names):
+        self._book.set_names(names)
+
+    def build_graph(self):
+        """build graph from word positions
+        """
+        self._graph = graph_ops.Graph()
+        self._graph.init_from_book(self._book, self._words_distance)
+
+    def demo_repr(self):
+        print self._graph.repr_with_weights()
+        print '\n\n\n'
+        print self._graph.__repr__()
 
 
-def build_graph(book):
-    """build graph from word positions
-    """
-    g = graph_ops.Graph()
-    g.init_from_book(book, WORDS_DISTANCE)
+# def book_to_names(book):
+#     """get names from the words
+#     """
+#     file_ops.save_names_to_file(book.get_names_from_text(), PATH_TO_NAMES_FILE)
 
-    print g.repr_with_weights()
-    print '\n\n\n'
-    print g.__repr__()
 
-    return g
+# def build_graph(book):
+#     """build graph from word positions
+#     """
+#     g = graph_ops.Graph()
+#     g.init_from_book(book, WORDS_DISTANCE)
+#
+#     print g.repr_with_weights()
+#     print '\n\n\n'
+#     print g.__repr__()
+#
+#     return g
 
 
 def get_connection_sent(book, conn):
@@ -98,33 +132,43 @@ def get_sentiment_for_connections(book, word_pos, target_name):
 
 
 GET_NAMES = False
-WITH_SENTIMENT = True
+WITH_SENTIMENT = False
 
 
 def test_standard_graph_build():
     raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
     b = BookOps(text=raw_text, use_stemmer=True, min_occurance=MIN_OCCURANCE)
+
+    stg = StoryToGraph(book=b, words_distance=WORDS_DISTANCE, use_sentiment=WITH_SENTIMENT)
     if GET_NAMES:
-        book_to_names(b)
+        possible_names = stg.get_possible_names()
+        stg.save_names_to_file(possible_names, PATH_TO_NAMES_FILE)
     else:
-        b.set_names(file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE))
+        cleared_names = stg.read_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+        stg.set_names(cleared_names)
+        stg.build_graph()
+        stg.demo_repr()
 
-        synonims = [['Harry', 'Potter'], ['Vernon', 'Uncle'], ['Snape', 'Lucius']]
-        for syn_list in synonims:
-            b.merge_synonims(syn_list)
 
-        # merge_synonims(b, ['Harry', 'Potter'])
+    #  logic for name merging
+    #     synonims = [['Harry', 'Potter'], ['Vernon', 'Uncle'], ['Snape', 'Lucius']]
+    #     for syn_list in synonims:
+    #         b.merge_synonims(syn_list)
+    #
+    #     # merge_synonims(b, ['Harry', 'Potter'])
+    #
+    #     if WITH_SENTIMENT:
+    #         g = build_graph_with_sentiment(b)
+    #     else:
+    #         g = build_graph(b)
+    #
+    #     graph_ops.GraphIO.save_graph_to_vna(g, PATH_TO_GRAPH)
 
-        if WITH_SENTIMENT:
-            g = build_graph_with_sentiment(b)
-        else:
-            g = build_graph(b)
-
-        graph_ops.GraphIO.save_graph_to_vna(g, PATH_TO_GRAPH)
 
 
 def test_merge_graph_build():
-    book_paths = ['./../books/GoT{0}.txt'.format(i) for i in range(1, 6)]
+    book_paths = ['./../books/GoT{0}.txt'.format(i) for i in range(1, 3)]
+
     books = []
     for path in book_paths:
         print path
@@ -133,17 +177,24 @@ def test_merge_graph_build():
                              min_occurance=100))
     b = reduce(BookOps.merge_books, books)
 
+    stg = StoryToGraph(book=b, words_distance=WORDS_DISTANCE, use_sentiment=WITH_SENTIMENT)
+
     if GET_NAMES:
-        book_to_names(b)
+        possible_names = stg.get_possible_names()
+        stg.save_names_to_file(PATH_TO_NAMES_FILE, possible_names)
     else:
-        b.set_names(file_ops.load_names_from_file(PATH_TO_CLEARED_NAMES_FILE))
+        cleared_names = stg.read_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
+        stg.set_names(cleared_names)
+        stg.build_graph()
+        stg.demo_repr()
 
-        if WITH_SENTIMENT:
-            g = build_graph_with_sentiment(b)
-        else:
-            g = build_graph(b)
 
-        graph_ops.GraphIO.save_graph_to_vna(g, PATH_TO_GRAPH)
+        # if WITH_SENTIMENT:
+        #     g = build_graph_with_sentiment(b)
+        # else:
+        #     g = build_graph(b)
+        #
+        # graph_ops.GraphIO.save_graph_to_vna(g, PATH_TO_GRAPH)
 
 
 if __name__ == '__main__':
