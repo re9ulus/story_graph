@@ -156,6 +156,7 @@ class Graph:
         """
         # TODO: Test
         # TODO: Add unit tests
+        # TODO: FIx bug, use disjoint set during the test of connection
         pq = PriorityQueue()
 
         for conn in self.get_connections():
@@ -178,6 +179,49 @@ class Graph:
             min_tree.set_node_weight(node, self.get_node_weight(node))
 
         return min_tree
+
+    def prim(self):
+        """
+        Prim's algorithm for min spanning tree, to get most important
+        connections in graph.
+        -> Graph
+        """
+        pq = PriorityQueue()
+
+        curr_node = self.get_nodes()[0]
+        for node in self.get_node_connections(curr_node):
+            # Hack negative number used to get use priority queue in inverse order
+            # (to get max values first)
+            conn = (curr_node, node)
+            pq.put((-self.get_connection_weight(conn), self.connection_key(conn)))
+
+        min_tree = Graph()
+        min_tree.add_node(curr_node)
+        while not pq.empty():
+            curr_weight, curr_connection = pq.get()
+            curr_weight = -curr_weight # Hack with negative number
+            if min_tree.is_node_in_graph(curr_connection[0]) and \
+                min_tree.is_node_in_graph(curr_connection[1]):
+                continue
+
+            if min_tree.is_node_in_graph(curr_connection[0]):
+                curr_node = curr_connection[1]
+            else:
+                curr_node = curr_connection[0]
+
+            for node in self.get_node_connections(curr_node):
+                conn = (curr_node, node)
+                pq.put((-self.get_connection_weight(conn), self.connection_key(conn)))
+
+            # print('adding', curr_connection, curr_weight)
+            min_tree.add_connection(*curr_connection)
+            min_tree.set_connection_weight(curr_connection, curr_weight)
+
+        for node in self.get_nodes():
+            min_tree.set_node_weight(node, self.get_node_weight(node))
+
+        return min_tree
+
 
 
 class GraphIO:

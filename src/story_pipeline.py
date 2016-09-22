@@ -110,7 +110,7 @@ def test_graph_build():
         stg.build_graph()
         stg.demo_repr()
 
-    min_tree = stg._graph.max_spanning_tree()
+    min_tree = stg._graph.prim() # max_spanning_tree()
 
     print('=== Min spanning tree ===')
     print min_tree.repr_with_weights()
