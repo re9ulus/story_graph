@@ -11,7 +11,7 @@ PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 WORDS_DISTANCE = 6
 MIN_OCCURANCE = 50
 
-GET_NAMES = False
+GET_NAMES = True
 WITH_SENTIMENT = True
 
 
@@ -101,7 +101,7 @@ def test_graph_build():
 
     if GET_NAMES:
         possible_names = stg.get_possible_names()
-        stg.save_names_to_file(PATH_TO_NAMES_FILE, possible_names)
+        stg.save_names_to_file(possible_names, PATH_TO_NAMES_FILE)
     else:
         cleared_names = stg.read_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
         stg.set_names(cleared_names)
