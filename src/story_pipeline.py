@@ -11,12 +11,14 @@ PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 WORDS_DISTANCE = 6
 MIN_OCCURANCE = 50
 
-GET_NAMES = True
+GET_NAMES = False
 WITH_SENTIMENT = True
 
 
-# TODO: Match different names to one character
 # TODO: Add logging to functions
+# TODO: Add graph saving to StoryToGraph class
+# graph_ops.GraphIO.save_graph_to_vna(g, PATH_TO_GRAPH)
+
 
 join_st = lambda s: ' '.join(s)
 
@@ -108,9 +110,14 @@ def test_graph_build():
         stg.build_graph()
         stg.demo_repr()
 
-        # TODO: Add graph saving to StoryToGraph class
-        # graph_ops.GraphIO.save_graph_to_vna(g, PATH_TO_GRAPH)
+    min_tree = stg._graph.max_spanning_tree()
 
+    print('=== Min spanning tree ===')
+    print min_tree.repr_with_weights()
+    print '\n\n\n'
+    print min_tree.__repr__()
+
+    graph_ops.GraphIO.save_graph_to_vna(min_tree, PATH_TO_GRAPH)
 
 if __name__ == '__main__':
     test_graph_build()

@@ -1,5 +1,5 @@
 from collections import defaultdict
-
+from Queue import PriorityQueue
 
 class Graph:
     """Implementation of unoredered graph
@@ -147,6 +147,37 @@ class Graph:
         for name, count in book.get_names().iteritems():
             self.set_node_weight(name, count)
         return self
+
+    def max_spanning_tree(self):
+        """
+        Kruskal's algorithm for min spanning tree, to get most important
+        connections in graph.
+        -> Graph
+        """
+        # TODO: Test
+        # TODO: Add unit tests
+        pq = PriorityQueue()
+
+        for conn in self.get_connections():
+            # Hack negative number used to get use priority queue in inverse order
+            # (to get max values first)
+            pq.put((-self.get_connection_weight(conn), self.connection_key(conn)))
+
+        min_tree = Graph()
+        while not pq.empty():
+            curr_weight, curr_connection = pq.get()
+            curr_weight = -curr_weight # Hack with negative number
+            if min_tree.is_node_in_graph(curr_connection[0]) and \
+                min_tree.is_node_in_graph(curr_connection[1]):
+                continue
+
+            min_tree.add_connection(*curr_connection)
+            min_tree.set_connection_weight(curr_connection, curr_weight)
+
+        for node in self.get_nodes():
+            min_tree.set_node_weight(node, self.get_node_weight(node))
+
+        return min_tree
 
 
 class GraphIO:
