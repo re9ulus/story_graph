@@ -70,6 +70,16 @@ class StoryToGraph:
         print self._graph.__repr__()
 
 
+    def merge_synonims(self, synonyms):
+        # TODO: Test
+        """replace name synonyms in book
+        synonyms :: [[string]], example: [['Harry', 'Potter'], ['Vernon', 'Uncle'], ['Snape', 'Severus']]
+        """
+        for syn_list in synonyms:
+            self._book.merge_synonims(syn_list)
+
+
+
 def test_graph_build():
 
     USE_MERGE = False
@@ -104,47 +114,3 @@ def test_graph_build():
 
 if __name__ == '__main__':
     test_graph_build()
-
-
-# TODO: Implement in class
-#  logic for name merging
-#     synonims = [['Harry', 'Potter'], ['Vernon', 'Uncle'], ['Snape', 'Lucius']]
-#     for syn_list in synonims:
-#         b.merge_synonims(syn_list)
-#
-#
-
-
-
-# Possible unneeded functions from tests
-
-# def get_sentiment_for_names(book):
-#     res = []
-#     for name, _c in book.get_names().iteritems():
-#         name_occurances = book.name_positions(name)
-#         name_surrs = book.all_positions_surroundings(name_occurances, delta=3)
-#         name_surrs = map(join_st, name_surrs)
-#         res.append((sentiment_ops.estimate_for_list(name_surrs), name))
-#     for val, name in sorted(res):
-#         print('{0}:\t\t{1}'.format(name, val))
-#     print('')
-
-
-# def get_sentiment_for_connections(book, word_pos, target_name):
-#     """target_name - character for whom get connection sentiments
-#     """
-#     res = []
-#
-#     for name, _c in book.get_names().iteritems():
-#         if name == target_name:
-#             continue
-#         connection_positions = book.all_connection_positions(target_name, name, dist=WORDS_DISTANCE)
-#         connection_surrs = book.all_positions_surroundings(connection_positions, delta=5)
-#         connection_surrs = map(join_st, connection_surrs)
-#         res.append((sentiment_ops.estimate_for_list(connection_surrs), name))
-#
-#     print('Sentiment for {0}:'.format(target_name))
-#     for val, name in sorted(res):
-#         print('{0}:\t\t{1}'.format(name, val))
-#     print('')
-

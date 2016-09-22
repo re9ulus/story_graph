@@ -126,19 +126,19 @@ class BookOps:
             words_occurance = {k: v for k, v in words_occurance.iteritems() if v > self._min_occurance}
         return words_occurance
 
-    def merge_synonims(self, synonims_list, merge_distance=5):
-        """merge synonims using synonims_list.
+    def merge_synonyms(self, synonyms_list, merge_distance=5):
+        """merge synonyms using synonyms_list.
         words in distance less than merge_distance are count as single occurance, and merge
 
         [string], int -> 
         """
         # TODO: Add tests
-        if len(synonims_list) == 0:
+        if len(synonyms_list) == 0:
             return
 
         name_positions = self.all_names_positions()
         merged_list = []
-        for name in synonims_list:
+        for name in synonyms_list:
             print name, name_positions[name]
             merged_list += name_positions[name]
         merged_list = sorted(merged_list)
@@ -152,8 +152,8 @@ class BookOps:
                 res_list.append(merged_list[i])
             i += 1
 
-        self._names[synonims_list[0]] = len(res_list)
-        map(self._names.pop, synonims_list[1:])
+        self._names[synonyms_list[0]] = len(res_list)
+        map(self._names.pop, synonyms_list[1:])
         print len(res_list)
         print len(merged_list)
 
