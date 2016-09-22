@@ -2,3 +2,4 @@ books/
 *.pyc
 *.txt
 *.vna
+*.xml
