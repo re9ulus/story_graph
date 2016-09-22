@@ -3,3 +3,4 @@ books/
 *.txt
 *.vna
 *.xml
+.idea/
