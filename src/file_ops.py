@@ -37,7 +37,7 @@ def load_names_from_file(path_to_file):
         for line in f:
             line = line.strip()
             if not line:
-                break
+                continue
             name, occurance = line.split(':')
             name = name.strip()
             occurance = int(occurance.strip())

@@ -4,7 +4,7 @@ import sentiment_ops
 from book_ops import BookOps
 
 PATH_TO_BOOK = './../books/harry.txt'  # './../books/storm_of_swords.txt '
-PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt'
+PATH_TO_NAMES_FILE = './../hero_names_got_1_5.txt' #'./../tmp_files/hero_names.txt'
 PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/hero_names.txt'  # './../tmp_files/sos_names.txt'
 PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 
@@ -17,6 +17,7 @@ WITH_SENTIMENT = True
 
 # TODO: Add logging to functions
 # TODO: Add graph saving to StoryToGraph class
+# TODO: Insert synonyms list to names file
 # graph_ops.GraphIO.save_graph_to_vna(g, PATH_TO_GRAPH)
 
 
@@ -78,44 +79,51 @@ class StoryToGraph:
         synonyms :: [[string]], example: [['Harry', 'Potter'], ['Vernon', 'Uncle'], ['Snape', 'Severus']]
         """
         for syn_list in synonyms:
-            self._book.merge_synonims(syn_list)
-
+            self._book.merge_synonyms(syn_list)
 
 
 def test_graph_build():
 
-    USE_MERGE = False
+    USE_MERGE = True
 
     if USE_MERGE:
-        book_paths = ['./../books/GoT{0}.txt'.format(i) for i in range(1, 3)]
+        book_paths = ['./../books/GoT{0}.txt'.format(i) for i in range(1, 2)]
         books = []
         for path in book_paths:
             print path
             raw_text = file_ops.load_text_from_file(path)
-            books.append(BookOps(text=raw_text, use_stemmer=False,
+            books.append(BookOps(text=raw_text, use_stemmer=WITH_SENTIMENT,
                                  min_occurance=100))
         b = reduce(BookOps.merge_books, books)
     else:
         raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
-        b = BookOps(text=raw_text, use_stemmer=True, min_occurance=MIN_OCCURANCE)
+        b = BookOps(text=raw_text, use_stemmer=WITH_SENTIMENT, min_occurance=MIN_OCCURANCE)
 
     stg = StoryToGraph(book=b, words_distance=WORDS_DISTANCE, use_sentiment=WITH_SENTIMENT)
 
     if GET_NAMES:
         possible_names = stg.get_possible_names()
         stg.save_names_to_file(possible_names, PATH_TO_NAMES_FILE)
+        return
     else:
+        # stg.merge_synonims([['Sam', 'Samwell'], ['Ned', 'Eddard'], ['Barristan', 'Selmy'],
+        #                     ['Petyr', 'Littlefinger', 'Baelish'], ['Khal', 'Drogo'], ['Jaime', 'Kingslayer'],
+        #                     ['Dany', 'Daenerys', 'Khaleesi']])
+
+
         cleared_names = stg.read_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
         stg.set_names(cleared_names)
         stg.build_graph()
-        stg.demo_repr()
+        # stg.demo_repr()
 
+    graph_ops.GraphIO.save_graph_to_vna(stg._graph, './../tmp_files/got_graph_1_5.vna')
     min_tree = stg._graph.prim() # max_spanning_tree()
+    graph_ops.GraphIO.save_graph_to_vna(stg._graph, './../tmp_files/got_tree_1_5.vna')
 
-    print('=== Min spanning tree ===')
-    print min_tree.repr_with_weights()
-    print '\n\n\n'
-    print min_tree.__repr__()
+    # print('=== Min spanning tree ===')
+    # print min_tree.repr_with_weights()
+    # print '\n\n\n'
+    # print min_tree.__repr__()
 
     graph_ops.GraphIO.save_graph_to_vna(min_tree, PATH_TO_GRAPH)
 
