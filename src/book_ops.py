@@ -139,7 +139,7 @@ class BookOps:
         name_positions = self.all_names_positions()
         merged_list = []
         for name in synonyms_list:
-            print name, name_positions[name]
+            # print name, name_positions[name]
             merged_list += name_positions[name]
         merged_list = sorted(merged_list)
         res_list = []
@@ -154,8 +154,8 @@ class BookOps:
 
         self._names[synonyms_list[0]] = len(res_list)
         map(self._names.pop, synonyms_list[1:])
-        print len(res_list)
-        print len(merged_list)
+        # print len(res_list)
+        # print len(merged_list)
 
     def name_positions(self, name):
         """get all positions of the name in the string array

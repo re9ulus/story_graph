@@ -216,6 +216,7 @@ class Graph:
             # print('adding', curr_connection, curr_weight)
             min_tree.add_connection(*curr_connection)
             min_tree.set_connection_weight(curr_connection, curr_weight)
+            min_tree.set_connection_sentiment(curr_connection, self.get_connection_sentiment(curr_connection))
 
         for node in self.get_nodes():
             min_tree.set_node_weight(node, self.get_node_weight(node))

@@ -4,8 +4,8 @@ import sentiment_ops
 from book_ops import BookOps
 
 PATH_TO_BOOK = './../books/harry.txt'  # './../books/storm_of_swords.txt '
-PATH_TO_NAMES_FILE = './../hero_names_got_1_5.txt' #'./../tmp_files/hero_names.txt'
-PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/hero_names.txt'  # './../tmp_files/sos_names.txt'
+PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt' #
+PATH_TO_CLEARED_NAMES_FILE = './../tmp_files/hero_names_got_1_5.txt'  # './../tmp_files/sos_names.txt'
 PATH_TO_GRAPH = './../tmp_files/test_graph.vna'
 
 WORDS_DISTANCE = 6
@@ -87,7 +87,7 @@ def test_graph_build():
     USE_MERGE = True
 
     if USE_MERGE:
-        book_paths = ['./../books/GoT{0}.txt'.format(i) for i in range(1, 2)]
+        book_paths = ['./../books/GoT{0}.txt'.format(i) for i in range(1, 6)]
         books = []
         for path in book_paths:
             print path
@@ -106,19 +106,19 @@ def test_graph_build():
         stg.save_names_to_file(possible_names, PATH_TO_NAMES_FILE)
         return
     else:
-        # stg.merge_synonims([['Sam', 'Samwell'], ['Ned', 'Eddard'], ['Barristan', 'Selmy'],
-        #                     ['Petyr', 'Littlefinger', 'Baelish'], ['Khal', 'Drogo'], ['Jaime', 'Kingslayer'],
-        #                     ['Dany', 'Daenerys', 'Khaleesi']])
-
-
         cleared_names = stg.read_names_from_file(PATH_TO_CLEARED_NAMES_FILE)
         stg.set_names(cleared_names)
-        stg.build_graph()
+
+        stg.merge_synonims([['Sam', 'Samwell'], ['Ned', 'Eddard'], ['Barristan', 'Selmy'],
+                            ['Petyr', 'Littlefinger', 'Baelish'], ['Khal', 'Drogo'], ['Jaime', 'Kingslayer'],
+                            ['Dany', 'Daenerys', 'Khaleesi']])
+
+        stg.build_graph_with_sentiment() #build_graph()
         # stg.demo_repr()
 
     graph_ops.GraphIO.save_graph_to_vna(stg._graph, './../tmp_files/got_graph_1_5.vna')
     min_tree = stg._graph.prim() # max_spanning_tree()
-    graph_ops.GraphIO.save_graph_to_vna(stg._graph, './../tmp_files/got_tree_1_5.vna')
+    graph_ops.GraphIO.save_graph_to_vna(min_tree, './../tmp_files/got_tree_1_5.vna')
 
     # print('=== Min spanning tree ===')
     # print min_tree.repr_with_weights()
