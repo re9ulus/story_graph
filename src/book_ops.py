@@ -84,7 +84,7 @@ class BookOps:
 
         [string] -> [string]
         """
-        return map(cls.stemmer.stem, words)
+        return list(map(cls.stemmer.stem, words))
 
     def get_names_from_words(self):
         """get dict of names from words
@@ -98,7 +98,7 @@ class BookOps:
         names = filter(self.is_capitalized, self._words)
         words_occurance = Counter(names)
         if self._min_occurance > 0:
-            words_occurance = {k: v for k, v in words_occurance.iteritems() if v > self._min_occurance}
+            words_occurance = {k: v for k, v in words_occurance.items() if v > self._min_occurance}
         return words_occurance
 
     def get_names_from_text(self):
@@ -123,14 +123,14 @@ class BookOps:
         if self._use_stemmer:
             words_occurance = {stem_words_dict[name]: words_occurance[name] for name in names}
         if self._min_occurance > 0:
-            words_occurance = {k: v for k, v in words_occurance.iteritems() if v > self._min_occurance}
+            words_occurance = {k: v for k, v in words_occurance.items() if v > self._min_occurance}
         return words_occurance
 
     def merge_synonyms(self, synonyms_list, merge_distance=5):
         """merge synonyms using synonyms_list.
         words in distance less than merge_distance are count as single occurance, and merge
 
-        [string], int -> 
+        [string], int ->
         """
         # TODO: Add tests
         if len(synonyms_list) == 0:
@@ -146,14 +146,14 @@ class BookOps:
         i = 0
         while i < len(merged_list)-1:
             if merged_list[i+1] - merged_list[i] < merge_distance:
-                res_list.append((merged_list[i+1] + merged_list[i]) / 2)
+                res_list.append((merged_list[i+1] + merged_list[i]) // 2)
                 i += 1
             else:
                 res_list.append(merged_list[i])
             i += 1
 
         self._names[synonyms_list[0]] = len(res_list)
-        map(self._names.pop, synonyms_list[1:])
+        map(self._names.pop, synonyms_list[1:])  ## WAT ?
         # print len(res_list)
         # print len(merged_list)
 
@@ -204,8 +204,8 @@ class BookOps:
         {string, [int]}, int -> {(string, string), int}
         """
         connections = {}
-        for name1, positions1 in name_occurances.iteritems():
-            for name2, positions2 in name_occurances.iteritems():
+        for name1, positions1 in name_occurances.items():
+            for name2, positions2 in name_occurances.items():
                 key = tuple(sorted((name1, name2)))
                 if name1 == name2 or key in connections:
                     continue
@@ -223,7 +223,7 @@ class BookOps:
         """
         connections = []
         connection_powers = cls.get_connection_powers(name_occurances, dist)
-        for connection, power in connection_powers.iteritems():
+        for connection, power in connection_powers.items():
             if power > 0:
                 connections.append(connection)
         return connections
@@ -260,7 +260,7 @@ class BookOps:
         for i in name_pos1:
             for j in name_pos2:
                 if abs(i - j) <= dist:
-                    positions.append((i + j) / 2)
+                    positions.append((i + j) // 2)
                 elif j > i and abs(i - j) > dist:
                     break
         return positions
@@ -278,7 +278,7 @@ class BookOps:
 
         # 'placeholder' added to prevent connection btw Names in end of first book and beginning of second book.
         res_book._words = book1._words + ['placeholder'] * res_book._distance + book2._words
-        res_book._stemmed_words = book1._stemmed_words+ ['placeholder'] * res_book._distance + book2._stemmed_words
+        res_book._stemmed_words = book1._stemmed_words + ['placeholder'] * res_book._distance + book2._stemmed_words
         res_book._names = Counter(book1._names) + Counter(book2._names)
         return res_book
 

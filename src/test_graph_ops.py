@@ -118,7 +118,7 @@ class TestGraphOps(unittest.TestCase):
 
     def test_get_nodes1(self):
         g = Graph()
-        self.assertEqual(g.get_nodes(), [])
+        self.assertEqual(list(g.get_nodes()), [])
 
     def test_get_nodes2(self):
         g = Graph()

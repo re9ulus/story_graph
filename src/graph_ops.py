@@ -1,5 +1,5 @@
 from collections import defaultdict
-from Queue import PriorityQueue
+from queue import PriorityQueue #queue Queue import PriorityQueue
 
 class Graph:
     """Implementation of unoredered graph
@@ -42,7 +42,7 @@ class Graph:
     def get_node_degree(self, target_node):
         self._check_node_in_graph_error(target_node)
         degree = 0
-        for node, connections in self._graph.iteritems():
+        for node, connections in self._graph.items():
             if node == target_node:
                 continue
             if target_node in connections:
@@ -93,13 +93,13 @@ class Graph:
 
     def __repr__(self):
         res = 'graph: \n'
-        for node, connections in sorted(self._graph.iteritems()):
+        for node, connections in sorted(self._graph.items()):
             res += '{0} : {1}\n'.format(node, connections)
         return res
 
     def repr_with_weights(self):
         res = 'graph: \n'
-        for node, connections in sorted(self._graph.iteritems()):
+        for node, connections in sorted(self._graph.items()):
             res += '{0} : {1}\n'.format(node, self.get_node_weight(node))
             for conn in connections:
                 res += '\t{0} : {1}\n'.format(conn, self.get_connection_weight((node, conn)))
@@ -120,7 +120,7 @@ class Graph:
 
     def get_nodes(self):
         """get list of all nodes in graph"""
-        return self._graph.keys()
+        return list(self._graph.keys())
 
     def get_connections(self):
         """get list of all connections in graph"""
@@ -141,10 +141,10 @@ class Graph:
         self._clear()
         name_positions = book.all_names_positions()
         connections = book.get_connection_powers(name_positions, distance)
-        for conn, count in connections.iteritems():
+        for conn, count in connections.items():
             self.add_connection(*conn)
             self.set_connection_weight(conn, count)
-        for name, count in book.get_names().iteritems():
+        for name, count in book.get_names().items():
             self.set_node_weight(name, count)
         return self
 
@@ -234,7 +234,7 @@ class GraphIO:
     def save_graph_to_vna(g, path_to_file):
         nodes = g.get_graph().keys()
         edges = set()
-        for node, connections in g.get_graph().iteritems():
+        for node, connections in g.get_graph().items():
             for conn in connections:
                 edges.add(g.connection_key((node, conn)))
         edges = list(edges)
@@ -255,7 +255,7 @@ class GraphIO:
     def save_graph_to_file(g, path_to_file):
         nodes = g.get_graph().keys()
         edges = set()
-        for node, connections in g.get_graph().iteritems():
+        for node, connections in g.get_graph().items():
             for conn in connections:
                 edges.add(g.connection_key((node, conn)))
         edges = list(edges)
@@ -267,7 +267,7 @@ class GraphIO:
     @staticmethod
     def save_graph_to_csv(g, path_to_file):
         edges = set()
-        for node, connections in g.get_graph().iteritems():
+        for node, connections in g.get_graph().items():
             for conn in connections:
                 edges.add(g.connection_key((node, conn)))
         edges = list(edges)

@@ -68,6 +68,6 @@ def load_token_positions_from_file(path_to_file):
                 break
             name, positions = line.split(':')
             name = name.strip()
-            positions = map(lambda item: int(item.strip()), positions.split())
+            positions = list(map(lambda item: int(item.strip()), positions.split()))
             tokens[name] = positions
     return tokens

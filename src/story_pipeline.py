@@ -1,7 +1,13 @@
+from functools import reduce
+
 import file_ops
 import graph_ops
 import sentiment_ops
 from book_ops import BookOps
+
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 PATH_TO_BOOK = './../books/harry.txt'  # './../books/storm_of_swords.txt '
 PATH_TO_NAMES_FILE = './../tmp_files/hero_names.txt' #
@@ -22,7 +28,6 @@ WITH_SENTIMENT = True
 
 
 join_st = lambda s: ' '.join(s)
-
 
 class StoryToGraph:
 
@@ -63,34 +68,32 @@ class StoryToGraph:
         """
         self.build_graph()
         connections = self._book.get_connection_powers(self._book.all_names_positions(), self._words_distance)
-        for conn, count in connections.iteritems():
+        for conn, count in connections.items():
             sent = self._connection_sentiment(conn)
             self._graph.set_connection_sentiment(conn, sent)
 
     def demo_repr(self):
-        print self._graph.repr_with_weights()
-        print '\n\n\n'
-        print self._graph.__repr__()
-
+        print(self._graph.repr_with_weights())
+        print('\n\n\n')
+        print(self._graph.__repr__())
 
     def merge_synonims(self, synonyms):
         # TODO: Test
         """replace name synonyms in book
-        synonyms :: [[string]], example: [['Harry', 'Potter'], ['Vernon', 'Uncle'], ['Snape', 'Severus']]
+        synonyms : [[string]]
+                   example: [['Harry', 'Potter'], ['Vernon', 'Uncle'], ['Snape', 'Severus']]
         """
         for syn_list in synonyms:
             self._book.merge_synonyms(syn_list)
 
 
-def test_graph_build():
+def test_graph_build(books_paths, merge_books=False):
+    logger.info('Test graph build')
 
-    USE_MERGE = True
-
-    if USE_MERGE:
-        book_paths = ['./../books/GoT{0}.txt'.format(i) for i in range(1, 6)]
+    if merge_books:
         books = []
         for path in book_paths:
-            print path
+            logger.debug('book path: {}'.format(path))
             raw_text = file_ops.load_text_from_file(path)
             books.append(BookOps(text=raw_text, use_stemmer=WITH_SENTIMENT,
                                  min_occurance=100))
@@ -127,5 +130,21 @@ def test_graph_build():
 
     graph_ops.GraphIO.save_graph_to_vna(min_tree, PATH_TO_GRAPH)
 
+
+# def read_book_from_file(book_path):
+#     if merge_books:
+#         books = []
+#         for path in book_paths:
+#             logger.debug('book path: {}'.format(path))
+#             raw_text = file_ops.load_text_from_file(path)
+#             books.append(BookOps(text=raw_text, use_stemmer=WITH_SENTIMENT,
+#                                  min_occurance=100))
+#         b = reduce(BookOps.merge_books, books)
+#     else:
+#         raw_text = file_ops.load_text_from_file(PATH_TO_BOOK)
+#         b = BookOps(text=raw_text, use_stemmer=WITH_SENTIMENT, min_occurance=MIN_OCCURANCE)
+
 if __name__ == '__main__':
-    test_graph_build()
+    MERGE_BOOKS = True
+    book_paths = ['./../books/GoT{0}.txt'.format(i) for i in range(1, 6)]
+    test_graph_build(book_paths, merge_books=MERGE_BOOKS)
